@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://gfu6010teado"]
+
+[ext_resource type="Script" uid="uid://cxwtub4cf76la" path="res://ScenesScripts/main.gd" id="1_2buf3"]
+[ext_resource type="PackedScene" uid="uid://b4nawjtt4ls0m" path="res://ScenesScripts/terrain.tscn" id="2_4ixr0"]
+[ext_resource type="PackedScene" uid="uid://ueu2i1nh0jl8" path="res://ScenesScripts/pc.tscn" id="3_05da0"]
+[ext_resource type="Script" uid="uid://cjde8u8nelrmx" path="res://ScenesScripts/camera_2d.gd" id="4_824gy"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_2buf3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TerrainManager" type="Node2D" parent="."]
+
+[node name="Terrain" parent="TerrainManager" instance=ExtResource("2_4ixr0")]
+scale = Vector2(2, 2)
+
+[node name="PC" parent="." instance=ExtResource("3_05da0")]
+
+[node name="Camera2D" type="Camera2D" parent="PC"]
+position_smoothing_enabled = true
+script = ExtResource("4_824gy")
+
+[node name="PCStartPos" type="Marker2D" parent="."]
