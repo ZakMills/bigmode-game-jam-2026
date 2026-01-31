@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://cigk01ixvsvbc"]
+
+[ext_resource type="Script" uid="uid://c45cgujsmf56q" path="res://ScenesScripts/top_ribbon.gd" id="1_gtcj5"]
+
+[node name="TopRibbon" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -578.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gtcj5")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 70.0
+color = Color(0, 0, 0, 1)
+
+[node name="ScoreLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 72.0
+theme_override_font_sizes/normal_font_size = 36
+text = "Score:"
+vertical_alignment = 1
+
+[node name="ScoreValue" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 261.0
+offset_bottom = 72.0
+theme_override_font_sizes/normal_font_size = 36
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1

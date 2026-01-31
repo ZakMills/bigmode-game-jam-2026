@@ -4,14 +4,36 @@ var testx : float = 1600
 var testy : float = 1200
 var initialOffset : Vector2 = Vector2(576, 324)
 var BGAdjust
-@onready var CamRef = $PC.get_node("Camera2D")
+@onready var CamRef = $PC/Camera2D
+@onready var mainMenu = $MenuManager/MainMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#$PC.position = $PCStartPos.position
-	#print($TerrainManager.position)
-	#$TerrainManager.position = initialOffset
 	BGAdjust = $Background.size/2
+	to_main_menu()
+	pass
+	
+func to_main_menu():
+	mainMenu.start()
+	
+func back_to_main_menu():
+	Global.mode = 1
+	get_tree().paused = false
+	$MenuManager/PauseMenu.visible = false
+	$MenuManager/MenuBG.visible = true
+	$MenuManager/MainMenu.returned = true
+	$PC.position = $PCStartPos.position #Vector2.ZERO
+	$PC.give_item()
+	# TODO: Reset world state
+	$PC/Camera2D.position_smoothing_enabled = false
+	to_main_menu()
+	
+func camera_smoothing():
+	$PC/Camera2D.position_smoothing_enabled = true
+	
+func options_display():
+	Global.options_menu = true
+	$MenuManager/OptionsMenu.start()
 	pass
 
 
@@ -21,6 +43,7 @@ func _process(delta: float) -> void:
 	$Background.position = CamRef.global_position - BGAdjust
 	pass
 
-func attach_item():
-	print("item gotten") 
+func attach_item(item : Node):
+	$PC.get_item(item)
+	#print("item gotten") 
 	pass

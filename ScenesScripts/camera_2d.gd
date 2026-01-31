@@ -1,6 +1,7 @@
 extends Camera2D
 
-var target_zoom : float = 1.0
+#@onready var main = get_tree().get_root().get_node("Main")
+#@onready var top_ribbon = main.get_node("TopRibbon")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,4 +14,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	pass
+
+func _process(delta: float) -> void:
+	#top_ribbon.position = position
 	pass

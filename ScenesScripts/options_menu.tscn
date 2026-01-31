@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://uy7bnh86qjrb"]
+[gd_scene load_steps=3 format=3 uid="uid://eiys6e0nbydt"]
 
-[ext_resource type="Script" uid="uid://c7nywrtie70v7" path="res://ScenesScripts/pause_menu.gd" id="1_r6k0e"]
+[ext_resource type="Script" uid="uid://2yywuxohw8wu" path="res://ScenesScripts/options_menu.gd" id="1_g2gi5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pwyjb"]
 
-[node name="PauseMenu" type="Control"]
+[node name="OptionsMenu" type="Control"]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -12,17 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_r6k0e")
-
-[node name="MainMenuMask" type="ColorRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 1, 1, 1)
+script = ExtResource("1_g2gi5")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 modulate = Color(1, 1, 1, 0.67058825)
@@ -40,91 +30,73 @@ offset_top = 138.0
 offset_right = 666.0
 offset_bottom = 208.0
 theme_override_font_sizes/normal_font_size = 48
-text = "Paused"
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Resume" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 472.0
-offset_top = 204.0
-offset_right = 666.0
-offset_bottom = 274.0
-theme_override_font_sizes/normal_font_size = 30
-text = "Resume"
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Options" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 472.0
-offset_top = 262.0
-offset_right = 666.0
-offset_bottom = 332.0
-theme_override_font_sizes/normal_font_size = 30
 text = "Options"
 tab_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QuittoMain" type="RichTextLabel" parent="."]
+[node name="Music" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 472.0
-offset_top = 321.0
-offset_right = 666.0
-offset_bottom = 391.0
-theme_override_font_sizes/normal_font_size = 30
-text = "Quit to Main"
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ExitGame" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 472.0
-offset_top = 379.0
-offset_right = 666.0
-offset_bottom = 449.0
-theme_override_font_sizes/normal_font_size = 30
-text = "Exit Game"
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CursorResume" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 354.0
+offset_left = 351.0
 offset_top = 204.0
-offset_right = 548.0
+offset_right = 451.0
 offset_bottom = 274.0
 theme_override_font_sizes/normal_font_size = 30
-text = ">
-"
+text = "Music"
 tab_size = 6
-horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CursorOptions" type="RichTextLabel" parent="."]
+[node name="SFX" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 354.0
+offset_left = 351.0
 offset_top = 262.0
-offset_right = 548.0
+offset_right = 451.0
 offset_bottom = 332.0
 theme_override_font_sizes/normal_font_size = 30
-text = ">
-"
+text = "SFX"
+tab_size = 6
+vertical_alignment = 1
+
+[node name="TextMusicVol" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 763.0
+offset_top = 204.0
+offset_right = 863.0
+offset_bottom = 274.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Music"
+tab_size = 6
+vertical_alignment = 1
+
+[node name="TextSFXVol" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 763.0
+offset_top = 262.0
+offset_right = 863.0
+offset_bottom = 332.0
+theme_override_font_sizes/normal_font_size = 30
+text = "SFX"
+tab_size = 6
+vertical_alignment = 1
+
+[node name="Back" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 462.0
+offset_right = 684.0
+offset_bottom = 532.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Back"
 tab_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CursorQuit" type="RichTextLabel" parent="."]
+[node name="CursorMusic" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 354.0
-offset_top = 321.0
-offset_right = 548.0
-offset_bottom = 391.0
+offset_left = 299.0
+offset_top = 205.0
+offset_right = 349.0
+offset_bottom = 275.0
 theme_override_font_sizes/normal_font_size = 30
 text = ">
 "
@@ -132,15 +104,31 @@ tab_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CursorExit" type="RichTextLabel" parent="."]
+[node name="CursorSFX" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 354.0
-offset_top = 379.0
-offset_right = 548.0
-offset_bottom = 449.0
+offset_left = 299.0
+offset_top = 263.0
+offset_right = 349.0
+offset_bottom = 333.0
 theme_override_font_sizes/normal_font_size = 30
 text = ">
 "
 tab_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CursorBack" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 462.0
+offset_right = 566.0
+offset_bottom = 532.0
+theme_override_font_sizes/normal_font_size = 30
+text = ">
+"
+tab_size = 6
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

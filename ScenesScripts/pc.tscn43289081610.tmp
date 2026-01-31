@@ -1,6 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://ueu2i1nh0jl8"]
+[gd_scene load_steps=17 format=3 uid="uid://ueu2i1nh0jl8"]
 
 [ext_resource type="Script" uid="uid://dov7b5q6eon77" path="res://ScenesScripts/pc.gd" id="1_273qn"]
+[ext_resource type="Texture2D" uid="uid://cvrgebpbhyedi" path="res://Art/Placeholder1/PLACEHOLDER_Seal.png" id="2_273qn"]
+[ext_resource type="Texture2D" uid="uid://h86eslab7nf" path="res://Art/Placeholder1/PLACEHOLDER_SEAL_2.png" id="3_ms1st"]
+[ext_resource type="Texture2D" uid="uid://bw3yw4grgimx0" path="res://Art/Placeholder1/PLACEHOLDER_SEAL_3.png" id="4_tf6s5"]
+[ext_resource type="Texture2D" uid="uid://bxa0o5r2m28mg" path="res://Art/Placeholder1/PLACEHOLDER_SEAL_4.png" id="5_sxqmu"]
 [ext_resource type="Texture2D" uid="uid://d4mop857ymc32" path="res://Art/Placeholder2/seal_right.png" id="6_jidif"]
 [ext_resource type="Texture2D" uid="uid://ctdo1746sm10o" path="res://Art/Placeholder2/seal_back.png" id="6_sxqmu"]
 [ext_resource type="Texture2D" uid="uid://cqtcevx8erfcp" path="res://Art/Placeholder2/seal_front34.png" id="7_kswyd"]
@@ -12,6 +16,23 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_273qn"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_273qn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ms1st")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tf6s5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sxqmu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("6_jidif")

@@ -12,17 +12,25 @@ var galumphTimer : float = 0 # angle in radians.
 var galumphFrequency : float = 0.5 # seconds for one full galumph
 var galumphSpeed : float = 500
 var moveType : int # 0 = slide, 1 = galumph
+var item_scene = load("res://ScenesScripts/item.tscn")
+var carried_item
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
-	sprite_size = $AnimatedSprite2D.sprite_frames.get_frame_texture("default", 0).get_size()
+	sprite_size = $AnimatedSprite2D.sprite_frames.get_frame_texture("movenortheast", 0).get_size()
 	galumphTimer = 0
 	$AnimatedSprite2D.play("movesouth")
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#print("global mode is ", Global.mode)
+	if (Global.mode == 3):
+		proceed(delta)
+	
+func proceed(delta):
 	var accel = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("right"):
 		accel.x += 1
@@ -43,20 +51,22 @@ func _process(delta: float) -> void:
 		
 	
 	if ($GroundDetector.get_overlapping_bodies().any(_ground_type_cliff)): # cliff
-		print("cliff")
+		#print("cliff")
 		pass
 	elif ($GroundDetector.get_overlapping_bodies().any(_ground_type_path)): # sliding path
-		print("slide")
+		#print("slide")
 		slide(accel, delta)
 	else: # neither cliff nor path
 		galumph(accel, delta)
 	
+	if ($GroundDetector.get_overlapping_bodies().any(_ground_type_NPC)):
+		give_item()
 	
 	
 		
 	#Animations
 	if (!specialAnimation):
-		animateMovement(accel)
+		animate_movement(accel)
 	
 	
 	
@@ -69,6 +79,11 @@ func _ground_type_path(body):
 
 func _ground_type_cliff(body):
 	if body.name == "cliff":
+		return true
+	return false
+
+func _ground_type_NPC(body):
+	if body.name == "NPC":
 		return true
 	return false
 
@@ -90,7 +105,7 @@ func galumph(accel, delta):
 		galumphTimer -= 3.14
 	velocity = accel * galumphSpeed * sin(galumphTimer)
 	
-func animateMovement(accel : Vector2):
+func animate_movement(accel : Vector2):
 	var dir = ""
 	if (accel.length() > 0):
 		if (accel.y > 0):
@@ -122,11 +137,37 @@ func animateMovement(accel : Vector2):
 			
 		#$AnimatedSprite2D.play("default")
 		speedPercent = (1+2*(velocity.length() / velMax))/3 # scale from 1/3 speed at start
-		#speedPercent = velocity.length() / velMax
 		$AnimatedSprite2D.set_speed_scale(speedPercent)
 	else: 
 		$AnimatedSprite2D.set_frame_and_progress(0, 0) # set to first frame existing animation
 
 
-func _on_ground_detector_body_entered(body: Node2D) -> void:
-	print("body entered")
+#func _on_ground_detector_body_entered(body: Node2D) -> void:
+	#print("body entered")
+	#pass
+
+func get_item(item: Node):
+	print("item size = ", item.sprite_size)
+	#item.scale = 
+	print("item scale = ", item.scale)
+	print("scale = ", $AnimatedSprite2D.scale )
+	Global.carrying_item = true
+	var new_item = item_scene.instantiate()
+	print("new item scale = ", new_item.scale)
+	self.call_deferred("add_child", new_item) 
+	new_item.position.x = -(item.sprite_size.x/2)
+	new_item.position.y = -($AnimatedSprite2D.scale.y*(sprite_size.y/2)) - item.sprite_size.y
+	print("new item scale = ", new_item.scale)
+	#print("get_item")
+	#Global.item_get()
+	pass
+
+func give_item():
+	#for _i in self.get_children():
+		#print(_i)
+	
+	if (Global.carrying_item):
+		get_node("Node2D").queue_free()
+		Global.carrying_item = false
+		Global.score_update(10)
+	pass

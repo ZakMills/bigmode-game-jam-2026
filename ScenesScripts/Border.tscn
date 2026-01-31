@@ -3,7 +3,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6fvd"]
 size = Vector2(1297, 22)
 
-[node name="Obstacle" type="CharacterBody2D"]
+[node name="Border" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 7
 
