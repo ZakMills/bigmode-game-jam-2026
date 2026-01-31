@@ -10,6 +10,7 @@ var BGAdjust
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	BGAdjust = $Background.size/2
+	$PC.position = $PCStartPos.position #Vector2.ZERO
 	to_main_menu()
 	pass
 	
@@ -27,6 +28,10 @@ func back_to_main_menu():
 	# TODO: Reset world state
 	$PC/Camera2D.position_smoothing_enabled = false
 	to_main_menu()
+	
+func reset_PC_position():
+	$PC.position = $PCStartPos.position #Vector2.ZERO
+
 	
 func camera_smoothing():
 	$PC/Camera2D.position_smoothing_enabled = true

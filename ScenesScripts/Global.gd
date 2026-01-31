@@ -38,6 +38,9 @@ func score_reset():
 func start_world():
 	terrain.start()
 	pass
+	
+func reset_PC_position():
+	main.reset_PC_position()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

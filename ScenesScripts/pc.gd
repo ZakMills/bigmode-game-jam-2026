@@ -14,6 +14,8 @@ var galumphSpeed : float = 500
 var moveType : int # 0 = slide, 1 = galumph
 var item_scene = load("res://ScenesScripts/item.tscn")
 var carried_item
+var cliff_mercy : bool = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,7 +29,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#print("global mode is ", Global.mode)
-	if (Global.mode == 3):
+	if (Global.mode == 3 && $Timer.time_left == 0):
 		proceed(delta)
 	
 func proceed(delta):
@@ -51,8 +53,10 @@ func proceed(delta):
 		
 	
 	if ($GroundDetector.get_overlapping_bodies().any(_ground_type_cliff)): # cliff
-		#print("cliff")
-		pass
+		if ($CliffMercy.time_left == 0):
+			print("cliff")
+			cliff()
+			pass
 	elif ($GroundDetector.get_overlapping_bodies().any(_ground_type_path)): # sliding path
 		#print("slide")
 		slide(accel, delta)
@@ -104,6 +108,16 @@ func galumph(accel, delta):
 	if galumphTimer > 3.14:
 		galumphTimer -= 3.14
 	velocity = accel * galumphSpeed * sin(galumphTimer)
+	
+func cliff():
+	if (Global.carrying_item):
+		get_node("Node2D").queue_free()
+		Global.carrying_item = false
+	$Timer.start(2)
+	$CliffMercy.start(2.1)
+	velocity = Vector2.ZERO
+	$AnimatedSprite2D.set_flip_v(true)
+	pass
 	
 func animate_movement(accel : Vector2):
 	var dir = ""
@@ -171,3 +185,10 @@ func give_item():
 		Global.carrying_item = false
 		Global.score_update(10)
 	pass
+
+
+func _on_timer_timeout() -> void:
+	Global.reset_PC_position()
+	#print("Timer timeout")
+	$AnimatedSprite2D.set_flip_v(false)
+	pass # Replace with function body.

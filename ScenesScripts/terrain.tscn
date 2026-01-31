@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4nawjtt4ls0m"]
+[gd_scene load_steps=8 format=3 uid="uid://b4nawjtt4ls0m"]
 
 [ext_resource type="Texture2D" uid="uid://757icp0w4sn2" path="res://Art/Placeholder1/PLACEHOLDER_BG.png" id="1_mn4tk"]
 [ext_resource type="Script" uid="uid://ey432rjakdy6" path="res://ScenesScripts/terrain.gd" id="1_tbw4b"]
 [ext_resource type="PackedScene" uid="uid://b5gsok262pfoi" path="res://ScenesScripts/obstacle.tscn" id="3_c1qvr"]
 [ext_resource type="PackedScene" uid="uid://u5xbrine5bmu" path="res://ScenesScripts/Border.tscn" id="4_jwybu"]
 [ext_resource type="PackedScene" uid="uid://fyvp3lkrmjst" path="res://ScenesScripts/sliding_path.tscn" id="5_tls4m"]
+[ext_resource type="PackedScene" uid="uid://c4jq2d4het1q6" path="res://ScenesScripts/cliff.tscn" id="6_ffyxw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tbw4b"]
 animations = [{
@@ -47,3 +48,8 @@ rotation = 1.5707964
 [node name="sliding_path" parent="." instance=ExtResource("5_tls4m")]
 position = Vector2(-443, 120)
 scale = Vector2(2, 2)
+
+[node name="cliff" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(444, 314)
+rotation = 1.5707964
+scale = Vector2(1, 3)
