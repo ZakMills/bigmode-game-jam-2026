@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://gfu6010teado"]
 
 [ext_resource type="Script" uid="uid://cxwtub4cf76la" path="res://ScenesScripts/main.gd" id="1_2buf3"]
-[ext_resource type="PackedScene" uid="uid://b4nawjtt4ls0m" path="res://ScenesScripts/terrain.tscn" id="2_4ixr0"]
+[ext_resource type="PackedScene" uid="uid://d0y5vd2bh6557" path="res://ScenesScripts/maps/terrain.tscn" id="2_4ixr0"]
+[ext_resource type="PackedScene" uid="uid://b4nawjtt4ls0m" path="res://ScenesScripts/maps/terrain_test.tscn" id="3_0lov5"]
 [ext_resource type="PackedScene" uid="uid://ueu2i1nh0jl8" path="res://ScenesScripts/pc.tscn" id="3_05da0"]
-[ext_resource type="PackedScene" uid="uid://16ttks3tej1j" path="res://ScenesScripts/NPC.tscn" id="4_0lov5"]
 [ext_resource type="Script" uid="uid://cjde8u8nelrmx" path="res://ScenesScripts/camera_2d.gd" id="4_824gy"]
 [ext_resource type="PackedScene" uid="uid://cigk01ixvsvbc" path="res://ScenesScripts/top_ribbon.tscn" id="6_dpd2v"]
-[ext_resource type="PackedScene" uid="uid://uy7bnh86qjrb" path="res://ScenesScripts/pause_menu.tscn" id="6_uy5uj"]
-[ext_resource type="PackedScene" uid="uid://d36i8j1yadr2q" path="res://ScenesScripts/main_menu.tscn" id="7_x22ot"]
-[ext_resource type="PackedScene" uid="uid://eiys6e0nbydt" path="res://ScenesScripts/options_menu.tscn" id="8_ivaq2"]
+[ext_resource type="PackedScene" uid="uid://uy7bnh86qjrb" path="res://ScenesScripts/menus/pause_menu.tscn" id="6_uy5uj"]
+[ext_resource type="PackedScene" uid="uid://d36i8j1yadr2q" path="res://ScenesScripts/menus/main_menu.tscn" id="7_x22ot"]
+[ext_resource type="PackedScene" uid="uid://eiys6e0nbydt" path="res://ScenesScripts/menus/options_menu.tscn" id="8_ivaq2"]
 [ext_resource type="AudioStream" uid="uid://cufb0jpo52s5s" path="res://Sound/SFX/Gameplay/Seal Delivery SEALED DEAL.wav" id="9_4arfj"]
 
 [node name="Main" type="Node"]
@@ -30,8 +30,7 @@ process_mode = 1
 
 [node name="Terrain" parent="TerrainManager" instance=ExtResource("2_4ixr0")]
 
-[node name="NPC" parent="TerrainManager" instance=ExtResource("4_0lov5")]
-position = Vector2(-162, 265)
+[node name="Terrain_test" parent="TerrainManager" instance=ExtResource("3_0lov5")]
 
 [node name="PC" parent="." instance=ExtResource("3_05da0")]
 process_mode = 1

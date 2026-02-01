@@ -1,0 +1,403 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0y5vd2bh6557"]
+
+[ext_resource type="Script" uid="uid://daq0xesw3ver6" path="res://ScenesScripts/maps/terrain.gd" id="1_tbw4b"]
+[ext_resource type="Texture2D" uid="uid://djef2wdoxuom5" path="res://Art/background/sealmap.png" id="2_0lm80"]
+[ext_resource type="PackedScene" uid="uid://coqwqsdd178lr" path="res://ScenesScripts/map_details/cliff.tscn" id="5_0lm80"]
+[ext_resource type="PackedScene" uid="uid://fyvp3lkrmjst" path="res://ScenesScripts/map_details/sliding_path.tscn" id="5_tls4m"]
+[ext_resource type="PackedScene" uid="uid://c4jq2d4het1q6" path="res://ScenesScripts/map_details/ocean.tscn" id="6_ffyxw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tbw4b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0lm80")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Terrain" type="Node2D"]
+script = ExtResource("1_tbw4b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1908, -1995)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_tbw4b")
+
+[node name="sliding_path" parent="." instance=ExtResource("5_tls4m")]
+position = Vector2(372, -338)
+rotation = 2.3561945
+scale = Vector2(3, 8)
+
+[node name="sliding_path2" parent="." instance=ExtResource("5_tls4m")]
+position = Vector2(266.00003, -353.00003)
+rotation = 0.61086524
+scale = Vector2(1, 8)
+
+[node name="sliding_path3" parent="." instance=ExtResource("5_tls4m")]
+position = Vector2(-69, 22.999998)
+rotation = 2.3561945
+scale = Vector2(0.3, 6)
+
+[node name="sliding_path4" parent="." instance=ExtResource("5_tls4m")]
+position = Vector2(106.999985, -452.00003)
+rotation = 0.61086524
+scale = Vector2(0.3, 4)
+
+[node name="ocean" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(-681, 524)
+rotation = 0.17453292
+scale = Vector2(5, 3)
+
+[node name="ocean2" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(267.99994, 510)
+rotation = 2.8797932
+scale = Vector2(10, 3)
+
+[node name="ocean3" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(3541.0002, 487.00006)
+rotation = 0.2617994
+scale = Vector2(10, 3)
+
+[node name="ocean4" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(4773, 447.99982)
+rotation = 2.9670596
+scale = Vector2(5, 3)
+
+[node name="ocean5" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(4883, 56.99997)
+rotation = 1.5707964
+scale = Vector2(5, 3)
+
+[node name="ocean8" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(5620, -2913)
+rotation = 1.5707964
+scale = Vector2(5, 3)
+
+[node name="ocean24" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(5438, -3079.9995)
+rotation = 0.7853982
+scale = Vector2(2, 3)
+
+[node name="ocean9" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(4806.9995, -3373)
+rotation = 0.20943952
+scale = Vector2(8, 3)
+
+[node name="ocean10" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(2475, -4524)
+rotation = 0.6981317
+scale = Vector2(8, 3)
+
+[node name="ocean13" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(2308.0002, -4554)
+rotation = 0.43633232
+scale = Vector2(3, 3)
+
+[node name="ocean14" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(1423.0002, -4508.0005)
+rotation = 2.7052603
+scale = Vector2(3, 3)
+
+[node name="ocean11" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(1404.0001, -4558)
+rotation = 2.443461
+scale = Vector2(8, 3)
+
+[node name="ocean15" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(-984, -3396.9998)
+rotation = 2.9496064
+scale = Vector2(8, 3)
+
+[node name="ocean27" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(-916, -2765)
+scale = Vector2(0.9, 3)
+
+[node name="ocean28" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(-920, -2704)
+scale = Vector2(0.4, 3)
+
+[node name="ocean16" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(-1650.0001, -3124)
+rotation = 2.7052603
+scale = Vector2(4, 3)
+
+[node name="ocean17" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(-1791.0002, -2934)
+rotation = 2.268928
+scale = Vector2(4, 3)
+
+[node name="ocean18" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(-1794.0004, -2565)
+rotation = 1.5707964
+scale = Vector2(2, 3)
+
+[node name="ocean19" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(-1612.9998, -2292)
+rotation = 1.0471976
+scale = Vector2(2, 3)
+
+[node name="ocean25" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(-1116, -1530)
+scale = Vector2(2, 3)
+
+[node name="ocean26" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(4925, -1540.0001)
+scale = Vector2(2, 3)
+
+[node name="ocean20" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(-1322.0001, -2013.0001)
+rotation = 0.7853982
+scale = Vector2(4, 3)
+
+[node name="ocean21" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(-963.9999, -877.9999)
+rotation = 1.7453293
+scale = Vector2(4, 3)
+
+[node name="ocean22" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(-1051, 262)
+rotation = 1.5707964
+scale = Vector2(4, 3)
+
+[node name="ocean23" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(-1097, 275)
+rotation = 0.5235988
+scale = Vector2(4, 3)
+
+[node name="ocean12" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(1916, -4660)
+scale = Vector2(4, 3)
+
+[node name="ocean6" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(4796, -687)
+rotation = 1.3962634
+scale = Vector2(5, 3)
+
+[node name="ocean7" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(5296, -2138)
+rotation = 2.3561945
+scale = Vector2(5, 3)
+
+[node name="cliff" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(-644, 228)
+rotation = 0.34906584
+scale = Vector2(1.5, 1)
+
+[node name="cliff9" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(-930, 55)
+rotation = 0.6981317
+
+[node name="cliff10" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(-971.00006, -46.99997)
+rotation = 1.0471976
+
+[node name="cliff11" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(-960, 28.999992)
+rotation = 1.3962634
+
+[node name="cliff12" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(4736, 65.99986)
+rotation = 2.443461
+
+[node name="cliff13" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(4737, 35.999756)
+rotation = 2.0943952
+
+[node name="cliff14" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(4793, 1.9999771)
+rotation = 1.7453293
+
+[node name="cliff8" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(4495, 220.99988)
+rotation = 2.7925267
+scale = Vector2(1.5, 1)
+
+[node name="cliff15" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(5003, -2117.0002)
+rotation = 2.4958208
+scale = Vector2(3, 1)
+
+[node name="cliff16" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(5355, -2482.0002)
+rotation = 2.268928
+scale = Vector2(2, 1)
+
+[node name="cliff17" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(5522, -2737.9995)
+rotation = 2.0071287
+scale = Vector2(0.5, 1)
+
+[node name="cliff18" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(-1201, -2134.0002)
+rotation = 0.6457718
+scale = Vector2(3, 1)
+
+[node name="cliff19" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(-1445.0001, -2373.0002)
+rotation = 0.87266463
+scale = Vector2(2, 1)
+
+[node name="cliff20" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(-1692.0001, -2713.0002)
+rotation = 1.134464
+scale = Vector2(0.5, 1)
+
+[node name="cliff21" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(-848.9999, -2824)
+rotation = 0.2617994
+scale = Vector2(0.5, 1)
+
+[node name="cliff22" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(-977.0001, -2824.0002)
+rotation = 2.8797932
+scale = Vector2(0.5, 1)
+
+[node name="ocean29" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(3533, -637.99976)
+scale = Vector2(0.9, 3)
+
+[node name="ocean30" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(3529, -576.99976)
+scale = Vector2(0.4, 3)
+
+[node name="cliff23" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(3600.0007, -696.9995)
+rotation = 0.2617994
+scale = Vector2(0.5, 1)
+
+[node name="cliff24" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(3472, -697)
+rotation = 2.8797932
+scale = Vector2(0.5, 1)
+
+[node name="ocean31" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(2794, -3097.9998)
+scale = Vector2(0.9, 3)
+
+[node name="ocean32" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(2790, -3036.9998)
+scale = Vector2(0.4, 3)
+
+[node name="cliff25" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(2861.0007, -3156.9998)
+rotation = 0.2617994
+scale = Vector2(0.5, 1)
+
+[node name="cliff26" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(2733, -3157)
+rotation = 2.8797932
+scale = Vector2(0.5, 1)
+
+[node name="ocean33" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(1905.0001, -2307.0002)
+scale = Vector2(3.9, 3)
+
+[node name="ocean34" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(2497.9998, -2441)
+rotation = 1.134464
+scale = Vector2(0.8, 3)
+
+[node name="ocean39" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(1901, -2370)
+scale = Vector2(3.4, 3)
+
+[node name="ocean40" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(1952.0001, -2497)
+scale = Vector2(3.2, 3)
+
+[node name="ocean41" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(1872.0001, -2551)
+scale = Vector2(3.2, 3)
+
+[node name="cliff27" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(2127.0002, -2841)
+rotation = 0.2617994
+scale = Vector2(0.5, 1)
+
+[node name="cliff28" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(1663, -2839)
+rotation = 2.8797932
+scale = Vector2(0.5, 1)
+
+[node name="cliff35" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(1509, -2776)
+rotation = 2.6179938
+scale = Vector2(0.5, 1)
+
+[node name="cliff36" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(1379.9999, -2674)
+rotation = 2.443461
+scale = Vector2(0.5, 1)
+
+[node name="cliff37" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(1289.0001, -2548.0002)
+rotation = 1.9198622
+scale = Vector2(0.5, 1)
+
+[node name="cliff34" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(1900, -2862)
+
+[node name="ocean35" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(91, -1281.0001)
+scale = Vector2(1.1, 3)
+
+[node name="ocean36" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(96, -1219)
+scale = Vector2(1, 3)
+
+[node name="ocean37" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(239, -1331)
+scale = Vector2(0.3, 3)
+
+[node name="ocean38" parent="." instance=ExtResource("6_ffyxw")]
+position = Vector2(83, -1329)
+scale = Vector2(0.6, 1)
+
+[node name="cliff29" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(122.000015, -1375)
+rotation = 0.2617994
+scale = Vector2(0.25, 1)
+
+[node name="cliff30" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(-45, -1346)
+rotation = 2.6179938
+scale = Vector2(0.3, 1)
+
+[node name="cliff32" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(192, -1386)
+rotation = 2.6179938
+scale = Vector2(0.2, 1)
+
+[node name="cliff31" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(47, -1376)
+scale = Vector2(0.3, 1)
+
+[node name="cliff33" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(235, -1399)
+scale = Vector2(0.3, 1)
+
+[node name="cliff2" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(-237, 310)
+
+[node name="cliff7" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(4076, 318)
+
+[node name="cliff3" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(98, 281)
+rotation = 2.9670596
+
+[node name="cliff6" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(3740.0002, 285)
+rotation = 0.17453292
+
+[node name="cliff4" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(1084, 15.000036)
+rotation = 2.86234
+scale = Vector2(5, 1)
+
+[node name="cliff5" parent="." instance=ExtResource("5_0lm80")]
+position = Vector2(2733.0002, 13.000006)
+rotation = 0.27925268
+scale = Vector2(5, 1)

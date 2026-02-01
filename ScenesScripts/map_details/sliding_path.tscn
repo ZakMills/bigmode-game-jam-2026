@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://fyvp3lkrmjst"]
+
+[ext_resource type="Script" uid="uid://bd2dpwa070w0u" path="res://ScenesScripts/map_details/sliding_path.gd" id="1_hpm8g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6fvd"]
+size = Vector2(349.5, 22)
+
+[node name="sliding_path" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_hpm8g")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -174.0
+offset_top = -11.0
+offset_right = 175.0
+offset_bottom = 11.0
+color = Color(0, 1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a6fvd")

@@ -12,6 +12,10 @@ var volume_sfx : float = 50.0
 @onready var sfx_player = main.get_node("sfx_player")
 @onready var top_ribbon = main.get_node("UILayer").get_node("TopRibbon")
 var carrying_item : bool = false
+@onready var test : bool = main.test
+
+func set_map(map):
+	terrain = map
 
 func camera_smoothing():
 	main.camera_smoothing()
@@ -24,8 +28,10 @@ func item_get():
 	#print("Global.item_get")
 	#sfx_player.play()
 	pass
+func item_spawn(): # TODO
+	pass
 	
-func score_update(update): # TODO update value once top ribbon is added
+func score_update(update):
 	score += update
 	if (score > score_high):
 		score_high = score
@@ -37,7 +43,11 @@ func score_reset():
 
 func start_world():
 	terrain.start()
+	main.sfx_on()
 	pass
+
+func stop_pc_audio():
+	main.stop_pc_audio()
 	
 func reset_PC_position():
 	main.reset_PC_position()
