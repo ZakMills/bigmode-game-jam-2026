@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cyejm51urx6gj"]
+
+[ext_resource type="Script" uid="uid://bd2dpwa070w0u" path="res://ScenesScripts/map_details/sliding_path.gd" id="1_ntk5g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ntk5g"]
+radius = 24.738634
+
+[node name="sliding_path" type="StaticBody2D" unique_id=1978486565]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_ntk5g")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1579912340]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1642156179]
+shape = SubResource("CircleShape2D_ntk5g")
+debug_color = Color(0, 1, 0, 0.41960785)

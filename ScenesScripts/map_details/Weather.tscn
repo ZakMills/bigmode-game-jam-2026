@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cltty4pd7127w"]
+
+[ext_resource type="Script" uid="uid://ds0dsibk6081w" path="res://ScenesScripts/map_details/weather.gd" id="1_v6s0s"]
+
+[sub_resource type="Gradient" id="Gradient_v6s0s"]
+offsets = PackedFloat32Array(0.013100437, 0.19650654, 0.5327511, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.9965689, 0.9965689, 0.9965689, 0.078571424, 0.95633185, 0.95633185, 0.95633185, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3m34n"]
+gradient = SubResource("Gradient_v6s0s")
+width = 1152
+height = 648
+fill = 1
+fill_from = Vector2(0.5324232, 0.48540002)
+
+[node name="Weather" type="Control" unique_id=371786147]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_v6s0s")
+
+[node name="ReducedVision" type="TextureRect" parent="." unique_id=2121698490]
+layout_mode = 0
+offset_right = 360.0
+offset_bottom = 251.0
+texture = SubResource("GradientTexture2D_3m34n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1209317529]
