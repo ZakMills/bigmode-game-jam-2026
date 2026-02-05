@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://gfu6010teado"]
+[gd_scene format=3 uid="uid://gfu6010teado"]
 
 [ext_resource type="Script" uid="uid://cxwtub4cf76la" path="res://ScenesScripts/main.gd" id="1_2buf3"]
 [ext_resource type="PackedScene" uid="uid://d0y5vd2bh6557" path="res://ScenesScripts/maps/terrain.tscn" id="2_4ixr0"]
@@ -7,14 +7,16 @@
 [ext_resource type="Script" uid="uid://cjde8u8nelrmx" path="res://ScenesScripts/camera_2d.gd" id="4_824gy"]
 [ext_resource type="PackedScene" uid="uid://cigk01ixvsvbc" path="res://ScenesScripts/top_ribbon.tscn" id="6_dpd2v"]
 [ext_resource type="PackedScene" uid="uid://uy7bnh86qjrb" path="res://ScenesScripts/menus/pause_menu.tscn" id="6_uy5uj"]
+[ext_resource type="PackedScene" uid="uid://cltty4pd7127w" path="res://ScenesScripts/map_details/Weather.tscn" id="7_0lov5"]
 [ext_resource type="PackedScene" uid="uid://d36i8j1yadr2q" path="res://ScenesScripts/menus/main_menu.tscn" id="7_x22ot"]
+[ext_resource type="PackedScene" uid="uid://c3r5fagmvqkvn" path="res://ScenesScripts/menus/transition.tscn" id="8_6usov"]
 [ext_resource type="PackedScene" uid="uid://eiys6e0nbydt" path="res://ScenesScripts/menus/options_menu.tscn" id="8_ivaq2"]
 [ext_resource type="AudioStream" uid="uid://cufb0jpo52s5s" path="res://Sound/SFX/Gameplay/Seal Delivery SEALED DEAL.wav" id="9_4arfj"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=746219828]
 script = ExtResource("1_2buf3")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=249406680]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,30 +27,34 @@ grow_vertical = 2
 pivot_offset = Vector2(100, 0)
 color = Color(0, 0, 0, 1)
 
-[node name="TerrainManager" type="Node2D" parent="."]
+[node name="TerrainManager" type="Node2D" parent="." unique_id=1774652389]
 process_mode = 1
 
-[node name="Terrain" parent="TerrainManager" instance=ExtResource("2_4ixr0")]
+[node name="Terrain" parent="TerrainManager" unique_id=1580464270 instance=ExtResource("2_4ixr0")]
 
-[node name="Terrain_test" parent="TerrainManager" instance=ExtResource("3_0lov5")]
+[node name="Terrain_test" parent="TerrainManager" unique_id=1584670097 instance=ExtResource("3_0lov5")]
 
-[node name="PC" parent="." instance=ExtResource("3_05da0")]
+[node name="PC" parent="." unique_id=45467730 instance=ExtResource("3_05da0")]
 process_mode = 1
 
-[node name="Camera2D" type="Camera2D" parent="PC"]
+[node name="Camera2D" type="Camera2D" parent="PC" unique_id=6663069]
 position_smoothing_enabled = true
 script = ExtResource("4_824gy")
 
-[node name="PCStartPos" type="Marker2D" parent="."]
+[node name="PCStartPos" type="Marker2D" parent="." unique_id=48306044]
 
-[node name="UILayer" type="CanvasLayer" parent="."]
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=2121878966]
 
-[node name="TopRibbon" parent="UILayer" instance=ExtResource("6_dpd2v")]
+[node name="Weather" parent="UILayer" unique_id=371786147 instance=ExtResource("7_0lov5")]
+
+[node name="TopRibbon" parent="UILayer" unique_id=570188057 instance=ExtResource("6_dpd2v")]
 offset_bottom = 0.0
 
-[node name="MenuManager" type="CanvasLayer" parent="."]
+[node name="MenuManager" type="CanvasLayer" parent="." unique_id=396993642]
+layer = 2
 
-[node name="MenuBG" type="ColorRect" parent="MenuManager"]
+[node name="MenuBG" type="ColorRect" parent="MenuManager" unique_id=482880114]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -56,13 +62,15 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 1, 1, 1)
 
-[node name="PauseMenu" parent="MenuManager" instance=ExtResource("6_uy5uj")]
+[node name="Transition" parent="MenuManager" unique_id=676669029 instance=ExtResource("8_6usov")]
+
+[node name="PauseMenu" parent="MenuManager" unique_id=2060151691 instance=ExtResource("6_uy5uj")]
 visible = false
 
-[node name="MainMenu" parent="MenuManager" instance=ExtResource("7_x22ot")]
+[node name="MainMenu" parent="MenuManager" unique_id=931099279 instance=ExtResource("7_x22ot")]
 
-[node name="OptionsMenu" parent="MenuManager" instance=ExtResource("8_ivaq2")]
+[node name="OptionsMenu" parent="MenuManager" unique_id=1097976625 instance=ExtResource("8_ivaq2")]
 visible = false
 
-[node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
+[node name="sfx_player" type="AudioStreamPlayer2D" parent="." unique_id=1690625472]
 stream = ExtResource("9_4arfj")

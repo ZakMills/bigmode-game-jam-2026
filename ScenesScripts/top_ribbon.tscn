@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cigk01ixvsvbc"]
+[gd_scene format=3 uid="uid://cigk01ixvsvbc"]
 
 [ext_resource type="Script" uid="uid://c45cgujsmf56q" path="res://ScenesScripts/top_ribbon.gd" id="1_gtcj5"]
+[ext_resource type="Texture2D" uid="uid://b4ogx2fb78qcv" path="res://Art/UI/PLACEHOLDER_Arrow.png" id="2_7l3cw"]
 
-[node name="TopRibbon" type="Control"]
+[node name="TopRibbon" type="Control" unique_id=1072770385]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,13 +14,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gtcj5")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1601638790]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 70.0
 color = Color(0, 0, 0, 1)
 
-[node name="ScoreLabel" type="RichTextLabel" parent="."]
+[node name="ScoreLabel" type="RichTextLabel" parent="." unique_id=1080833654]
 layout_mode = 0
 offset_right = 120.0
 offset_bottom = 72.0
@@ -26,7 +28,7 @@ theme_override_font_sizes/normal_font_size = 36
 text = "Score:"
 vertical_alignment = 1
 
-[node name="ScoreValue" type="RichTextLabel" parent="."]
+[node name="ScoreValue" type="RichTextLabel" parent="." unique_id=1150653013]
 layout_mode = 0
 offset_left = 120.0
 offset_right = 261.0
@@ -35,3 +37,42 @@ theme_override_font_sizes/normal_font_size = 36
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="ItemCount" type="RichTextLabel" parent="." unique_id=1946737464]
+layout_mode = 0
+offset_left = 350.0
+offset_right = 491.0
+offset_bottom = 72.0
+theme_override_font_sizes/normal_font_size = 36
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TimeLeft" type="RichTextLabel" parent="." unique_id=616977923]
+layout_mode = 0
+offset_left = 600.0
+offset_right = 741.0
+offset_bottom = 72.0
+theme_override_font_sizes/normal_font_size = 36
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Time_left" type="Timer" parent="." unique_id=1240682128]
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+
+[node name="dir_arrow" type="Sprite2D" parent="." unique_id=1590760496]
+position = Vector2(600, 35)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_7l3cw")
+
+[node name="Cover" type="ColorRect" parent="." unique_id=1098541767]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 70.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="timeout" from="Time_left" to="." method="_on_time_left_timeout"]

@@ -30,7 +30,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tbw4b")
 
 [node name="Obstacle" parent="." unique_id=1355265359 instance=ExtResource("3_c1qvr")]
-position = Vector2(-52, -219)
+position = Vector2(-35, -384)
 scale = Vector2(2, 2)
 
 [node name="BorderTop" parent="." unique_id=1671532675 instance=ExtResource("4_jwybu")]
@@ -50,11 +50,11 @@ position = Vector2(1174, -647)
 rotation = 1.5707964
 
 [node name="sliding_path" parent="." unique_id=1258832671 instance=ExtResource("5_tls4m")]
-position = Vector2(543, -4)
+position = Vector2(620, 0)
 scale = Vector2(2.5, 2)
 
 [node name="NPC" parent="." unique_id=1472327496 instance=ExtResource("7_53r6u")]
-position = Vector2(-337, -153)
+position = Vector2(-80, -169)
 
 [node name="ocean" parent="." unique_id=1135117809 instance=ExtResource("6_ffyxw")]
 position = Vector2(-3, 258)
