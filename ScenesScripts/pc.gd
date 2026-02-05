@@ -12,7 +12,6 @@ var galumphTimer : float = 0 # angle in radians.
 var galumphFrequency : float = 1 # seconds for one full galumph
 var galumphSpeed : float = 500
 var item_scene = load("res://ScenesScripts/map_details/item.tscn")
-var carried_item
 var splash_mercy : bool = false
 var move_type : String = "galumph" # galumph, slide, splash, or falling
 var anim_done : bool = false
@@ -21,25 +20,38 @@ var galumph_adjust : float = 10
 var sfx_slide = load("res://Sound/SFX/Main Character/Seal Delivery Ice Slide.wav")
 var sfx_bounce = load("res://Sound/SFX/Main Character/Seal Delivery Snow Bounce.wav")
 var sfx_playing : bool = false
-
+var blizzard_coming : bool = false # change to true if blizzard coming in, false if going out.
+var blizzard_fade_time : float = 2
 
 #region move_and_animate
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	start()
 	screen_size = get_viewport_rect().size
 	sprite_size = $AnimatedSprite2D.sprite_frames.get_frame_texture("gal_northeast", 0).get_size()
-	galumphTimer = 0
-	$AnimatedSprite2D.play("gal_south")
 	$AudioStreamPlayer2DBounce.stop()
 	#$AudioStreamPlayer2DBounce.
 	$AudioStreamPlayer2DSlide.stop()
 	
-
+func start():
+	galumphTimer = 0
+	$AnimatedSprite2D.play("gal_south")
+	visibility_modulate(0)
+	blizzard_coming = false
+	$ReducedVision.visible = false
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#print("global mode is ", Global.mode)
+	#print("audio timer = ", $AudioStreamPlayer2DBounce.get_playback_position())
 	if (Global.mode == 3 && $Timer.time_left == 0):
 		proceed(delta)
+	if (!$Timer2.is_stopped()):
+		if (blizzard_coming):
+			visibility_modulate((blizzard_fade_time-$Timer2.time_left)/blizzard_fade_time)
+		else: # blizzard going
+			visibility_modulate((blizzard_fade_time-(blizzard_fade_time-$Timer2.time_left))/blizzard_fade_time)
+		
 	
 	
 func proceed(delta):
@@ -104,7 +116,7 @@ func proceed(delta):
 		$AudioStreamPlayer2DSlide.stop()
 
 	if (move_type == "slide"):
-		print("sliding at ", velocity.length())
+		#print("sliding at ", velocity.length())
 		if ($AudioStreamPlayer2DSlide.playing == true):
 			if(velocity.length() < 700):
 				$AudioStreamPlayer2DSlide.volume_db = -60+(velocity.length()/14)
@@ -163,6 +175,7 @@ func galumph(accel, delta):
 func cliff():
 	move_type = "falling"
 	$AnimatedSprite2D.flip_v = true
+	stop_audio()
 	pass
 
 
@@ -172,7 +185,7 @@ func cliff():
 func splash():
 	
 	if (Global.carrying_item):
-		get_node("Node2D").queue_free()
+		get_node("Item").queue_free()
 		Global.carrying_item = false
 		Global.item_spawn()
 	$AnimatedSprite2D.set_speed_scale(3)
@@ -213,11 +226,12 @@ func animate_movement(accel : Vector2):
 		#speedPercent = (1+2*(velocity.length() / velMax))/3 # scale from 1/3 speed at start
 		#$AnimatedSprite2D.set_speed_scale(speedPercent)
 		
-	elif(move_type == "galumph"): 
+	elif(move_type == "galumph" && accel == Vector2.ZERO): 
 		$AnimatedSprite2D.set_frame_and_progress(0, 0) # set to first frame existing animation
 		$AnimatedSprite2D.stop()
 		adjust_galumph(0)
 		pass
+	#print("accel = ", accel)
 	
 		
 func animate_slide(dir, prev_anim):
@@ -258,6 +272,7 @@ func animate_galumph(dir, prev_anim):
 	if (prev_anim.contains("gal_")): 
 		frame = $AnimatedSprite2D.frame
 		progress = $AnimatedSprite2D.frame_progress
+	
 	if (dir == "N"): 
 		$AnimatedSprite2D.play("gal_north")
 	elif (dir == "NE"): 
@@ -274,9 +289,11 @@ func animate_galumph(dir, prev_anim):
 		$AnimatedSprite2D.play("gal_west")
 	elif (dir == "NW"): 
 		$AnimatedSprite2D.play("gal_northwest")
-	else:
-		$AnimatedSprite2D.set_frame_and_progress(frame, progress)
+	
+	$AnimatedSprite2D.set_frame_and_progress(frame, progress)
 	adjust_galumph(frame)
+	#if (prev_anim != $AnimatedSprite2D.animation):
+		#print("changing gal direction, ", frame, " ", progress)
 	#print("Animating galumph ", frame, "  ", progress)
 	
 func adjust_galumph(frame):
@@ -286,8 +303,8 @@ func adjust_galumph(frame):
 		$AnimatedSprite2D.position.y = $GroundDetector.position.y - galumph_adjust
 	elif (frame == 2):
 		$AnimatedSprite2D.position.y = $GroundDetector.position.y - (2*galumph_adjust)
-	if (frame == 0):
-		galumphTimer = 0
+	#if (frame == 0):
+		#galumphTimer = 0
 	pass
 	
 
@@ -298,7 +315,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		anim_done = true
 	if (move_type == "splash"):
 		$AnimatedSprite2D.stop()
-		visible = false
+		$AnimatedSprite2D.visible = false
 		#print("speed scale 1")
 		$AnimatedSprite2D.set_speed_scale(1)
 		anim_done = false
@@ -306,8 +323,13 @@ func _on_timer_timeout() -> void:
 	Global.reset_PC_position()
 	#print("Timer timeout")
 	#$AnimatedSprite2D.set_flip_v(false)
-	visible = true
+	$AnimatedSprite2D.visible = true
 	$AnimatedSprite2D.flip_v = false
+	#if (position.length() > 10):
+		#Global.camera_smoothing(false)
+		#Global.camera_recenter()
+		#await get_tree().process_frame
+		#Global.camera_smoothing(true)
 	pass # Replace with function body.
 
 #endregion
@@ -333,8 +355,9 @@ func get_item(item: Node):
 
 func give_item():
 	if (Global.carrying_item):
-		get_node("Node2D").queue_free()
+		get_node("Item").queue_free()
 		Global.carrying_item = false
+		Global.items_today += 1
 		Global.score_update(10)
 		Global.item_spawn()
 #endregion
@@ -343,17 +366,54 @@ func give_item():
 func _on_animated_sprite_2d_frame_changed() -> void:
 	if (sfx_playing):
 		if ($AnimatedSprite2D.animation.contains("gal_") && $AnimatedSprite2D.frame == 1):
-			$AudioStreamPlayer2DBounce.play(0)
+			#print("audio timer = ", $AudioStreamPlayer2DBounce.get_playback_position())
+			if ($AudioStreamPlayer2DBounce.get_playback_position() > 0.5 || !$AudioStreamPlayer2DBounce.playing):
+				#print("restarting bounce SFX ")
+				if (move_type != "falling"):
+					$AudioStreamPlayer2DBounce.play(0)
 		if ($AnimatedSprite2D.animation.contains("slide_") && $AnimatedSprite2D.frame == 1):
 			$AudioStreamPlayer2DSlide.play(0)
 			$AudioStreamPlayer2DSlide.volume_db = -10
-			$Timer2.start(1)
+			#$Timer2.start(1)
 		if (velocity == Vector2.ZERO):#: && sfx_playing == true:
 			$AudioStreamPlayer2DSlide.stop()
 		#sfx_playing = true #first loading in
 
-func stop_audio():
+func stop_audio():	
+	$AudioStreamPlayer2DBounce.play(0)
+	$AudioStreamPlayer2DSlide.play(0)
 	$AudioStreamPlayer2DBounce.stop()
-	$AudioStreamPlayer2DSlide.stop()	
+	$AudioStreamPlayer2DSlide.stop()
 	
 		
+
+func switchVisibility(torch, blizzard):
+	#print("switching, ", torch, blizzard )
+	if (bool(blizzard) != $ReducedVision.visible):
+		$Timer2.start(blizzard_fade_time)
+		blizzard_coming = blizzard
+		
+	if (blizzard):
+		$ReducedVision.visible = true
+		if (torch):
+			$ReducedVision/gradient.visible = false # less visibility
+			$ReducedVision/gradient2.visible = true
+		else:
+			$ReducedVision/gradient.visible = true # more visibilty
+			$ReducedVision/gradient2.visible = false
+			
+	else:
+		#$ReducedVision.visible = false
+		#$ReducedVision/gradient.visible = false
+		#$ReducedVision/gradient2.visible = false
+		pass
+		
+	
+func visibility_modulate(val):
+	$ReducedVision/gradient.self_modulate.a = val
+	$ReducedVision/gradient2.self_modulate.a = val
+	$ReducedVision/LeftSideBar.self_modulate.a = val
+	$ReducedVision/RightSideBar.self_modulate.a = val
+	$ReducedVision/BottomBar.self_modulate.a = val
+	$ReducedVision/TopBar.self_modulate.a = val
+	pass

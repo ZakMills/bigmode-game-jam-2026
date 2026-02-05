@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://ueu2i1nh0jl8"]
+[gd_scene format=3 uid="uid://ueu2i1nh0jl8"]
 
 [ext_resource type="Script" uid="uid://dov7b5q6eon77" path="res://ScenesScripts/pc.gd" id="1_273qn"]
 [ext_resource type="Texture2D" uid="uid://cxy3if8n2biyt" path="res://Art/pc_animations/seal_galumph/seal_galumph/E/seale1.png" id="2_fglf5"]
@@ -374,11 +374,34 @@ size = Vector2(96, 85)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oebme"]
 size = Vector2(67, 67)
 
-[node name="PC" type="CharacterBody2D"]
+[sub_resource type="Gradient" id="Gradient_v6s0s"]
+offsets = PackedFloat32Array(0.2139738, 0.4235808)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hhabq"]
+gradient = SubResource("Gradient_v6s0s")
+width = 748
+height = 748
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_3m34n"]
+offsets = PackedFloat32Array(0.34934497, 0.5458515)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pm4nh"]
+gradient = SubResource("Gradient_3m34n")
+width = 748
+height = 748
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="PC" type="CharacterBody2D" unique_id=1983022626]
 collision_mask = 7
 script = ExtResource("1_273qn")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2130231681]
 visible = false
 offset_left = -52.0
 offset_top = -55.0
@@ -386,37 +409,95 @@ offset_right = 55.0
 offset_bottom = 53.0
 color = Color(1, 0.43137255, 0.43137255, 1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=451915146]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_273qn")
 animation = &"splash"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=771499767]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_273qn")
 
-[node name="GroundDetector" type="Area2D" parent="."]
+[node name="GroundDetector" type="Area2D" parent="." unique_id=1610592785]
 collision_layer = 8
 collision_mask = 8
 
-[node name="GroundCollision" type="CollisionShape2D" parent="GroundDetector"]
+[node name="GroundCollision" type="CollisionShape2D" parent="GroundDetector" unique_id=1841308000]
 position = Vector2(1.5, 5.5)
 shape = SubResource("RectangleShape2D_oebme")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=532803250]
 one_shot = true
 
-[node name="SplashMercy" type="Timer" parent="."]
+[node name="SplashMercy" type="Timer" parent="." unique_id=1525501351]
 one_shot = true
 
-[node name="AudioStreamPlayer2DBounce" type="AudioStreamPlayer2D" parent="."]
+[node name="Timer2" type="Timer" parent="." unique_id=1752501195]
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerTest" type="Timer" parent="." unique_id=632743462]
+
+[node name="AudioStreamPlayer2DBounce" type="AudioStreamPlayer2D" parent="." unique_id=1426373996]
 stream = ExtResource("71_hhabq")
 
-[node name="AudioStreamPlayer2DSlide" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2DSlide" type="AudioStreamPlayer2D" parent="." unique_id=707132847]
 stream = ExtResource("71_p8a34")
 
-[node name="Timer2" type="Timer" parent="."]
-one_shot = true
+[node name="ReducedVision" type="Control" parent="." unique_id=1208515031]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -599.0
+offset_top = -338.0
+offset_right = -559.0
+offset_bottom = -298.0
+
+[node name="gradient" type="TextureRect" parent="ReducedVision" unique_id=385462693]
+layout_mode = 0
+offset_left = 227.0
+offset_top = -25.0
+offset_right = 925.0
+offset_bottom = 673.0
+texture = SubResource("GradientTexture2D_hhabq")
+
+[node name="gradient2" type="TextureRect" parent="ReducedVision" unique_id=576389586]
+visible = false
+layout_mode = 0
+offset_left = 227.0
+offset_top = -25.0
+offset_right = 925.0
+offset_bottom = 673.0
+texture = SubResource("GradientTexture2D_pm4nh")
+
+[node name="LeftSideBar" type="ColorRect" parent="ReducedVision" unique_id=1043988812]
+layout_mode = 0
+offset_left = -5225.0
+offset_top = -25.0
+offset_right = 227.0
+offset_bottom = 723.0
+
+[node name="RightSideBar" type="ColorRect" parent="ReducedVision" unique_id=405478155]
+layout_mode = 0
+offset_left = 975.0
+offset_top = -25.0
+offset_right = 6477.0
+offset_bottom = 723.0
+
+[node name="BottomBar" type="ColorRect" parent="ReducedVision" unique_id=1545501030]
+layout_mode = 0
+offset_left = -5225.0
+offset_top = 723.0
+offset_right = 6477.0
+offset_bottom = 6023.0
+
+[node name="TopBar" type="ColorRect" parent="ReducedVision" unique_id=640695388]
+layout_mode = 0
+offset_left = -5225.0
+offset_top = -5325.0
+offset_right = 6477.0
+offset_bottom = -25.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

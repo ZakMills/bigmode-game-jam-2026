@@ -42,7 +42,7 @@ func start_game():
 	visible = false
 	get_tree().get_root().get_node("Main/MenuManager/MenuBG").visible = false
 	get_tree().paused = false
-	Global.camera_smoothing()
+	Global.camera_smoothing(true)
 	Global.mode = 3
 	Global.score_reset()
 	Global.start_world()

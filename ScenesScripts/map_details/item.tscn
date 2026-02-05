@@ -1,20 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3nmka13x2r4e"]
+[gd_scene format=3 uid="uid://b3nmka13x2r4e"]
 
 [ext_resource type="Script" uid="uid://cs0f0nxt16ae" path="res://ScenesScripts/map_details/item.gd" id="1_3i5tg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1nadu"]
 size = Vector2(40, 40)
 
-[node name="Node2D" type="Area2D"]
+[node name="Item" type="Area2D" unique_id=1398980768 groups=["Items"]]
 collision_layer = 2
 script = ExtResource("1_3i5tg")
 
-[node name="Shape" type="ColorRect" parent="."]
+[node name="Shape" type="ColorRect" parent="." unique_id=1794469346]
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1, 1, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1807464891]
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_1nadu")
 

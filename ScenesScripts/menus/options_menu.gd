@@ -10,7 +10,7 @@ func _ready():
 	freshTimer = true
 	
 func start():
-	print("options start ", Global.mode)
+	#print("options start ", Global.mode)
 	cursor = 0
 	Global.options_menu = true
 	visible = true
@@ -27,7 +27,7 @@ func start():
 	$TextMusicVol.text = str(Global.volume_music)
 	$TextSFXVol.text = str(Global.volume_sfx)
 func stop():
-	print("options start ", Global.mode)
+	#print("options top ", Global.mode)
 	if (Global.mode == 1):
 		main.to_main_menu()
 		#main.back_to_main_menu()
@@ -54,12 +54,10 @@ func proceed():
 			down()
 			pass
 		if (Input.is_action_pressed("left") && $Timer.time_left == 0):
-			#print("left pressed")
 			set_timer()
 			left()
 			pass
 		if (Input.is_action_pressed("right") && $Timer.time_left == 0):
-			#print("right pressed")
 			set_timer()
 			right()
 			pass
