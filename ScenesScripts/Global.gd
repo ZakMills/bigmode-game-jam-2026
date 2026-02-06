@@ -34,7 +34,7 @@ func stage_over():
 	Stages.stage_transition = true
 	carrying_item = false
 	fade_out()
-	main.reset_audio() # TODO: fade_out
+	reset_audio() # TODO: fade_out
 	if (items_today >= Stages.items_minimum[day]):
 		transition_music_play(true)
 	else:
@@ -191,7 +191,8 @@ func transition_music_play(victory : bool):
 func transition_music_stop():
 	main.transition_music_stop()
 
-
+func reset_audio():
+	main.reset_audio()
 
 
 func stage_music_pausing(is_paused):
@@ -205,3 +206,6 @@ func _process(delta: float) -> void:
 
 func check_vis():
 	main.check_vis()
+
+func oil_visible(vis):
+	main.oil_visible(vis)

@@ -10,7 +10,7 @@ var sprite_size : Vector2
 var groundType : int
 var galumphTimer : float = 0 # angle in radians.
 var galumphFrequency : float = 1 # seconds for one full galumph
-var galumphSpeed : float = 500
+var galumphSpeed : float = 400
 var item_scene = load("res://ScenesScripts/map_details/Logic/item.tscn")
 var splash_mercy : bool = false
 var move_type : String = "galumph" # galumph, slide, splash, or falling

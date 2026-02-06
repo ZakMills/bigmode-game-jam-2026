@@ -23,15 +23,14 @@ var test : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	Global.test = test
 	BGAdjust = $Background.size/2
 	$PC.position = $PCStartPos.position #Vector2.ZERO
 	to_main_menu()
 	TopRibbonRef.z_index = 2
 	TransitionRef.z_index = 3
-	
 	reset_audio()
-	
 	if (test):
 		map_real.queue_free()
 		Global.set_map(map_test)
@@ -43,6 +42,15 @@ func _ready() -> void:
 		Global.day = 1
 		#item_pos = Vector2(-2406, 2857)
 	pass
+	
+	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	#print($Music/Lose.playing)
+	$Background.position = CamRef.global_position - BGAdjust
+	#music_pausing()
+	#if ($Music/MusicFadeTimer.time_left != 0):
+		#music_loop()
 	
 func quiet_PC():
 	$PC.stop_audio()
@@ -64,20 +72,26 @@ func stage_load():
 	reset_PC_position()
 	#music_start()
 	if (test): 
-		TopRibbonRef.stage_start(5) # TODO: Global.day_length  
+		TopRibbonRef.stage_start(30) # TODO: Global.day_length  
 		map_test.clear_items()
 		#print("stage_load, item starting pos")
 		map_test.add_item(Stages.items_starting[0])
+		$Music/MusicTimer.start(5)
+		$Music/StageMusic.volume_db = -10
 	else: 
 		#print("stage_load real, item starting pos")
 		TopRibbonRef.stage_start(Global.day_length)
 		map_real.clear_items()
-		map_real.add_item(Vector2(-2406, 2857))
+		map_real.add_item()
 		map_real.set_dropoff()
 		# TODO: add starting item		map_real.add_child(item)
 	#TopRibbonRef.score_update()
 	#if (Global.day == 0):
 	#	pass
+	if (Global.day == 4):
+		oil_visible(true)
+	else:
+		oil_visible(false)
 	fade_in()
 	await get_tree().create_timer(2.1).timeout
 	#TopRibbonRef.cover(false)
@@ -89,7 +103,7 @@ func add_item():
 		#map_test.add_item(Vector2(367, -142.0))
 		map_test.add_item(Stages.items_starting[0])
 	else: # real map
-		map_real.add_item(Stages.items_starting[Global.day])
+		map_real.add_item()
 		pass
 	
 func eval_success():
@@ -199,13 +213,6 @@ func options_display():
 	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	#print($Music/Lose.playing)
-	$Background.position = CamRef.global_position - BGAdjust
-	#music_pausing()
-	#if ($Music/MusicFadeTimer.time_left != 0):
-		#music_loop()
 	
 	
 func stage_succ():
@@ -228,29 +235,31 @@ func attach_item(item : Node):
 
 #region audio
 func music_vol():
-	#print("music_vol")
 	music_vol_current = music_vol_base + ((Global.volume_music-50)/2)
-	$Music/StageMusic.volume_db = music_vol_current
-	$Music/StageMusicBlizzard.volume_db = music_vol_current
+	if ($Music/StageMusic.volume_db != -100):
+		$Music/StageMusic.volume_db = music_vol_current
+	if ($Music/StageMusicBlizzard.volume_db != -100):
+		$Music/StageMusicBlizzard.volume_db = music_vol_current
 	$Music/MenuMusic.volume_db = music_vol_current
 	$Music/Win.volume_db = music_vol_current
 	$Music/Lose.volume_db = music_vol_current
+	
 	pass
 	
 func transition_music_play(victory : bool):
-	print("transition_music_play, ", victory)
+	#print("transition_music_play, ", victory)
 	if victory:
 		$Music/Win.play(0)
 	else:
 		$Music/Lose.play(0)
 	
 func transition_music_stop():
-	print("transition_music_stop")
+	#print("transition_music_stop")
 	$Music/Win.stop()
 	$Music/Lose.stop()
 
 func reset_audio():
-	$Music/StageMusic.volume_db = 0
+	$Music/StageMusic.volume_db = music_vol_base
 	$Music/StageMusic.stop()
 	#$Music/StageMusic2.volume_db = -100
 	#$Music/StageMusic2.stop()
@@ -260,6 +269,7 @@ func reset_audio():
 	#$Music/StageMusicBlizzard2.stop()
 	#$Music/MusicTimer.stop()
 	music_2 = false
+	music_vol()
 	pass
 
 func _on_stage_music_finished() -> void:
@@ -277,17 +287,18 @@ func _on_stage_music_blizzard_2_finished() -> void:
 
 
 func _on_music_timer_timeout() -> void:
-	#print("_on_music_timer_timeout, ", music_2)
-	if (music_2): # 1 is playing
+	print("_on_music_timer_timeout, ", music_2)
+	$Music/StageMusic.play(0)
+	#if (music_2): # 1 is playing
 		#$Music/StageMusic2.play(0)
 		#$Music/StageMusicBlizzard2.play(0)		
-		music_2 = true
-	else:
-		$Music/StageMusic.play(0)
-		$Music/StageMusicBlizzard.play(0)
-		music_2 = false
-	$Music/MusicTimer.start(200)
-	$Music/MusicFadeTimer.start(5)
+		#music_2 = true
+	#else:
+		#$Music/StageMusic.play(0)
+		#$Music/StageMusicBlizzard.play(0)
+		#music_2 = false
+	#$Music/MusicTimer.start(200)
+	#$Music/MusicFadeTimer.start(5)
 	pass # Replace with function body.
 	
 func music_start():
@@ -300,7 +311,7 @@ func music_start():
 	
 	
 	$Music/StageMusic.play(0)
-	$Music/StageMusic.volume_db = 0
+	$Music/StageMusic.volume_db = music_vol_current
 	$Music/StageMusicBlizzard.play(0)
 	$Music/StageMusicBlizzard.volume_db = -100
 	#$Music/StageMusicBlizzard2.volume_db = -100
@@ -372,6 +383,8 @@ func _on_menu_music_timer_timeout() -> void:
 	pass # Replace with function body.
 #endregion
 
+func oil_visible(vis):
+	map_real.oil_visible(vis)
 
 # Debug, ignore
 func check_vis():

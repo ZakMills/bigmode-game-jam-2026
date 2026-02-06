@@ -1,5 +1,7 @@
 extends Control
 
+@onready var hints = [$ScreenSuccess/Day2Hint, $ScreenSuccess/Day2Hint, $ScreenSuccess/Day2Hint, $ScreenSuccess/Day3Hint,$ScreenSuccess/Day4Hint, $ScreenSuccess/Day5Hint]
+
 func _ready() -> void:
 	#$AnimationPlayer.animation_set_next()
 	pass
@@ -88,6 +90,10 @@ func success():
 	$ScreenSuccess.visible = true
 	$ScreenFail.visible = false
 	$ScreenGameWin.visible = false
+	for each in hints:
+		each.visible = false
+	hints[Global.day].visible = true
+	print("day = ", Global.day)
 func failure(): 
 	$ScreenSuccess.visible = false
 	$ScreenFail.visible = true
@@ -131,6 +137,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			#print("transition, music start")
 			Global.music_start()
 			Global.pausable = true
+			#Global.reset_audio()
 	pass
 func _on_animation_player_animation_started(anim_name: StringName) -> void:
 	get_tree().paused = true

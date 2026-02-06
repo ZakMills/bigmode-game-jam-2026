@@ -5,6 +5,7 @@ var sprite_size : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Shape.animation = Stages.items_type[Global.day]
 	#$Shape.visible = Global.test
 	#if (get_parent().name == "Terrain"):
 		#scale = Vector2(0.5, 0.5)

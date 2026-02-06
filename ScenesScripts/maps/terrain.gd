@@ -7,7 +7,7 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	full_item_spawn_list()
+	#full_item_spawn_list()
 	#possible_item_pos.append(Vector2(-1902.667, 1866.667)) # for testing
 	pass
 	
@@ -16,7 +16,7 @@ func full_item_spawn_list():
 	# SW arm
 	possible_item_pos.append(Vector2(2817.334, 2221.333))
 	possible_item_pos.append(Vector2(2005.333, 1192.0))
-	possible_item_pos.append(Vector2(102.667, 1382.667))
+	#possible_item_pos.append(Vector2(102.667, 1382.667)) # right in front of hospital
 	possible_item_pos.append(Vector2(102.667, 598.0))
 	# W arm
 	possible_item_pos.append(Vector2(3974.666, -1158.667))
@@ -43,11 +43,13 @@ func start():
 	#add_item(Vector2(367, -142.0))
 	pass
 	
-func add_item(pos : Vector2):
+func add_item():
 	var new_item = item_scene.instantiate()
 	new_item.start("feesh")
 	
 	$AnimatedSprite2D.add_child(new_item)
+	if (Global.test):
+		new_item.position = Vector2(195.0, -175.0)
 	if (Global.score == 0):
 		new_item.position = possible_item_pos[0]
 	else:
@@ -64,7 +66,7 @@ func get_new_pos() -> Vector2:
 
 func set_dropoff():
 	#$AnimatedSprite2D/TerrainLogic/dropoff.position = Stages.dropoff[Global.day]
-	$AnimatedSprite2D/TerrainLogic/dropoff.position = Stages.dropoff[1]
+	$AnimatedSprite2D/TerrainLogic/dropoff.position = Stages.dropoff[Global.day]
 	pass
 	
 func get_item_pos() -> Vector2:
@@ -72,11 +74,16 @@ func get_item_pos() -> Vector2:
 	pass
 	
 func get_dest_pos() -> Vector2:
+	#print($AnimatedSprite2D/TerrainLogic/dropoff.global_position, "  ", $AnimatedSprite2D/TerrainLogic/dropoff.position)
 	return $AnimatedSprite2D/TerrainLogic/dropoff.global_position
 	pass
 	
 func clear_items():
 	get_tree().call_group("Items", "queue_free")
+	pass
+
+func oil_visible(vis):
+	$AnimatedSprite2D/Oil.visible = vis
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
