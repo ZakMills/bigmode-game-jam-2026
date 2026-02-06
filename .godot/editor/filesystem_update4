@@ -1,0 +1,17 @@
+res://ScenesScripts/maps/terrain.tscn
+res://ScenesScripts/Global.gd
+res://ScenesScripts/maps/terrain.gd
+res://ScenesScripts/top_ribbon.gd
+res://ScenesScripts/menus/transition.tscn
+res://ScenesScripts/menus/main_menu.tscn
+res://ScenesScripts/pc.tscn
+res://ScenesScripts/pc.gd
+res://ScenesScripts/maps/terrain_test.tscn
+res://ScenesScripts/map_details/NPCs/NPC.tscn
+res://ScenesScripts/map_details/NPCs/penguin.tscn
+res://ScenesScripts/main.tscn
+res://ScenesScripts/map_details/NPCs/penguin.gd
+res://ScenesScripts/map_details/NPCs/biggie.tscn
+res://ScenesScripts/map_details/NPCs/biggie.gd
+res://ScenesScripts/map_details/NPCs/stoat.tscn
+res://ScenesScripts/map_details/NPCs/walrus.tscn

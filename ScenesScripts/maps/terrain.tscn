@@ -13,6 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://qhm8olulpagq" path="res://ScenesScripts/map_details/Tree.tscn" id="9_c5wsc"]
 [ext_resource type="PackedScene" uid="uid://qhqyf8g62j0l" path="res://ScenesScripts/map_details/IglooFlipped.tscn" id="10_mmvk3"]
 [ext_resource type="PackedScene" uid="uid://0pqfuhfbtdou" path="res://ScenesScripts/map_details/Hospital.tscn" id="11_8cx7f"]
+[ext_resource type="PackedScene" uid="uid://1hq4w73tiv6o" path="res://ScenesScripts/map_details/NPCs/penguin.tscn" id="14_ivhd4"]
+[ext_resource type="PackedScene" uid="uid://c8gwcgr8a3vwk" path="res://ScenesScripts/map_details/NPCs/biggie.tscn" id="15_1vykt"]
+[ext_resource type="PackedScene" uid="uid://chyh317j82qcv" path="res://ScenesScripts/map_details/NPCs/stoat.tscn" id="16_md6h6"]
+[ext_resource type="PackedScene" uid="uid://bjojwhcaqarxg" path="res://ScenesScripts/map_details/NPCs/walrus.tscn" id="17_v75sd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tbw4b"]
 animations = [{
@@ -34,6 +38,7 @@ scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_tbw4b")
 
 [node name="TerrainLogic" type="Node2D" parent="AnimatedSprite2D" unique_id=870564470]
+visible = false
 
 [node name="sliding_path" parent="AnimatedSprite2D/TerrainLogic" unique_id=436615094 instance=ExtResource("5_tls4m")]
 position = Vector2(-2008.0001, 2184.001)
@@ -1204,7 +1209,7 @@ position = Vector2(-2005.3335, 2568)
 scale = Vector2(0.20000002, 0.20000002)
 
 [node name="Snowman2" parent="AnimatedSprite2D/Decorations" unique_id=30445679 instance=ExtResource("9_28rv2")]
-position = Vector2(-938.66675, 596.0005)
+position = Vector2(-2676, -1252)
 scale = Vector2(0.20000002, 0.20000002)
 
 [node name="Tree" parent="AnimatedSprite2D/Decorations" unique_id=438247434 instance=ExtResource("9_c5wsc")]
@@ -1306,3 +1311,16 @@ scale = Vector2(0.4, 0.4)
 [node name="Hospital" parent="AnimatedSprite2D" unique_id=1785523556 instance=ExtResource("11_8cx7f")]
 position = Vector2(149.3335, 977.3334)
 scale = Vector2(0.5, 0.5)
+
+[node name="NPC" parent="AnimatedSprite2D" unique_id=1433705664 instance=ExtResource("14_ivhd4")]
+position = Vector2(-1717.3333, 2418.6667)
+
+[node name="NPC2" parent="AnimatedSprite2D" unique_id=1597532318 instance=ExtResource("15_1vykt")]
+position = Vector2(-2280, -876.00006)
+
+[node name="NPC3" parent="AnimatedSprite2D" unique_id=273226008 instance=ExtResource("16_md6h6")]
+position = Vector2(-207.99991, 1129.3333)
+
+[node name="NPC4" parent="AnimatedSprite2D" unique_id=1176660810 instance=ExtResource("17_v75sd")]
+position = Vector2(1511.9999, -1380.0001)
+scale = Vector2(2, 2)

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://u5xbrine5bmu" path="res://ScenesScripts/map_details/Logic/Border.tscn" id="4_jwybu"]
 [ext_resource type="PackedScene" uid="uid://fyvp3lkrmjst" path="res://ScenesScripts/map_details/Logic/sliding_path.tscn" id="5_tls4m"]
 [ext_resource type="PackedScene" uid="uid://c4jq2d4het1q6" path="res://ScenesScripts/map_details/Logic/ocean.tscn" id="6_ffyxw"]
-[ext_resource type="PackedScene" uid="uid://16ttks3tej1j" path="res://ScenesScripts/map_details/NPC.tscn" id="7_53r6u"]
+[ext_resource type="PackedScene" uid="uid://16ttks3tej1j" path="res://ScenesScripts/map_details/NPCs/NPC.tscn" id="7_53r6u"]
 [ext_resource type="PackedScene" uid="uid://coqwqsdd178lr" path="res://ScenesScripts/map_details/Logic/cliff.tscn" id="8_2y8b0"]
 [ext_resource type="PackedScene" uid="uid://ctvw3oqfu80ka" path="res://ScenesScripts/map_details/Logic/ocean_circle.tscn" id="9_6qeay"]
 [ext_resource type="PackedScene" uid="uid://cyejm51urx6gj" path="res://ScenesScripts/map_details/Logic/sliding_path_circle.tscn" id="10_dfj4g"]

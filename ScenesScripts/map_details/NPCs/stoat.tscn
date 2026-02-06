@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://chyh317j82qcv"]
+
+[ext_resource type="Script" uid="uid://eyulq1biiyp0" path="res://ScenesScripts/map_details/NPCs/stoat.gd" id="1_rxd6p"]
+[ext_resource type="PackedScene" uid="uid://b5gsok262pfoi" path="res://ScenesScripts/map_details/Logic/obstacle.tscn" id="2_0ptcp"]
+[ext_resource type="Texture2D" uid="uid://c5gjn20nhw3a5" path="res://Art/npcs/stoat/stoat.png" id="3_0ptcp"]
+[ext_resource type="Texture2D" uid="uid://16w6uy0wvi42" path="res://Art/npcs/stoat/stoatidle.png" id="4_c78cq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sy1ie"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0ptcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c78cq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="NPC" type="CharacterBody2D" unique_id=700283722]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_rxd6p")
+
+[node name="obstacle" parent="." unique_id=921783860 instance=ExtResource("2_0ptcp")]
+position = Vector2(-42.000004, -54.000004)
+scale = Vector2(2.1099994, 2.8125)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2004280203]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_sy1ie")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

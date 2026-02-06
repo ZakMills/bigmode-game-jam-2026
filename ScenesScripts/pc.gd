@@ -85,6 +85,7 @@ func proceed(delta):
 			#print("cliff")
 			adjust_galumph(0)
 			move_type = "splash"
+			$AudioStreamPlayer2DSplash.play()
 			splash()
 			pass
 	elif ($GroundDetector.get_overlapping_bodies().any(_ground_type_path)): # sliding path

@@ -72,6 +72,7 @@
 [ext_resource type="Texture2D" uid="uid://dmtvy6yn5ldq1" path="res://Art/pc_animations/seal_splash/s5.png" id="70_lknj3"]
 [ext_resource type="AudioStream" uid="uid://b4k8g33mjjro6" path="res://Sound/SFX/Main Character/Seal Delivery Snow Bounce.wav" id="71_hhabq"]
 [ext_resource type="AudioStream" uid="uid://depx7y3fl6vlk" path="res://Sound/SFX/Main Character/Seal Delivery Ice Slide.wav" id="71_p8a34"]
+[ext_resource type="AudioStream" uid="uid://bexe5wmplqdve" path="res://Sound/SFX/Gameplay/Splash.wav" id="73_pm4nh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_273qn"]
 animations = [{
@@ -446,6 +447,7 @@ stream = ExtResource("71_hhabq")
 stream = ExtResource("71_p8a34")
 
 [node name="AudioStreamPlayer2DSplash" type="AudioStreamPlayer2D" parent="." unique_id=101980613]
+stream = ExtResource("73_pm4nh")
 
 [node name="ReducedVision" type="Control" parent="." unique_id=1208515031]
 visible = false

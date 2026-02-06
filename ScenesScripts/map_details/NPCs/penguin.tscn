@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://1hq4w73tiv6o"]
+
+[ext_resource type="Texture2D" uid="uid://cs6bxm26i2xgo" path="res://Art/npcs/penguin/penguin.png" id="1_y3s5g"]
+[ext_resource type="Script" uid="uid://bqjhkxbwum0w1" path="res://ScenesScripts/map_details/NPCs/penguin.gd" id="1_ypp5i"]
+[ext_resource type="PackedScene" uid="uid://b5gsok262pfoi" path="res://ScenesScripts/map_details/Logic/obstacle.tscn" id="2_y3s5g"]
+[ext_resource type="Texture2D" uid="uid://bcobfwuogrvae" path="res://Art/npcs/penguin/penguinidle.png" id="2_ypp5i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sy1ie"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y3s5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ypp5i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="NPC" type="CharacterBody2D" unique_id=700283722]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_ypp5i")
+
+[node name="obstacle" parent="." unique_id=921783860 instance=ExtResource("2_y3s5g")]
+position = Vector2(-38, -54)
+scale = Vector2(2.1099994, 2.8125)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2004280203]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_sy1ie")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
