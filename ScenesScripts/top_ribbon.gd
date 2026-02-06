@@ -17,11 +17,15 @@ func _process(delta: float) -> void:
 	#print($Background.visible, "    ", $Background.color)
 	set_direction()
 	time_update()
+	#print("timer paused = ", $Time_left.is_paused())
 	pass
 
 func stop_timers():
 	$Time_left.set_paused(true)
 	$TimerWeather.set_paused(true)
+#func resume_timers():
+	#$Time_left.set_paused(false)
+	#$TimerWeather.set_paused(true)
 	
 func score_update():
 	$ScoreValue.text = str(Global.score)
@@ -29,6 +33,7 @@ func score_update():
 	pass
 
 func stage_start(time):
+	$Time_left.set_paused(false)
 	$Time_left.start(time)
 	Global.items_today = 0
 	$ItemCount.text = str(Global.items_today) + " / " + str(Stages.items_minimum[Global.day])
@@ -72,21 +77,33 @@ func _on_time_left_timeout() -> void:
 	pass # Replace with function body.
 	
 func weatherSchedule(): # schedule is between this and _on_timer_weather_timeout()
-	if Global.day == 3 || Global.day == 5:
+	if Global.day == 3:
 		$TimerWeather.start(Global.day_length / 3) # will turn blizzard on
+		weather_on = false # but it is currently off
+	if Global.day == 5:
+		$TimerWeather.start(Global.day_length / 6) # will turn blizzard on
 		weather_on = false # but it is currently off
 		
 	pass
 
 
 func _on_timer_weather_timeout() -> void:
-	if Global.day == 3 || Global.day == 5:
+	if Global.day == 3:
 		if !(weather_on): # weather turns on
 			$TimerWeather.start(Global.day_length / 3)
 			weather_on = true
 			Global.blizzard(true)
 		elif weather_on: # weather turns off
-			$TimerWeather.start(Global.day_length / 3)
+			#$TimerWeather.start(Global.day_length / 3)
+			weather_on = false
+			Global.blizzard(false)
+	if Global.day == 5:
+		if !(weather_on): # weather turns on
+			$TimerWeather.start(4*Global.day_length / 6)
+			weather_on = true
+			Global.blizzard(true)
+		elif weather_on: # weather turns off
+			#$TimerWeather.start(Global.day_length / 3)
 			weather_on = false
 			Global.blizzard(false)
 			

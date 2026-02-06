@@ -6,8 +6,9 @@
 [ext_resource type="Script" uid="uid://b2l3u53qs8isy" path="res://ScenesScripts/menus/main_menu_instructions.gd" id="3_apcrb"]
 [ext_resource type="Script" uid="uid://plisdn7xdw47" path="res://ScenesScripts/menus/main_menu_credits.gd" id="4_dh3vc"]
 [ext_resource type="FontFile" uid="uid://dedqmdyx263yq" path="res://Art/UI/LoveYaLikeASister-Regular.ttf" id="4_krchw"]
-[ext_resource type="AudioStream" uid="uid://bpplissckwg5k" path="res://Sound/Music/MP3 versions/Menu-170bpm-loopB97.mp3" id="5_hif6h"]
+[ext_resource type="Texture2D" uid="uid://vgea1267k1de" path="res://Art/UI/sealtitlescreen.png" id="4_l1vyq"]
 [ext_resource type="Texture2D" uid="uid://ctsw2qu41off3" path="res://Art/deliveries_/feesh.png" id="6_gmsyi"]
+[ext_resource type="Texture2D" uid="uid://ccpdynpuvppjd" path="res://Art/UI/waxseal.png" id="6_xorbr"]
 [ext_resource type="Texture2D" uid="uid://dlq0k2lyj6nrt" path="res://Art/buildings-plants-obstacles/igloo.png" id="7_l1vyq"]
 [ext_resource type="Texture2D" uid="uid://b4ogx2fb78qcv" path="res://Art/UI/PLACEHOLDER_Arrow.png" id="8_xorbr"]
 
@@ -40,6 +41,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_qgc0b")
 
+[node name="BG" type="Sprite2D" parent="Main" unique_id=530004585]
+position = Vector2(576, 324)
+texture = ExtResource("4_l1vyq")
+
 [node name="PanelContainer" type="PanelContainer" parent="Main" unique_id=378112058]
 visible = false
 modulate = Color(1, 1, 1, 0.67058825)
@@ -50,27 +55,12 @@ offset_top = 50.0
 offset_right = 976.0
 offset_bottom = 600.0
 
-[node name="Title" type="RichTextLabel" parent="Main" unique_id=78895829]
-layout_mode = 0
-offset_left = 209.0
-offset_top = 77.0
-offset_right = 959.0
-offset_bottom = 164.0
-theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
-theme_override_constants/outline_size = 5
-theme_override_fonts/normal_font = ExtResource("4_krchw")
-theme_override_font_sizes/normal_font_size = 48
-text = "Signed Seal-Delivered"
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Start" type="RichTextLabel" parent="Main" unique_id=882973869]
 layout_mode = 0
-offset_left = 426.0
-offset_top = 167.0
-offset_right = 726.0
-offset_bottom = 237.0
+offset_left = 789.0
+offset_top = 298.0
+offset_right = 1089.0
+offset_bottom = 368.0
 pivot_offset = Vector2(150, 0)
 theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
 theme_override_constants/outline_size = 5
@@ -83,10 +73,10 @@ vertical_alignment = 1
 
 [node name="Score" type="RichTextLabel" parent="Main" unique_id=1012739152]
 layout_mode = 0
-offset_left = 680.0
-offset_top = 164.0
-offset_right = 990.0
-offset_bottom = 234.0
+offset_left = 776.0
+offset_top = 220.0
+offset_right = 1086.0
+offset_bottom = 290.0
 pivot_offset = Vector2(150, 0)
 theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
 theme_override_constants/outline_size = 5
@@ -113,10 +103,10 @@ vertical_alignment = 1
 
 [node name="Instructions" type="RichTextLabel" parent="Main" unique_id=2095341716]
 layout_mode = 0
-offset_left = 426.0
-offset_top = 247.0
-offset_right = 726.0
-offset_bottom = 317.0
+offset_left = 791.0
+offset_top = 363.0
+offset_right = 1091.0
+offset_bottom = 433.0
 pivot_offset = Vector2(150, 0)
 theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
 theme_override_constants/outline_size = 5
@@ -129,10 +119,10 @@ vertical_alignment = 1
 
 [node name="Options" type="RichTextLabel" parent="Main" unique_id=1084927648]
 layout_mode = 0
-offset_left = 426.0
-offset_top = 333.0
-offset_right = 726.0
-offset_bottom = 403.0
+offset_left = 789.0
+offset_top = 429.0
+offset_right = 1089.0
+offset_bottom = 499.0
 pivot_offset = Vector2(150, 0)
 theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
 theme_override_constants/outline_size = 5
@@ -146,10 +136,10 @@ vertical_alignment = 1
 
 [node name="Credits" type="RichTextLabel" parent="Main" unique_id=977801869]
 layout_mode = 0
-offset_left = 426.0
-offset_top = 422.0
-offset_right = 726.0
-offset_bottom = 492.0
+offset_left = 789.0
+offset_top = 492.0
+offset_right = 1089.0
+offset_bottom = 562.0
 pivot_offset = Vector2(150, 0)
 theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
 theme_override_constants/outline_size = 5
@@ -163,10 +153,10 @@ vertical_alignment = 1
 
 [node name="Exit" type="RichTextLabel" parent="Main" unique_id=11866831]
 layout_mode = 0
-offset_left = 426.0
-offset_top = 507.0
-offset_right = 726.0
-offset_bottom = 577.0
+offset_left = 788.0
+offset_top = 560.0
+offset_right = 1088.0
+offset_bottom = 630.0
 pivot_offset = Vector2(150, 0)
 theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
 theme_override_constants/outline_size = 5
@@ -177,75 +167,30 @@ tab_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CursorStart" type="RichTextLabel" parent="Main" unique_id=324480545]
-layout_mode = 0
-offset_left = 468.0
-offset_top = 166.0
-offset_right = 519.0
-offset_bottom = 236.0
-theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/normal_font_size = 30
-text = ">"
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CursorStart" type="Sprite2D" parent="Main" unique_id=977927335]
+position = Vector2(876.00006, 333.00003)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("6_xorbr")
 
-[node name="CursorInstructions" type="RichTextLabel" parent="Main" unique_id=360342821]
-layout_mode = 0
-offset_left = 417.0
-offset_top = 246.0
-offset_right = 468.0
-offset_bottom = 316.0
-theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/normal_font_size = 30
-text = ">"
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CursorInstructions" type="Sprite2D" parent="Main" unique_id=1071165736]
+position = Vector2(828.00006, 398.00003)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("6_xorbr")
 
-[node name="CursorOptions" type="RichTextLabel" parent="Main" unique_id=1461233908]
-layout_mode = 0
-offset_left = 433.0
-offset_top = 327.0
-offset_right = 484.0
-offset_bottom = 397.0
-theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/normal_font_size = 30
-text = ">"
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CursorOptions" type="Sprite2D" parent="Main" unique_id=1086972984]
+position = Vector2(865.00006, 464.00003)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("6_xorbr")
 
-[node name="CursorCredits" type="RichTextLabel" parent="Main" unique_id=18040691]
-layout_mode = 0
-offset_left = 448.0
-offset_top = 416.0
-offset_right = 499.0
-offset_bottom = 486.0
-theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/normal_font_size = 30
-text = ">"
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CursorCredits" type="Sprite2D" parent="Main" unique_id=1870134574]
+position = Vector2(862.00006, 527.00006)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("6_xorbr")
 
-[node name="CursorExit" type="RichTextLabel" parent="Main" unique_id=723210274]
-layout_mode = 0
-offset_left = 479.0
-offset_top = 507.0
-offset_right = 530.0
-offset_bottom = 577.0
-theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/normal_font_size = 30
-text = ">"
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CursorExit" type="Sprite2D" parent="Main" unique_id=433961384]
+position = Vector2(884.00006, 593)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("6_xorbr")
 
 [node name="Instructions" type="Control" parent="." unique_id=1348907917]
 visible = false
@@ -364,6 +309,27 @@ position = Vector2(864, 264)
 rotation = 3.1415927
 texture = ExtResource("8_xorbr")
 
+[node name="Exit2" type="RichTextLabel" parent="Instructions" unique_id=189680424]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 520.0
+offset_right = 740.0
+offset_bottom = 590.0
+pivot_offset = Vector2(150, 0)
+theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("4_krchw")
+theme_override_font_sizes/normal_font_size = 30
+text = "Back"
+tab_size = 6
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CursorExit2" type="Sprite2D" parent="Instructions" unique_id=1138416350]
+position = Vector2(526.00006, 554)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("6_xorbr")
+
 [node name="Credits" type="Control" parent="." unique_id=1944090346]
 visible = false
 anchors_preset = 0
@@ -407,7 +373,7 @@ theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.48627
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("4_krchw")
 theme_override_font_sizes/normal_font_size = 30
-text = "SobMasoon - Sound Effects, "
+text = "SobMasoon - Sound Design, QA"
 tab_size = 6
 
 [node name="Instructions" type="RichTextLabel" parent="Credits" unique_id=1146594438]
@@ -421,7 +387,7 @@ theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.48627
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("4_krchw")
 theme_override_font_sizes/normal_font_size = 30
-text = "ivy_tvq - Music, Sound Effects"
+text = "Amoeba Girl - Music"
 tab_size = 6
 
 [node name="Options" type="RichTextLabel" parent="Credits" unique_id=800463593]
@@ -435,7 +401,7 @@ theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.48627
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("4_krchw")
 theme_override_font_sizes/normal_font_size = 30
-text = "bonnacon - art"
+text = "Daisy / puppypal - art"
 tab_size = 6
 
 [node name="Credits" type="RichTextLabel" parent="Credits" unique_id=2045250567]
@@ -498,29 +464,7 @@ tab_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CursorExit" type="RichTextLabel" parent="Credits" unique_id=1247608032]
-layout_mode = 0
-offset_left = 489.0
-offset_top = 519.0
-offset_right = 540.0
-offset_bottom = 589.0
-theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/normal_font_size = 30
-text = ">"
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MenuMusic" type="AudioStreamPlayer2D" parent="." unique_id=631883446]
-stream = ExtResource("5_hif6h")
-
-[node name="MenuMusic2" type="AudioStreamPlayer2D" parent="." unique_id=436894935]
-stream = ExtResource("5_hif6h")
-
-[node name="Timer" type="Timer" parent="." unique_id=935846431]
-
-[connection signal="finished" from="MenuMusic" to="." method="_on_menu_music_finished"]
-[connection signal="finished" from="MenuMusic2" to="." method="_on_menu_music_finished"]
-[connection signal="finished" from="MenuMusic2" to="." method="_on_menu_music_2_finished"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="CursorExit" type="Sprite2D" parent="Credits" unique_id=1036455473]
+position = Vector2(526.00006, 554)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("6_xorbr")

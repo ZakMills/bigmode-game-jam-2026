@@ -1,8 +1,8 @@
 extends Node
 # Separated out from Globals for length
 
-var dropoff = [Vector2(-79,-168),Vector2(-2853, 2684.0),Vector2(0,0),Vector2(0,0),Vector2(0,0),Vector2(0,0)]
-var items_minimum : Array[int] = [1, 1, 1, 1, 1, 1]
+var dropoff = [Vector2(-79,-168),Vector2(-2853, 2574.0),Vector2(0,0),Vector2(0,0),Vector2(0,0),Vector2(0,0)]
+var items_minimum : Array[int] = [1, 1, 2, 3, 4, 5]
 var items_starting = [Vector2(195.0, -175.0),Vector2(0,0),Vector2(0,0),Vector2(0,0),Vector2(0,0),Vector2(0,0)]
 @onready var stage_transition : bool = false
 
@@ -26,17 +26,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func start_day():
-	if (Global.day == 0):
-		pass
-	if (Global.day == 1):
-		pass
-	if (Global.day == 1):
-		pass
-	if (Global.day == 1):
-		pass
-	if (Global.day == 1):
-		pass
-	if (Global.day == 1):
-		pass
-	pass
+#func start_day():
+	#if (Global.day == 0):
+		#pass
+	#if (Global.day == 1):
+		#pass
+	#if (Global.day == 1):
+		#pass
+	#if (Global.day == 1):
+		#pass
+	#if (Global.day == 1):
+		#pass
+	#if (Global.day == 1):
+		#pass
+	#pass

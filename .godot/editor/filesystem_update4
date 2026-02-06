@@ -5,3 +5,17 @@ res://ScenesScripts/menus/options_menu.gd
 res://ScenesScripts/Global.gd
 res://ScenesScripts/menus/main_menu.tscn
 res://ScenesScripts/menus/main_menu_main.gd
+res://ScenesScripts/maps/terrain.tscn
+res://ScenesScripts/maps/terrain.gd
+res://ScenesScripts/menus/transition.tscn
+res://ScenesScripts/pc.tscn
+res://ScenesScripts/pc.gd
+res://ScenesScripts/Stages.gd
+res://ScenesScripts/top_ribbon.gd
+res://ScenesScripts/top_ribbon.tscn
+res://ScenesScripts/main.tscn
+res://ScenesScripts/menus/transition.gd
+res://ScenesScripts/menus/pause_menu.gd
+res://ScenesScripts/menus/pause_menu.tscn
+res://ScenesScripts/map_details/Igloo.tscn
+res://ScenesScripts/map_details/IglooFlipped.tscn

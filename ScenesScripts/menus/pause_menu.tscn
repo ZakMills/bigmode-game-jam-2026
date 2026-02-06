@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://uy7bnh86qjrb"]
+[gd_scene format=3 uid="uid://uy7bnh86qjrb"]
 
 [ext_resource type="Script" uid="uid://c7nywrtie70v7" path="res://ScenesScripts/menus/pause_menu.gd" id="1_r6k0e"]
+[ext_resource type="Texture2D" uid="uid://ccpdynpuvppjd" path="res://Art/UI/waxseal.png" id="2_f7tx1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pwyjb"]
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" unique_id=346810382]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -14,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r6k0e")
 
-[node name="MainMenuMask" type="ColorRect" parent="."]
+[node name="MainMenuMask" type="ColorRect" parent="." unique_id=483277520]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -24,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 1, 1, 1)
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=854733386]
 modulate = Color(1, 1, 1, 0.67058825)
 material = SubResource("ShaderMaterial_pwyjb")
 layout_mode = 0
@@ -33,7 +34,7 @@ offset_top = 127.0
 offset_right = 870.0
 offset_bottom = 543.0
 
-[node name="Title" type="RichTextLabel" parent="."]
+[node name="Title" type="RichTextLabel" parent="." unique_id=863715136]
 layout_mode = 0
 offset_left = 472.0
 offset_top = 138.0
@@ -45,7 +46,7 @@ tab_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Resume" type="RichTextLabel" parent="."]
+[node name="Resume" type="RichTextLabel" parent="." unique_id=815503348]
 layout_mode = 0
 offset_left = 472.0
 offset_top = 204.0
@@ -57,7 +58,7 @@ tab_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Options" type="RichTextLabel" parent="."]
+[node name="Options" type="RichTextLabel" parent="." unique_id=1806214788]
 layout_mode = 0
 offset_left = 472.0
 offset_top = 262.0
@@ -69,7 +70,7 @@ tab_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QuittoMain" type="RichTextLabel" parent="."]
+[node name="QuittoMain" type="RichTextLabel" parent="." unique_id=883331037]
 layout_mode = 0
 offset_left = 472.0
 offset_top = 321.0
@@ -81,7 +82,7 @@ tab_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ExitGame" type="RichTextLabel" parent="."]
+[node name="ExitGame" type="RichTextLabel" parent="." unique_id=62199489]
 layout_mode = 0
 offset_left = 472.0
 offset_top = 379.0
@@ -93,54 +94,22 @@ tab_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CursorResume" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 354.0
-offset_top = 204.0
-offset_right = 548.0
-offset_bottom = 274.0
-theme_override_font_sizes/normal_font_size = 30
-text = ">
-"
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CursorResume" type="Sprite2D" parent="." unique_id=1500119153]
+position = Vector2(490.00003, 243.00002)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("2_f7tx1")
 
-[node name="CursorOptions" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 354.0
-offset_top = 262.0
-offset_right = 548.0
-offset_bottom = 332.0
-theme_override_font_sizes/normal_font_size = 30
-text = ">
-"
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CursorOptions" type="Sprite2D" parent="." unique_id=577580206]
+position = Vector2(489.00003, 300)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("2_f7tx1")
 
-[node name="CursorQuit" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 354.0
-offset_top = 321.0
-offset_right = 548.0
-offset_bottom = 391.0
-theme_override_font_sizes/normal_font_size = 30
-text = ">
-"
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CursorQuit" type="Sprite2D" parent="." unique_id=493124661]
+position = Vector2(454, 361)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("2_f7tx1")
 
-[node name="CursorExit" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 354.0
-offset_top = 379.0
-offset_right = 548.0
-offset_bottom = 449.0
-theme_override_font_sizes/normal_font_size = 30
-text = ">
-"
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CursorExit" type="Sprite2D" parent="." unique_id=1562318390]
+position = Vector2(472, 417)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("2_f7tx1")

@@ -17,7 +17,8 @@ var blizzard_on : bool = false
 var carrying_item : bool = false
 var items_today : int = 0
 @onready var day : int = 0 # 0 for test, then 1-5.
-var day_length : float = 15
+var day_length : float = 90
+var pausable : bool = false
 
 
 # Stages.gd contains:
@@ -28,10 +29,17 @@ var day_length : float = 15
 # main.gd contains most methods that involve logic that crosses scenes, after coming through here.
 
 func stage_over():
+	pausable = false
 	get_tree().paused = true
 	Stages.stage_transition = true
 	carrying_item = false
 	fade_out()
+	main.reset_audio() # TODO: fade_out
+	if (items_today >= Stages.items_minimum[day]):
+		transition_music_play(true)
+	else:
+		transition_music_play(false)
+	#Global.stage_music_pausing(true)
 	# TODO: make PC drop item.
 	#evaluate()
 func stage_load():
@@ -57,7 +65,7 @@ func evaluate(): # check if player won/lost level
 			#main.eval_success()
 			pass
 		else:
-			print("reset score")
+			#print("reset score")
 			score = score_saved
 			main.stage_fail()
 			pass
@@ -70,14 +78,14 @@ func evaluate(): # check if player won/lost level
 			
 	pass
 func stage_next():
-	print("stage_next")
+	#print("stage_next")
 	if (!test):
 		#day += 1
 		score_high_update()
 		score_saved = score
 	stage_load()
 func stage_retry():
-	print("stage_retry")
+	#print("stage_retry")
 	score = score_saved
 	stage_load()
 	pass
@@ -169,15 +177,29 @@ func add_item():
 	
 func blizzard(on):
 	main.blizzard(on)
+
+func music_vol():
+	main.music_vol() # volume_music
 	
 func music_start():
+	#print("global, music start")
 	main.music_start()
 # Called when the node enters the scene tree for the first time.
+	
+func transition_music_play(victory : bool):
+	main.transition_music_play(victory)
+func transition_music_stop():
+	main.transition_music_stop()
+
+
+
+
+func stage_music_pausing(is_paused):
+	main.stage_music_pausing(is_paused)
+
+
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	pass # Replace with function body.	
 func _process(delta: float) -> void:
 	pass
 

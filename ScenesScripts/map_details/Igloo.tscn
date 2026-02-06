@@ -6,8 +6,16 @@
 [node name="Igloo" type="Node2D" unique_id=585127459]
 
 [node name="obstacle" parent="." unique_id=93409579 instance=ExtResource("1_dcv3k")]
-position = Vector2(-508, -118.00001)
-scale = Vector2(25.143356, 11.680002)
+position = Vector2(-532, -313.99997)
+scale = Vector2(26.143356, 16.920006)
+
+[node name="obstacle2" parent="." unique_id=2123034522 instance=ExtResource("1_dcv3k")]
+position = Vector2(-371.00003, -403.00003)
+scale = Vector2(18.864899, 5.947663)
+
+[node name="obstacle3" parent="." unique_id=1678712286 instance=ExtResource("1_dcv3k")]
+position = Vector2(-258, -472.00003)
+scale = Vector2(13.187633, 4.431446)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2092591964]
 texture = ExtResource("2_r2x0j")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2t6kdi26ojwa"
+path="res://.godot/imported/Lose Theme.mp3-4a2900dfa0e406a9018ae7bc0911d449.mp3str"
+
+[deps]
+
+source_file="res://Sound/Music/MP3 versions/Lose Theme.mp3"
+dest_files=["res://.godot/imported/Lose Theme.mp3-4a2900dfa0e406a9018ae7bc0911d449.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

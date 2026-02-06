@@ -9,7 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (Input.is_action_just_pressed("pause") && Global.mode == 3): # meaning in the game
+	if (Input.is_action_just_pressed("pause") && Global.mode == 3 && Global.pausable): # meaning in the game
 		if(get_tree().paused):
 			resume()
 		else:
@@ -65,7 +65,10 @@ func pause():
 	for each in cursors:
 		each.visible = false
 	cursors[cursor].visible = true
+	Global.stage_music_pausing(true)
+	
 func resume():
 	get_tree().paused = false	
 	#print("resuming")
 	visible = false
+	Global.stage_music_pausing(false)

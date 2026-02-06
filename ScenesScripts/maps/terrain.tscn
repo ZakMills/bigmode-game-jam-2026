@@ -33,12 +33,11 @@ animations = [{
 script = ExtResource("1_tbw4b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1361751644]
-position = Vector2(1908, -1995)
-scale = Vector2(0.75, 0.75)
+position = Vector2(1286, -1310)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_tbw4b")
 
 [node name="TerrainLogic" type="Node2D" parent="AnimatedSprite2D" unique_id=870564470]
-visible = false
 
 [node name="sliding_path" parent="AnimatedSprite2D/TerrainLogic" unique_id=436615094 instance=ExtResource("5_tls4m")]
 position = Vector2(-2008.0001, 2184.001)
@@ -1205,122 +1204,125 @@ scale = Vector2(11.869894, -7.141526)
 [node name="Decorations" type="Node2D" parent="AnimatedSprite2D" unique_id=25574317]
 
 [node name="Snowman" parent="AnimatedSprite2D/Decorations" unique_id=1132507594 instance=ExtResource("9_28rv2")]
-position = Vector2(-2005.3335, 2568)
-scale = Vector2(0.20000002, 0.20000002)
+position = Vector2(-1896.0001, 2596)
+scale = Vector2(0.35, 0.35)
 
 [node name="Snowman2" parent="AnimatedSprite2D/Decorations" unique_id=30445679 instance=ExtResource("9_28rv2")]
-position = Vector2(-2676, -1252)
-scale = Vector2(0.20000002, 0.20000002)
+position = Vector2(-2798, -1234)
+scale = Vector2(0.35, 0.35)
 
 [node name="Tree" parent="AnimatedSprite2D/Decorations" unique_id=438247434 instance=ExtResource("9_c5wsc")]
 position = Vector2(-2568, 2149.3333)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree2" parent="AnimatedSprite2D/Decorations" unique_id=2098092485 instance=ExtResource("9_c5wsc")]
 position = Vector2(-1526.6667, 1304)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree3" parent="AnimatedSprite2D/Decorations" unique_id=1126471172 instance=ExtResource("9_c5wsc")]
 position = Vector2(-3052, -902.66656)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree5" parent="AnimatedSprite2D/Decorations" unique_id=1633811322 instance=ExtResource("9_c5wsc")]
 position = Vector2(-3089.3333, -761.33325)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree4" parent="AnimatedSprite2D/Decorations" unique_id=228385585 instance=ExtResource("9_c5wsc")]
 position = Vector2(-2978.6667, -694.66656)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree6" parent="AnimatedSprite2D/Decorations" unique_id=199207392 instance=ExtResource("9_c5wsc")]
 position = Vector2(-3070.6667, -590.66656)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree7" parent="AnimatedSprite2D/Decorations" unique_id=1241894294 instance=ExtResource("9_c5wsc")]
 position = Vector2(-2972, -443.9999)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree17" parent="AnimatedSprite2D/Decorations" unique_id=1421201953 instance=ExtResource("9_c5wsc")]
-position = Vector2(2167.9995, 362.66672)
-scale = Vector2(0.3, 0.3)
+position = Vector2(2167.9995, 434.66675)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree18" parent="AnimatedSprite2D/Decorations" unique_id=336055894 instance=ExtResource("9_c5wsc")]
-position = Vector2(2042.6669, 416.00006)
-scale = Vector2(0.3, 0.3)
+position = Vector2(2042.667, 488.00024)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree19" parent="AnimatedSprite2D/Decorations" unique_id=983125217 instance=ExtResource("9_c5wsc")]
-position = Vector2(2222.6667, 488.00006)
-scale = Vector2(0.3, 0.3)
+position = Vector2(2222.667, 560.00024)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree8" parent="AnimatedSprite2D/Decorations" unique_id=1881292172 instance=ExtResource("9_c5wsc")]
 position = Vector2(2401.333, -609.33325)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree9" parent="AnimatedSprite2D/Decorations" unique_id=56330373 instance=ExtResource("9_c5wsc")]
 position = Vector2(42.666763, -3169.3333)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree10" parent="AnimatedSprite2D/Decorations" unique_id=408818038 instance=ExtResource("9_c5wsc")]
 position = Vector2(141.33344, -3070.6665)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree11" parent="AnimatedSprite2D/Decorations" unique_id=2037860772 instance=ExtResource("9_c5wsc")]
 position = Vector2(-23.999893, -3021.3333)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree14" parent="AnimatedSprite2D/Decorations" unique_id=1835805103 instance=ExtResource("9_c5wsc")]
 position = Vector2(141.33344, -2893.3333)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree15" parent="AnimatedSprite2D/Decorations" unique_id=1969728356 instance=ExtResource("9_c5wsc")]
 position = Vector2(-17.333221, -2825.3333)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree16" parent="AnimatedSprite2D/Decorations" unique_id=1526719540 instance=ExtResource("9_c5wsc")]
 position = Vector2(-1030.6665, -1614.6666)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree12" parent="AnimatedSprite2D/Decorations" unique_id=1894390707 instance=ExtResource("9_c5wsc")]
 position = Vector2(276.00006, -3052)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tree13" parent="AnimatedSprite2D/Decorations" unique_id=57083725 instance=ExtResource("9_c5wsc")]
 position = Vector2(276.00006, -3052)
-scale = Vector2(0.3, 0.3)
-
-[node name="Igloo" parent="AnimatedSprite2D" unique_id=585127459 instance=ExtResource("8_3fjxh")]
-position = Vector2(-2953.3333, 2584)
-scale = Vector2(0.40000004, 0.40000004)
-
-[node name="Igloo2" parent="AnimatedSprite2D" unique_id=1998589217 instance=ExtResource("8_3fjxh")]
-position = Vector2(1423.9998, 933.33325)
-scale = Vector2(0.40000004, 0.40000004)
-
-[node name="IglooFlip" parent="AnimatedSprite2D" unique_id=1927290786 instance=ExtResource("10_mmvk3")]
-position = Vector2(-1476, 2200.0002)
-scale = Vector2(0.4, 0.4)
-
-[node name="IglooFlip2" parent="AnimatedSprite2D" unique_id=1586019469 instance=ExtResource("10_mmvk3")]
-position = Vector2(-2096.0005, -1068)
-scale = Vector2(0.40000004, 0.40000004)
-
-[node name="IglooFlip3" parent="AnimatedSprite2D" unique_id=1522558246 instance=ExtResource("10_mmvk3")]
-position = Vector2(1385.3335, -957.33325)
-scale = Vector2(0.4, 0.4)
-
-[node name="Hospital" parent="AnimatedSprite2D" unique_id=1785523556 instance=ExtResource("11_8cx7f")]
-position = Vector2(149.3335, 977.3334)
 scale = Vector2(0.5, 0.5)
 
+[node name="Igloo" parent="AnimatedSprite2D" unique_id=585127459 instance=ExtResource("8_3fjxh")]
+position = Vector2(-2996, 2408)
+scale = Vector2(0.6, 0.6)
+
+[node name="Igloo2" parent="AnimatedSprite2D" unique_id=1998589217 instance=ExtResource("8_3fjxh")]
+position = Vector2(1441.9998, 849.333)
+scale = Vector2(0.6, 0.6)
+
+[node name="Igloo3" parent="AnimatedSprite2D" unique_id=223113305 instance=ExtResource("8_3fjxh")]
+position = Vector2(1432, -984)
+scale = Vector2(0.6, 0.6)
+
+[node name="IglooFlip" parent="AnimatedSprite2D" unique_id=1927290786 instance=ExtResource("10_mmvk3")]
+position = Vector2(-1374, 2200)
+scale = Vector2(0.6, 0.6)
+
+[node name="IglooFlip2" parent="AnimatedSprite2D" unique_id=1586019469 instance=ExtResource("10_mmvk3")]
+position = Vector2(-2118, -1136)
+scale = Vector2(0.6, 0.6)
+
+[node name="Hospital" parent="AnimatedSprite2D" unique_id=1785523556 instance=ExtResource("11_8cx7f")]
+position = Vector2(219.3335, 967.3335)
+scale = Vector2(0.6, 0.6)
+
 [node name="NPC" parent="AnimatedSprite2D" unique_id=1433705664 instance=ExtResource("14_ivhd4")]
-position = Vector2(-1717.3333, 2418.6667)
+position = Vector2(-1586, 2452)
+scale = Vector2(2, 2)
 
 [node name="NPC2" parent="AnimatedSprite2D" unique_id=1597532318 instance=ExtResource("15_1vykt")]
-position = Vector2(-2280, -876.00006)
+position = Vector2(-2378, -842.00006)
+scale = Vector2(2, 2)
 
 [node name="NPC3" parent="AnimatedSprite2D" unique_id=273226008 instance=ExtResource("16_md6h6")]
-position = Vector2(-207.99991, 1129.3333)
+position = Vector2(-211.99991, 1082)
+scale = Vector2(2, 2)
 
 [node name="NPC4" parent="AnimatedSprite2D" unique_id=1176660810 instance=ExtResource("17_v75sd")]
-position = Vector2(1511.9999, -1380.0001)
-scale = Vector2(2, 2)
+position = Vector2(1488, -1380)
+scale = Vector2(2.5, 2.5)
