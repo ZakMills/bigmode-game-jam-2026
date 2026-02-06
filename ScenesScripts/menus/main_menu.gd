@@ -72,6 +72,11 @@ func menu_switch_credits():
 func hide_other_menus():
 	for each in menus:
 		each.visible = false
+	check_vis()
+	
+func check_vis():
+	#print($BG.visible, "  ", $Sprite2D.visible)
+	pass
 	
 	
 #region audio

@@ -4,7 +4,7 @@ extends Node
 var dropoff = [Vector2(-79,-168),Vector2(-2853, 2684.0),Vector2(0,0),Vector2(0,0),Vector2(0,0),Vector2(0,0)]
 var items_minimum : Array[int] = [1, 1, 1, 1, 1, 1]
 var items_starting = [Vector2(195.0, -175.0),Vector2(0,0),Vector2(0,0),Vector2(0,0),Vector2(0,0),Vector2(0,0)]
-var stage_transition : bool = false
+@onready var stage_transition : bool = false
 
 
 # Weather schedule detailed here for planning, implemented in the TopRibbon scene.

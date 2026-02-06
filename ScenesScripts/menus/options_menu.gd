@@ -24,8 +24,8 @@ func start():
 		main.get_node("MenuManager").get_node("PauseMenu").visible = false
 		#$MainMenuMask.visible = false
 		pass
-	$TextMusicVol.text = str(Global.volume_music)
-	$TextSFXVol.text = str(Global.volume_sfx)
+	$TextMusicVol.text = str(int(Global.volume_music))
+	$TextSFXVol.text = str(int(Global.volume_sfx))
 func stop():
 	#print("options top ", Global.mode)
 	if (Global.mode == 1):
@@ -44,6 +44,12 @@ func _process(delta: float) -> void:
 	if (Global.options_menu):
 		proceed()
 func proceed():
+	if (Global.mode == 3):
+		$BG.visible = false
+	elif (Global.mode == 1):
+		$BG.visible = true
+		pass
+	
 	if (Input.is_action_just_pressed("pause") && Global.mode == 3): # meaning in the game
 		#cursor = 2
 		#space()
@@ -95,22 +101,23 @@ func left():
 	#print("options Left")
 	if (cursor == 0):
 		Global.volume_music -= 1
-		$TextMusicVol.text = str(Global.volume_music)
+		$TextMusicVol.text = str(int(Global.volume_music))
 	if (cursor == 1):
 		Global.volume_sfx -= 1
-		$TextSFXVol.text = str(Global.volume_sfx)
+		$TextSFXVol.text = str(int(Global.volume_sfx))
 	pass
 func right():
 	#print("options Right")
 	if (cursor == 0):
 		Global.volume_music += 1
-		$TextMusicVol.text = str(Global.volume_music)
+		$TextMusicVol.text = str(int(Global.volume_music))
 	if (cursor == 1):
 		Global.volume_sfx += 1
-		$TextSFXVol.text = str(Global.volume_sfx)
+		$TextSFXVol.text = str(int(Global.volume_sfx))
 	pass
 func space():
 	if (cursor == 2): # Resume
+		Global.update_options_settings()
 		Global.options_menu = false
 		stop()
 		pass
