@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cfmi4ul0yaohj"]
+
+[ext_resource type="PackedScene" uid="uid://b5gsok262pfoi" path="res://ScenesScripts/map_details/Logic/obstacle.tscn" id="1_r5xa7"]
+[ext_resource type="Texture2D" uid="uid://rhng1vtxh8gp" path="res://Art/buildings-plants-obstacles/snowman.png" id="2_r5xa7"]
+
+[node name="Snowman" type="Node2D" unique_id=585127459]
+
+[node name="obstacle" parent="." unique_id=93409579 instance=ExtResource("1_r5xa7")]
+position = Vector2(-235, -260)
+scale = Vector2(12.072118, 15.576005)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2092591964]
+scale = Vector2(1.0034844, 1)
+texture = ExtResource("2_r5xa7")

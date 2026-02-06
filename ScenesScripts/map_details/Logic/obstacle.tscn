@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b5gsok262pfoi"]
+
+[ext_resource type="Script" uid="uid://kqaheg4a3lq3" path="res://ScenesScripts/map_details/Logic/obstacle.gd" id="1_chscr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6fvd"]
+size = Vector2(40, 40)
+
+[node name="obstacle" type="CharacterBody2D" unique_id=2123034522]
+physics_interpolation_mode = 2
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_chscr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1343705206]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1673450424]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_a6fvd")

@@ -5,6 +5,7 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
+	#print(get_tree().paused, "    ", $AnimationPlayer.is_playing() )
 	if (get_tree().paused && !$AnimationPlayer.is_playing()):
 		if ($ScreenSuccess.visible):
 			if Input.is_action_pressed("space"):
@@ -26,6 +27,12 @@ func _process(delta: float) -> void:
 				#print("in menu, space, ", menus[menu].name)
 				space()
 				pass
+		if ($ScreenGameWin.visible):
+			print("game win")
+			if (Input.is_action_just_pressed("space")):
+				print("game win space")
+				Global.back_to_main_menu()
+				$ScreenGameWin.visible = false
 	pass
 	
 func up():
@@ -45,7 +52,7 @@ func space():
 		Global.stage_next()
 		fadeOut()
 	pass
-	
+
 func fadeIn() -> void:
 	#print("Playing fadeIn")
 	#$FadeCurtain.visible = true 
@@ -54,9 +61,11 @@ func fadeIn() -> void:
 	$AnimationPlayer.play("Fade_in")
 	
 	# Here to fix a bug
+	#print("unpausing")
 	get_tree().paused = false
 	Global.camera_recenter()
-	await get_tree().create_timer(0.05).timeout
+	await get_tree().create_timer(0.1).timeout
+	#print("pausing again")
 	get_tree().paused = true
 	
 func fadeOut() -> void:
@@ -74,15 +83,30 @@ func fadeOut() -> void:
 func success(): 
 	$ScreenSuccess.visible = true
 	$ScreenFail.visible = false
+	$ScreenGameWin.visible = false
 func failure(): 
 	$ScreenSuccess.visible = false
 	$ScreenFail.visible = true
+	$ScreenGameWin.visible = false
 	$ScreenFail/CursorQuit.visible = false
 	$ScreenFail/CursorRetry.visible = true
+func game_win():
+	$ScreenSuccess.visible = false
+	$ScreenFail.visible = false
+	$ScreenGameWin.visible = true
+	pass
+func is_active():
+	if $ScreenSuccess.visible:
+		return true
+	if $ScreenFail.visible:
+		return true
+	if $ScreenGameWin.visible:
+		return true
+	return false
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	print("just finished ", anim_name, " transition ", Stages.stage_transition)
+	#sdprint("just finished ", anim_name, " transition ", Stages.stage_transition)
 	if (anim_name == "Fade_out"):
 		if (Stages.stage_transition):
 			Global.evaluate()
@@ -96,9 +120,10 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	#Conductor.curtainCall(anim_name)
 	#print("curtainCall ", anim_name)
 	if (anim_name == "Fade_in"):
-		if ($ScreenSuccess.visible == false && $ScreenFail.visible == false):
+		if ($ScreenSuccess.visible == false && $ScreenFail.visible == false && $ScreenGameWin.visible == false):
 			get_tree().paused = false
 			Global.cover(false)
+			Global.music_start()
 	pass
 func _on_animation_player_animation_started(anim_name: StringName) -> void:
 	get_tree().paused = true

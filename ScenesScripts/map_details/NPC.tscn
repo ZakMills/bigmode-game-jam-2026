@@ -1,21 +1,18 @@
 [gd_scene format=3 uid="uid://16ttks3tej1j"]
 
-[ext_resource type="Texture2D" uid="uid://cvrgebpbhyedi" path="res://Art/Placeholder/Placeholder1/PLACEHOLDER_Seal.png" id="1_0bq32"]
-[ext_resource type="PackedScene" uid="uid://b5gsok262pfoi" path="res://ScenesScripts/map_details/obstacle.tscn" id="2_wg5fj"]
+[ext_resource type="Texture2D" uid="uid://cvrgebpbhyedi" path="res://Art/Placeholder/Placeholder1/PLACEHOLDER_Seal.png" id="1_wg5fj"]
+[ext_resource type="PackedScene" uid="uid://b5gsok262pfoi" path="res://ScenesScripts/map_details/Logic/obstacle.tscn" id="2_ft710"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sy1ie"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_0bq32")
+"texture": ExtResource("1_wg5fj")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6fvd"]
-size = Vector2(306, 257)
 
 [node name="NPC" type="CharacterBody2D" unique_id=700283722]
 collision_layer = 8
@@ -25,10 +22,7 @@ collision_mask = 8
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_sy1ie")
 
-[node name="GivingRange" type="CollisionShape2D" parent="." unique_id=2144704552]
-shape = SubResource("RectangleShape2D_a6fvd")
-
-[node name="obstacle" parent="." unique_id=921783860 instance=ExtResource("2_wg5fj")]
+[node name="obstacle" parent="." unique_id=921783860 instance=ExtResource("2_ft710")]
 visible = false
 position = Vector2(-49, -50)
 scale = Vector2(2.5, 2.5)

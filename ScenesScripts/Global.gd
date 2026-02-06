@@ -12,11 +12,13 @@ var mode : int = 0 # 0 intro cutscene, 1 main, 2 how to play, 3 = game
 var options_menu : bool = false # options menu reached from either main or pause.
 var volume_music : float = 50.0
 var volume_sfx : float = 50.0
+var blizzard_on : bool = false
 
 var carrying_item : bool = false
 var items_today : int = 0
 var day : int = 0 # 0 for test, then 1-5.
-var day_length : float = 30
+var day_length : float = 40
+
 
 # Stages.gd contains:
 # dropoff[], the dropoff locations for each day
@@ -28,6 +30,7 @@ var day_length : float = 30
 func stage_over():
 	get_tree().paused = true
 	Stages.stage_transition = true
+	carrying_item = false
 	fade_out()
 	# TODO: make PC drop item.
 	#evaluate()
@@ -42,16 +45,19 @@ func evaluate(): # check if player won/lost level
 	#print("run evaluate")
 	if (!test):
 		if (items_today >= Stages.items_minimum[day]):
+		#if (items_today >= 1):
 			day += 1
 			if (day >= 1 && day <= 5):
 				main.stage_succ()
-			elif (day == 6):
-				pass # game complete
+			elif (day == 6): # game complete				
+				day = 1
 				main.game_win()
 				#else:
 			#main.eval_success()
 			pass
 		else:
+			print("reset score")
+			score = score_saved
 			main.stage_fail()
 			pass
 	else:
@@ -89,7 +95,7 @@ func get_pos_player() -> Vector2:
 	return main.PCRef.position
 func get_pos_destination() -> Vector2:
 	if (carrying_item): # get dropoff of that day
-		return Stages.dropoff[day]
+		return main.get_dest_pos()
 	else: # get location of item
 		return main.get_item_pos()
 		#if (!test):
@@ -137,7 +143,31 @@ func reset_PC_position():
 
 func cover(setting : bool):
 	main.cover(setting)
-
+	
+func get_item_shape() -> String:
+	if day == 0:
+		return "feesh"
+	elif day == 1:
+		return "feesh"
+	elif day == 2:
+		return "feesh"
+	elif day == 3:
+		return "feesh"
+	elif day == 4:
+		return "feesh"
+	elif day == 5:
+		return "feesh"
+	return "feesh"
+	
+func add_item():
+	main.add_item()
+	pass
+	
+func blizzard(on):
+	main.blizzard(on)
+	
+func music_start():
+	main.music_start()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

@@ -11,7 +11,7 @@ var groundType : int
 var galumphTimer : float = 0 # angle in radians.
 var galumphFrequency : float = 1 # seconds for one full galumph
 var galumphSpeed : float = 500
-var item_scene = load("res://ScenesScripts/map_details/item.tscn")
+var item_scene = load("res://ScenesScripts/map_details/Logic/item.tscn")
 var splash_mercy : bool = false
 var move_type : String = "galumph" # galumph, slide, splash, or falling
 var anim_done : bool = false
@@ -36,12 +36,14 @@ func _ready() -> void:
 func start():
 	galumphTimer = 0
 	$AnimatedSprite2D.play("gal_south")
+	$AnimatedSprite2D.stop()
 	visibility_modulate(0)
 	blizzard_coming = false
 	$ReducedVision.visible = false
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#print(position, "  and globally  ", global_position)
 	#print("global mode is ", Global.mode)
 	#print("audio timer = ", $AudioStreamPlayer2DBounce.get_playback_position())
 	if (Global.mode == 3 && $Timer.time_left == 0):
@@ -149,7 +151,7 @@ func _ground_type_ocean(body):
 	return false
 
 func _ground_type_NPC(body):
-	if body.name.contains("NPC"):
+	if body.name.contains("dropoff"):
 		return true
 	return false
 
@@ -185,9 +187,9 @@ func cliff():
 func splash():
 	
 	if (Global.carrying_item):
-		get_node("Item").queue_free()
+		get_tree().call_group("Items", "queue_free")
 		Global.carrying_item = false
-		Global.item_spawn()
+		Global.add_item()
 	$AnimatedSprite2D.set_speed_scale(3)
 	$AnimatedSprite2D.play("splash")
 	#print("speed scale 3")
@@ -338,16 +340,21 @@ func _on_timer_timeout() -> void:
 	#pass
 #region interactions
 func get_item(item: Node):
-	#print("item size = ", item.sprite_size)
 	#item.scale = 
 	#print("item scale = ", item.scale)
 	#print("scale = ", $AnimatedSprite2D.scale )
 	Global.carrying_item = true
 	var new_item = item_scene.instantiate()
+	#print("item shape = ", Global.get_item_shape())
+	new_item.scale /= $AnimatedSprite2D.scale
+	new_item.start(Global.get_item_shape())
+	
 	#print("new item scale = ", new_item.scale)
-	self.call_deferred("add_child", new_item) 
-	new_item.position.x = -(item.sprite_size.x/2)
-	new_item.position.y = -($AnimatedSprite2D.scale.y*(sprite_size.y/2)) - item.sprite_size.y
+	$AnimatedSprite2D.call_deferred("add_child", new_item) 
+	#new_item.position.x = -(item.sprite_size.x/2)
+	#new_item.position.y = -($AnimatedSprite2D.scale.y*(sprite_size.y/2)) - item.sprite_size.y
+	if (Global.get_item_shape() == "feesh"):
+		new_item.position = Vector2(0, -90*(1/$AnimatedSprite2D.scale.y))
 	#print("new item scale = ", new_item.scale)
 	#print("get_item")
 	#Global.item_get()
@@ -355,11 +362,12 @@ func get_item(item: Node):
 
 func give_item():
 	if (Global.carrying_item):
-		get_node("Item").queue_free()
+		#$AnimatedSprite2D.get_node("Item").queue_free()
+		get_tree().call_group("Items", "queue_free")
 		Global.carrying_item = false
 		Global.items_today += 1
 		Global.score_update(10)
-		Global.item_spawn()
+		Global.add_item()
 #endregion
 
 
@@ -385,9 +393,24 @@ func stop_audio():
 	$AudioStreamPlayer2DBounce.stop()
 	$AudioStreamPlayer2DSlide.stop()
 	
-		
-
-func switchVisibility(torch, blizzard):
+func toggle_torch(torch):
+	if (torch):
+		$ReducedVision/gradient.visible = false # less visibility
+		$ReducedVision/gradient2.visible = true
+	else:
+		$ReducedVision/gradient.visible = true # more visibilty
+		$ReducedVision/gradient2.visible = false
+	
+#func reset_visibility():
+	#$ReducedVision/gradient.self_modulate.a = 0
+	#$ReducedVision/gradient2.self_modulate.a = 0
+	#$ReducedVision/LeftSideBar.self_modulate.a = 0
+	#$ReducedVision/RightSideBar.self_modulate.a = 0
+	#$ReducedVision/BottomBar.self_modulate.a = 0
+	#$ReducedVision/TopBar.self_modulate.a = 0
+	#$Timer2.stop()
+	
+func switchVisibility(blizzard):
 	#print("switching, ", torch, blizzard )
 	if (bool(blizzard) != $ReducedVision.visible):
 		$Timer2.start(blizzard_fade_time)
@@ -395,12 +418,6 @@ func switchVisibility(torch, blizzard):
 		
 	if (blizzard):
 		$ReducedVision.visible = true
-		if (torch):
-			$ReducedVision/gradient.visible = false # less visibility
-			$ReducedVision/gradient2.visible = true
-		else:
-			$ReducedVision/gradient.visible = true # more visibilty
-			$ReducedVision/gradient2.visible = false
 			
 	else:
 		#$ReducedVision.visible = false
@@ -408,6 +425,8 @@ func switchVisibility(torch, blizzard):
 		#$ReducedVision/gradient2.visible = false
 		pass
 		
+func is_paused():
+	return get_tree().paused
 	
 func visibility_modulate(val):
 	$ReducedVision/gradient.self_modulate.a = val
@@ -416,4 +435,6 @@ func visibility_modulate(val):
 	$ReducedVision/RightSideBar.self_modulate.a = val
 	$ReducedVision/BottomBar.self_modulate.a = val
 	$ReducedVision/TopBar.self_modulate.a = val
+	if (val == 0):
+		$Timer2.start(.05)
 	pass

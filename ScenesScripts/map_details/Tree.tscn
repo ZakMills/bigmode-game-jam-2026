@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://qhm8olulpagq"]
+
+[ext_resource type="PackedScene" uid="uid://b5gsok262pfoi" path="res://ScenesScripts/map_details/Logic/obstacle.tscn" id="1_0c37i"]
+[ext_resource type="Texture2D" uid="uid://ca2ar8nh2dcwm" path="res://Art/buildings-plants-obstacles/tree.png" id="2_8tgvt"]
+
+[node name="Tree" type="Node2D" unique_id=438247434]
+
+[node name="obstacle" parent="." unique_id=2123034522 instance=ExtResource("1_0c37i")]
+position = Vector2(-100, 237.00002)
+scale = Vector2(4.8115916, 4.7748327)
+
+[node name="obstacle2" parent="." unique_id=1480264195 instance=ExtResource("1_0c37i")]
+position = Vector2(-348, 145)
+scale = Vector2(17.918686, 4.891422)
+
+[node name="obstacle3" parent="." unique_id=1869828425 instance=ExtResource("1_0c37i")]
+position = Vector2(-314.00003, -2)
+scale = Vector2(16.038687, 4.891422)
+
+[node name="obstacle4" parent="." unique_id=53631984 instance=ExtResource("1_0c37i")]
+position = Vector2(-248.00003, -135)
+scale = Vector2(12.918686, 4.891422)
+
+[node name="obstacle5" parent="." unique_id=1147505815 instance=ExtResource("1_0c37i")]
+position = Vector2(-204, -314)
+scale = Vector2(10.278687, 4.891422)
+
+[node name="obstacle6" parent="." unique_id=1267014322 instance=ExtResource("1_0c37i")]
+position = Vector2(-142, -443)
+scale = Vector2(7.398686, 4.891422)
+
+[node name="obstacle7" parent="." unique_id=182642895 instance=ExtResource("1_0c37i")]
+position = Vector2(-68, -560)
+scale = Vector2(3.1986861, 4.891422)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1530039468]
+texture = ExtResource("2_8tgvt")

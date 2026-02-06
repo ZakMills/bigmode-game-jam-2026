@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dmjsc2qsm8321"
+path="res://.godot/imported/Ice Thaw.wav-54ead3526971f540d271a9f1a31b0671.sample"
+
+[deps]
+
+source_file="res://Sound/SFX/NPC/Ice Thaw.wav"
+dest_files=["res://.godot/imported/Ice Thaw.wav-54ead3526971f540d271a9f1a31b0671.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

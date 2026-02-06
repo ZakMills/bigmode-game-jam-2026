@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://d36i8j1yadr2q"]
 
 [ext_resource type="Script" uid="uid://disohkogg4ud" path="res://ScenesScripts/menus/main_menu.gd" id="1_wdgn7"]
+[ext_resource type="Texture2D" uid="uid://c6trpbl7vd1a7" path="res://Art/UI/TITLE PANEL 2.png" id="2_bpe1c"]
 [ext_resource type="Script" uid="uid://1aurwjtndg0w" path="res://ScenesScripts/menus/main_menu_main.gd" id="2_qgc0b"]
 [ext_resource type="Script" uid="uid://b2l3u53qs8isy" path="res://ScenesScripts/menus/main_menu_instructions.gd" id="3_apcrb"]
 [ext_resource type="Script" uid="uid://plisdn7xdw47" path="res://ScenesScripts/menus/main_menu_credits.gd" id="4_dh3vc"]
-[ext_resource type="AudioStream" uid="uid://d1yx0kga0xfnd" path="res://Sound/Music/Drafts/Main track draft 3.wav" id="5_hif6h"]
+[ext_resource type="AudioStream" uid="uid://bpplissckwg5k" path="res://Sound/Music/MP3 versions/Menu-170bpm-loopB97.mp3" id="5_hif6h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pwyjb"]
 
@@ -24,13 +25,20 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 1, 1, 1)
 
+[node name="Sprite2D" type="Sprite2D" parent="BG" unique_id=1187468475]
+position = Vector2(576, 324)
+scale = Vector2(2, 1.3)
+texture = ExtResource("2_bpe1c")
+
 [node name="Main" type="Control" parent="." unique_id=1400223138]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_qgc0b")
 
 [node name="PanelContainer" type="PanelContainer" parent="Main" unique_id=378112058]
+visible = false
 modulate = Color(1, 1, 1, 0.67058825)
 material = SubResource("ShaderMaterial_pwyjb")
 layout_mode = 0
@@ -186,6 +194,7 @@ offset_bottom = 40.0
 script = ExtResource("3_apcrb")
 
 [node name="PanelContainer" type="PanelContainer" parent="Instructions" unique_id=1351001797]
+visible = false
 modulate = Color(1, 1, 1, 0.67058825)
 material = SubResource("ShaderMaterial_pwyjb")
 layout_mode = 0
@@ -293,6 +302,7 @@ offset_bottom = 40.0
 script = ExtResource("4_dh3vc")
 
 [node name="PanelContainer" type="PanelContainer" parent="Credits" unique_id=1529743358]
+visible = false
 modulate = Color(1, 1, 1, 0.67058825)
 material = SubResource("ShaderMaterial_pwyjb")
 layout_mode = 0
@@ -406,3 +416,13 @@ vertical_alignment = 1
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="." unique_id=631883446]
 stream = ExtResource("5_hif6h")
+
+[node name="MenuMusic2" type="AudioStreamPlayer2D" parent="." unique_id=436894935]
+stream = ExtResource("5_hif6h")
+
+[node name="Timer" type="Timer" parent="." unique_id=935846431]
+
+[connection signal="finished" from="MenuMusic" to="." method="_on_menu_music_finished"]
+[connection signal="finished" from="MenuMusic2" to="." method="_on_menu_music_finished"]
+[connection signal="finished" from="MenuMusic2" to="." method="_on_menu_music_2_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
