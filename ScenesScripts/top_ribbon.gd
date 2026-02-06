@@ -72,14 +72,15 @@ func _on_time_left_timeout() -> void:
 	pass # Replace with function body.
 	
 func weatherSchedule(): # schedule is between this and _on_timer_weather_timeout()
-	if Global.day == 3:
+	if Global.day == 3 || Global.day == 5:
 		$TimerWeather.start(Global.day_length / 3) # will turn blizzard on
 		weather_on = false # but it is currently off
+		
 	pass
 
 
 func _on_timer_weather_timeout() -> void:
-	if Global.day == 3 :
+	if Global.day == 3 || Global.day == 5:
 		if !(weather_on): # weather turns on
 			$TimerWeather.start(Global.day_length / 3)
 			weather_on = true

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c8gwcgr8a3vwk"]
+
+[ext_resource type="Script" uid="uid://obthdry8sl6s" path="res://ScenesScripts/map_details/NPCs/biggie.gd" id="1_kviru"]
+[ext_resource type="PackedScene" uid="uid://b5gsok262pfoi" path="res://ScenesScripts/map_details/Logic/obstacle.tscn" id="2_k0apu"]
+[ext_resource type="Texture2D" uid="uid://bl0n6tqdchkne" path="res://Art/npcs/biggie/biggie.png" id="3_k0apu"]
+[ext_resource type="Texture2D" uid="uid://b6uhv43g70hbg" path="res://Art/npcs/biggie/biggieidle.png" id="4_fmevd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sy1ie"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_k0apu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fmevd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="NPC" type="CharacterBody2D" unique_id=700283722]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_kviru")
+
+[node name="obstacle" parent="." unique_id=921783860 instance=ExtResource("2_k0apu")]
+position = Vector2(-36.000004, -27.000004)
+scale = Vector2(1.8549986, 1.7757354)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2004280203]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_sy1ie")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

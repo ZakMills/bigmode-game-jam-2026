@@ -7,19 +7,34 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#possible_item_pos.append(Vector2(-2170,2777)) # near your igloo
-	# SW arm
-	#possible_item_pos.append(Vector2(-1902.667,1866.667))
-	# W arm
-	#possible_item_pos.append(Vector2())
-	# N arm
-	#possible_item_pos.append(Vector2())
-	# E arm
-	#possible_item_pos.append(Vector2())
-	# SE arm
-	#possible_item_pos.append(Vector2())
+	#full_item_spawn_list()
+	pass
 	
 	pass # Replace with function body.
+func full_item_spawn_list():
+	# SW arm
+	possible_item_pos.append(Vector2(2817.334, 2221.333))
+	possible_item_pos.append(Vector2(2005.333, 1192.0))
+	possible_item_pos.append(Vector2(102.667, 1382.667))
+	possible_item_pos.append(Vector2(102.667, 598.0))
+	# W arm
+	possible_item_pos.append(Vector2(3974.666, -1158.667))
+	possible_item_pos.append(Vector2(2837.333, -878.667))
+	possible_item_pos.append(Vector2(1845.333, -569.334))
+	# N arm
+	possible_item_pos.append(Vector2(-605.333, -2446.667))
+	possible_item_pos.append(Vector2(724.001, -1100.0))
+	possible_item_pos.append(Vector2(1616.0, -1788.0))
+	# E arm
+	possible_item_pos.append(Vector2(-4292.0, -1122.667))
+	possible_item_pos.append(Vector2(-3354.667, -905.333))
+	possible_item_pos.append(Vector2(-2557.333, -992.001))
+	possible_item_pos.append(Vector2(-2526.667, 22.667))
+	# SE arm
+	possible_item_pos.append(Vector2(-1902.667, 1866.667))
+	possible_item_pos.append(Vector2(-1493.333, 566.667))
+	possible_item_pos.append(Vector2(-476.0, 486.667))
+
 
 func start():
 	#print("terrain start")

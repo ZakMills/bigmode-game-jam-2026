@@ -1,3 +1,4 @@
+Sprite2D
 AudioStreamPlayer2D
 Timer
 ColorRect
@@ -7,7 +8,6 @@ AnimatedSprite2D
 CanvasLayer
 Control
 RichTextLabel
-Sprite2D
 Area2D
 Camera2D
 CharacterBody2D
