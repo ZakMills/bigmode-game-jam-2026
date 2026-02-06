@@ -29,7 +29,7 @@ func start():
 func stop():
 	#print("options top ", Global.mode)
 	if (Global.mode == 1):
-		main.to_main_menu()
+		main.to_main_menu_keep_music()
 		#main.back_to_main_menu()
 		pass
 	elif (Global.mode == 3):
@@ -100,20 +100,26 @@ func down():
 func left():
 	#print("options Left")
 	if (cursor == 0):
-		Global.volume_music -= 1
-		$TextMusicVol.text = str(int(Global.volume_music))
+		if (Global.volume_music > 1):
+			Global.volume_music -= 1
+			$TextMusicVol.text = str(int(Global.volume_music))
 	if (cursor == 1):
-		Global.volume_sfx -= 1
-		$TextSFXVol.text = str(int(Global.volume_sfx))
+		if (Global.volume_sfx > 1):
+			Global.volume_sfx -= 1
+			$TextSFXVol.text = str(int(Global.volume_sfx))
+	Global.music_vol()
 	pass
 func right():
 	#print("options Right")
 	if (cursor == 0):
-		Global.volume_music += 1
-		$TextMusicVol.text = str(int(Global.volume_music))
+		if (Global.volume_music < 100):
+			Global.volume_music += 1
+			$TextMusicVol.text = str(int(Global.volume_music))
 	if (cursor == 1):
-		Global.volume_sfx += 1
-		$TextSFXVol.text = str(int(Global.volume_sfx))
+		if (Global.volume_sfx < 100):
+			Global.volume_sfx += 1
+			$TextSFXVol.text = str(int(Global.volume_sfx))
+	Global.music_vol()
 	pass
 func space():
 	if (cursor == 2): # Resume

@@ -15,6 +15,9 @@
 [ext_resource type="AudioStream" uid="uid://2krn31ey8p6r" path="res://Sound/Music/MP3 versions/MainTrack-140bpm-loopB117.mp3" id="13_l6irp"]
 [ext_resource type="AudioStream" uid="uid://dj165h0clnyqg" path="res://Sound/Music/MP3 versions/StartOfDayTrack.mp3" id="13_rig04"]
 [ext_resource type="AudioStream" uid="uid://dumvkbpg18y0i" path="res://Sound/Music/MP3 versions/MainTrack-snowy.mp3" id="14_rig04"]
+[ext_resource type="AudioStream" uid="uid://bpplissckwg5k" path="res://Sound/Music/MP3 versions/Menu-170bpm-loopB97.mp3" id="16_obq8c"]
+[ext_resource type="AudioStream" uid="uid://bxtm0we3eqga1" path="res://Sound/Music/MP3 versions/Win Theme.mp3" id="17_l6w82"]
+[ext_resource type="AudioStream" uid="uid://b2t6kdi26ojwa" path="res://Sound/Music/MP3 versions/Lose Theme.mp3" id="18_vh0i2"]
 
 [node name="Main" type="Node" unique_id=746219828]
 script = ExtResource("1_2buf3")
@@ -76,7 +79,7 @@ visible = false
 visible = false
 
 [node name="Music" type="Node" parent="." unique_id=1934674243]
-process_mode = 1
+process_mode = 3
 
 [node name="sfx_player" type="AudioStreamPlayer2D" parent="Music" unique_id=1690625472]
 stream = ExtResource("9_4arfj")
@@ -89,15 +92,23 @@ stream = ExtResource("13_rig04")
 
 [node name="StageMusic" type="AudioStreamPlayer2D" parent="Music" unique_id=272537816]
 stream = ExtResource("13_l6irp")
+max_distance = 20000.0
+attenuation = 1e-05
 
 [node name="StageMusic2" type="AudioStreamPlayer2D" parent="Music" unique_id=989151658]
 stream = ExtResource("13_l6irp")
+max_distance = 20000.0
+attenuation = 1e-05
 
 [node name="StageMusicBlizzard" type="AudioStreamPlayer2D" parent="Music" unique_id=999198706]
 stream = ExtResource("14_rig04")
+max_distance = 20000.0
+attenuation = 1e-05
 
 [node name="StageMusicBlizzard2" type="AudioStreamPlayer2D" parent="Music" unique_id=463877419]
 stream = ExtResource("14_rig04")
+max_distance = 20000.0
+attenuation = 1e-05
 
 [node name="MusicTimer" type="Timer" parent="Music" unique_id=2021444710]
 one_shot = true
@@ -108,8 +119,25 @@ one_shot = true
 [node name="MusicFadeTimer" type="Timer" parent="Music" unique_id=620049282]
 one_shot = true
 
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="Music" unique_id=1920262215]
+stream = ExtResource("16_obq8c")
+volume_db = -20.0
+
+[node name="MenuMusic2" type="AudioStreamPlayer2D" parent="Music" unique_id=231209566]
+stream = ExtResource("16_obq8c")
+
+[node name="MenuMusicTimer" type="Timer" parent="Music" unique_id=287080178]
+
+[node name="Win" type="AudioStreamPlayer2D" parent="Music" unique_id=1982253867]
+stream = ExtResource("17_l6w82")
+
+[node name="Lose" type="AudioStreamPlayer2D" parent="Music" unique_id=466088884]
+stream = ExtResource("18_vh0i2")
+
 [connection signal="finished" from="Music/StageMusic" to="." method="_on_stage_music_finished"]
 [connection signal="finished" from="Music/StageMusic2" to="." method="_on_stage_music_2_finished"]
 [connection signal="finished" from="Music/StageMusicBlizzard" to="." method="_on_stage_music_blizzard_finished"]
 [connection signal="finished" from="Music/StageMusicBlizzard2" to="." method="_on_stage_music_blizzard_2_finished"]
 [connection signal="timeout" from="Music/MusicTimer" to="." method="_on_music_timer_timeout"]
+[connection signal="finished" from="Music/MenuMusic" to="." method="_on_menu_music_finished"]
+[connection signal="timeout" from="Music/MenuMusicTimer" to="." method="_on_menu_music_timer_timeout"]

@@ -53,6 +53,7 @@ func _process(delta: float) -> void:
 	#print(position, "  and globally  ", global_position)
 	#print("global mode is ", Global.mode)
 	#print("audio timer = ", $AudioStreamPlayer2DBounce.get_playback_position())
+	#print("timer2 ", $Timer2.time_left)
 	if (Global.mode == 3 && $Timer.time_left == 0):
 		proceed(delta)
 	if (!$Timer2.is_stopped()):
@@ -64,7 +65,7 @@ func _process(delta: float) -> void:
 	
 	
 func proceed(delta):
-		
+	
 	var accel = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("right"):
 		accel.x += 1
@@ -195,8 +196,7 @@ func cliff():
 func splash():
 	
 	if (Global.carrying_item):
-		get_tree().call_group("Items", "queue_free")
-		Global.carrying_item = false
+		lose_item()
 		Global.add_item()
 	$AnimatedSprite2D.set_speed_scale(3)
 	$AnimatedSprite2D.play("splash")
@@ -371,11 +371,14 @@ func get_item(item: Node):
 func give_item():
 	if (Global.carrying_item):
 		#$AnimatedSprite2D.get_node("Item").queue_free()
-		get_tree().call_group("Items", "queue_free")
-		Global.carrying_item = false
+		lose_item()
 		Global.items_today += 1
 		Global.score_update(10)
 		Global.add_item()
+
+func lose_item():
+	get_tree().call_group("Items", "queue_free")
+	Global.carrying_item = false
 #endregion
 
 
@@ -418,11 +421,17 @@ func toggle_torch(torch):
 	#$ReducedVision/TopBar.self_modulate.a = 0
 	#$Timer2.stop()
 	
+func stop_sfx():
+	$AudioStreamPlayer2DBounce.stop()
+	$AudioStreamPlayer2DSlide.stop()
+	$AudioStreamPlayer2DSplash.stop()
+	
+	
 func switchVisibility(blizzard):
-	#print("switching, ", torch, blizzard )
 	if (bool(blizzard) != $ReducedVision.visible):
 		$Timer2.start(blizzard_fade_time)
 		blizzard_coming = blizzard
+	#print("switching, ", blizzard_coming, $Timer2.time_left)
 		
 	if (blizzard):
 		$ReducedVision.visible = true
@@ -437,12 +446,19 @@ func is_paused():
 	return get_tree().paused
 	
 func visibility_modulate(val):
+	#print("modulate  ", $ReducedVision/LeftSideBar.self_modulate.a )
 	$ReducedVision/gradient.self_modulate.a = val
 	$ReducedVision/gradient2.self_modulate.a = val
 	$ReducedVision/LeftSideBar.self_modulate.a = val
 	$ReducedVision/RightSideBar.self_modulate.a = val
 	$ReducedVision/BottomBar.self_modulate.a = val
 	$ReducedVision/TopBar.self_modulate.a = val
-	if (val == 0):
-		$Timer2.start(.05)
+	#if (val == 0):
+		#$Timer2.start(.05)
+	pass
+
+
+func _on_timer_2_timeout() -> void:
+	if (!blizzard_coming):
+		$ReducedVision.visible = false
 	pass

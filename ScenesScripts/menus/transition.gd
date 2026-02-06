@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 				#accel.y -= 1
 				Global.stage_next()
 				fadeOut()
+				#Global.transition_music_stop()
 				pass
 			pass # continue only
 		if ($ScreenFail.visible):
@@ -25,12 +26,14 @@ func _process(delta: float) -> void:
 				pass
 			if (Input.is_action_just_pressed("space")):
 				#print("in menu, space, ", menus[menu].name)
+				#Global.transition_music_stop()
 				space()
 				pass
 		if ($ScreenGameWin.visible):
-			print("game win")
+			#print("game win")
 			if (Input.is_action_just_pressed("space")):
-				print("game win space")
+				#print("game win space")
+				Global.transition_music_stop()
 				Global.back_to_main_menu()
 				$ScreenGameWin.visible = false
 	pass
@@ -47,6 +50,7 @@ func down():
 func space():
 	if ($ScreenFail/CursorQuit.visible):
 		$ScreenFail.visible = false
+		Global.transition_music_stop()
 		Global.back_to_main_menu()
 	elif ($ScreenFail/CursorRetry.visible):
 		Global.stage_next()
@@ -117,13 +121,16 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			Global.stage_load()
 			$ScreenSuccess.visible = false
 			$ScreenFail.visible = false
+			Global.transition_music_stop()
 	#Conductor.curtainCall(anim_name)
 	#print("curtainCall ", anim_name)
 	if (anim_name == "Fade_in"):
 		if ($ScreenSuccess.visible == false && $ScreenFail.visible == false && $ScreenGameWin.visible == false):
 			get_tree().paused = false
 			Global.cover(false)
+			#print("transition, music start")
 			Global.music_start()
+			Global.pausable = true
 	pass
 func _on_animation_player_animation_started(anim_name: StringName) -> void:
 	get_tree().paused = true

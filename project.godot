@@ -24,6 +24,10 @@ config/icon="res://icon.svg"
 Global="*uid://uk3yhuy14rol"
 Stages="*uid://dyr1d2ea7qj1j"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="GameJam2026"

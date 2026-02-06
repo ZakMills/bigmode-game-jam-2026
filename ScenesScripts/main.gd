@@ -16,6 +16,8 @@ var item_pos : Vector2
 var dest_pos : Vector2
 var music_2 : bool = false
 var music_start_point : float = 195
+var music_vol_base : float = -20
+var music_vol_current : float = -10
 
 var test : bool = false
 
@@ -39,7 +41,7 @@ func _ready() -> void:
 		map_test.queue_free()
 		Global.set_map(map_real)
 		Global.day = 1
-		item_pos = Vector2(-2406, 2857)
+		#item_pos = Vector2(-2406, 2857)
 	pass
 	
 func quiet_PC():
@@ -83,7 +85,7 @@ func stage_load():
 	
 func add_item():
 	if (test):
-		print("add item, custom pos")
+		#print("add item, custom pos")
 		#map_test.add_item(Vector2(367, -142.0))
 		map_test.add_item(Stages.items_starting[0])
 	else: # real map
@@ -114,6 +116,9 @@ func get_dest_pos() -> Vector2:
 	return Vector2.ZERO
 	
 func to_main_menu():
+	_on_menu_music_finished()
+	to_main_menu_keep_music()
+func to_main_menu_keep_music():
 	$PC.sfx_playing = false
 	mainMenu.start()
 	
@@ -125,7 +130,8 @@ func back_to_main_menu():
 	$MenuManager/MainMenu.returned = true
 	#$MenuManager/MainMenu.get_node("BG").visible = true
 	$PC.position = $PCStartPos.position #Vector2.ZERO
-	$PC.give_item()
+	$PC.lose_item()
+	$PC.stop_sfx()
 	# TODO: Reset world state
 	camera_smoothing(false)
 	#$PC/Camera2D.set_zoom(Vector2.ONE)
@@ -154,6 +160,7 @@ func start_world():
 	camera_smoothing(true)
 	Global.score_reset()
 	Global.blizzard_on = false
+	stop_menu_audio()
 	if (test):
 		TopRibbonRef.stage_start(5)
 		#await get_tree().create_timer(1).timeout
@@ -194,11 +201,11 @@ func options_display():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#print($PC.get_node("Camera2D").global_position)
+	#print($Music/Lose.playing)
 	$Background.position = CamRef.global_position - BGAdjust
-	music_pausing()
-	if ($Music/MusicFadeTimer.time_left != 0):
-		music_loop()
+	#music_pausing()
+	#if ($Music/MusicFadeTimer.time_left != 0):
+		#music_loop()
 	
 	
 func stage_succ():
@@ -220,16 +227,38 @@ func attach_item(item : Node):
 	pass
 
 #region audio
+func music_vol():
+	#print("music_vol")
+	music_vol_current = music_vol_base + ((Global.volume_music-50)/2)
+	$Music/StageMusic.volume_db = music_vol_current
+	$Music/StageMusicBlizzard.volume_db = music_vol_current
+	$Music/MenuMusic.volume_db = music_vol_current
+	$Music/Win.volume_db = music_vol_current
+	$Music/Lose.volume_db = music_vol_current
+	pass
+	
+func transition_music_play(victory : bool):
+	print("transition_music_play, ", victory)
+	if victory:
+		$Music/Win.play(0)
+	else:
+		$Music/Lose.play(0)
+	
+func transition_music_stop():
+	print("transition_music_stop")
+	$Music/Win.stop()
+	$Music/Lose.stop()
+
 func reset_audio():
-	$Music/StageMusic.volume_db = -100
+	$Music/StageMusic.volume_db = 0
 	$Music/StageMusic.stop()
-	$Music/StageMusic2.volume_db = 00
-	$Music/StageMusic2.stop()
-	$Music/StageMusicBlizzard.volume_db = 0
+	#$Music/StageMusic2.volume_db = -100
+	#$Music/StageMusic2.stop()
+	$Music/StageMusicBlizzard.volume_db = -100
 	$Music/StageMusicBlizzard.stop()
-	$Music/StageMusicBlizzard2.volume_db = -100
-	$Music/StageMusicBlizzard2.stop()
-	$Music/MusicTimer.stop()
+	#$Music/StageMusicBlizzard2.volume_db = -100
+	#$Music/StageMusicBlizzard2.stop()
+	#$Music/MusicTimer.stop()
 	music_2 = false
 	pass
 
@@ -248,10 +277,10 @@ func _on_stage_music_blizzard_2_finished() -> void:
 
 
 func _on_music_timer_timeout() -> void:
-	print("_on_music_timer_timeout, ", music_2)
+	#print("_on_music_timer_timeout, ", music_2)
 	if (music_2): # 1 is playing
-		$Music/StageMusic2.play(0)
-		$Music/StageMusicBlizzard2.play(0)		
+		#$Music/StageMusic2.play(0)
+		#$Music/StageMusicBlizzard2.play(0)		
 		music_2 = true
 	else:
 		$Music/StageMusic.play(0)
@@ -262,17 +291,19 @@ func _on_music_timer_timeout() -> void:
 	pass # Replace with function body.
 	
 func music_start():
-	print("music_start")
-	$Music/MusicTimer.start(5)
-	print("music_timer start")
-	$Music/MusicFadeTimer.start(5)
-	print("music_fade_timer start")
+	#print("main, music start")
+	#print("music_start")
+	#$Music/MusicTimer.start(5)
+	#print("music_timer start")
+	#$Music/MusicFadeTimer.start(5)
+	#print("music_fade_timer start")
 	
 	
-	$Music/StageMusic.play(music_start_point)
-	$Music/StageMusicBlizzard.play(music_start_point)
+	$Music/StageMusic.play(0)
+	$Music/StageMusic.volume_db = 0
+	$Music/StageMusicBlizzard.play(0)
 	$Music/StageMusicBlizzard.volume_db = -100
-	$Music/StageMusicBlizzard2.volume_db = -100
+	#$Music/StageMusicBlizzard2.volume_db = -100
 	
 	#$Music/MusicTimer.set_paused(true)
 	#$Music/MusicFadeTimer.set_paused(true)
@@ -296,20 +327,51 @@ func music_loop():
 	#print("music_loop music_2 = ", music_2 , "1 = ", $Music/StageMusic.volume_db, " 2 = ", $Music/StageMusic2.volume_db)
 	pass
 
-func music_pausing():
-	var paused = false
-	if ($MenuManager/PauseMenu.visible || TransitionRef.is_active() || $PC.is_paused()):
-		paused = true
-		print("pausing music")
+#func music_pausing():
+func stage_music_pausing(is_paused):
+	print ("stage_music_pausing")
+	#var paused = false
+	#if ($MenuManager/PauseMenu.visible || TransitionRef.is_active() || $PC.is_paused()):
+		#paused = true
+		#print("pausing music")
 	
-	$Music/MusicTimer.set_paused(paused)
-	$Music/MusicFadeTimer.set_paused(paused)
-	$Music/StageMusic.set_stream_paused(paused)
-	$Music/StageMusic2.set_stream_paused(paused)
-	$Music/StageMusicBlizzard.set_stream_paused(paused)
-	$Music/StageMusicBlizzard2.set_stream_paused(paused)
+	$Music/MusicTimer.set_paused(is_paused)
+	$Music/MusicFadeTimer.set_paused(is_paused)
+	$Music/StageMusic.set_stream_paused(is_paused)
+	#$Music/StageMusic2.set_stream_paused(paused)
+	$Music/StageMusicBlizzard.set_stream_paused(is_paused)
+	#$Music/StageMusicBlizzard2.set_stream_paused(paused)
+	
+
 	
 #endregion
+
+#region Main Menu audio
+func stop_menu_audio():
+	$Music/MenuMusic.stop()
+	$Music/MenuMusic2.stop()
+	#$MenuMusicTimer.stop()
+	pass
+	
+func _on_menu_music_finished() -> void:
+	$Music/MenuMusic.play(0)
+	pass # Replace with function body.
+
+#func _on_menu_music_2_finished() -> void:
+	#$MenuMusic2.stop()
+	#pass # Replace with function body.
+
+func _on_menu_music_timer_timeout() -> void:
+	if (music_2): # 1 is playing
+		$Music/MenuMusic2.play(0)
+		music_2 = true
+	else:
+		$Music/MenuMusic.play(0)
+		music_2 = false
+	$Music/MenuMusicTimer.start(101)
+	pass # Replace with function body.
+#endregion
+
 
 # Debug, ignore
 func check_vis():

@@ -7,7 +7,7 @@ var returned : bool = false # just returned from pause
 var music_2 : bool = false
 
 func _ready():
-	$MenuMusic.volume_db = -20
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -35,9 +35,9 @@ func start():
 	Global.mode = 1
 	hide_other_menus()
 	menus[0].start()
-	$MenuMusic.play()
+	#$MenuMusic.play()
 	music_2 = false
-	$Timer.start(101)
+	#$Timer.start(101)
 
 func start_game():
 	active = false
@@ -49,7 +49,6 @@ func start_game():
 	Global.score_reset()
 	Global.start_world()
 	Global.stage_load()
-	stop_audio()
 	#$TerrainManager/Terrain.start()
 	
 func menu_switch_main():
@@ -79,28 +78,7 @@ func check_vis():
 	pass
 	
 	
-#region audio
-func stop_audio():
-	$MenuMusic.stop()
-	$MenuMusic2.stop()
-	$Timer.stop()
-	pass
-	
-func _on_menu_music_finished() -> void:
-	$MenuMusic.stop()
-	pass # Replace with function body.
 
-func _on_menu_music_2_finished() -> void:
-	$MenuMusic.stop()
-	pass # Replace with function body.
 
-func _on_timer_timeout() -> void:
-	if (music_2): # 1 is playing
-		$MenuMusic2.play(0)
-		music_2 = true
-	else:
-		$MenuMusic.play(0)
-		music_2 = false
-	$Timer.start(101)
+func _on_menu_music_timer_timeout() -> void:
 	pass # Replace with function body.
-#endregion

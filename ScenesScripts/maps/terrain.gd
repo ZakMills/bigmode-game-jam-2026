@@ -7,7 +7,8 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#full_item_spawn_list()
+	full_item_spawn_list()
+	#possible_item_pos.append(Vector2(-1902.667, 1866.667)) # for testing
 	pass
 	
 	pass # Replace with function body.
@@ -45,11 +46,13 @@ func start():
 func add_item(pos : Vector2):
 	var new_item = item_scene.instantiate()
 	new_item.start("feesh")
+	
 	$AnimatedSprite2D.add_child(new_item)
 	if (Global.score == 0):
 		new_item.position = possible_item_pos[0]
 	else:
 		new_item.position = get_new_pos()
+	new_item.scale /= $AnimatedSprite2D.scale
 	item_pos = new_item.global_position
 	#print(new_item.position, "  and globally  ", new_item.global_position)
 	#print("snowman at ", $AnimatedSprite2D/Decorations/Snowman.position, "  and globally  ", $AnimatedSprite2D/Decorations/Snowman.global_position)
