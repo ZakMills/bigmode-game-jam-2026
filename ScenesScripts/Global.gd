@@ -9,14 +9,14 @@ var score : int = 0
 var score_saved : int = 0 # saved at the start of the day for retry.
 var score_high : int = 0
 var mode : int = 0 # 0 intro cutscene, 1 main, 2 how to play, 3 = game
-var options_menu : bool = false # options menu reached from either main or pause.
+@onready var options_menu : bool = false # options menu reached from either main or pause.
 var volume_music : float = 50.0
 var volume_sfx : float = 50.0
 var blizzard_on : bool = false
 
 var carrying_item : bool = false
 var items_today : int = 0
-var day : int = 0 # 0 for test, then 1-5.
+@onready var day : int = 0 # 0 for test, then 1-5.
 var day_length : float = 15
 
 
@@ -46,6 +46,7 @@ func evaluate(): # check if player won/lost level
 	if (!test):
 		if (items_today >= Stages.items_minimum[day]):
 		#if (items_today >= 1):
+			score_update(day * 100)
 			day += 1
 			if (day >= 1 && day <= 5):
 				main.stage_succ()
@@ -107,7 +108,10 @@ func get_pos_destination() -> Vector2:
 
 func set_map(map):
 	terrain = map
-	
+
+func update_options_settings():
+	main.update_options_settings()
+
 func back_to_main_menu():
 	main.back_to_main_menu()
 	
@@ -176,3 +180,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func check_vis():
+	main.check_vis()

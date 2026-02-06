@@ -16,6 +16,11 @@ func start():
 	cursor = 0 # starting val
 	cursors[cursor].visible = true
 	visible = true
+	if (Global.score_high != 0):
+		$Score.visible = true
+		$Score/Score2.text = str(int(Global.score_high))
+	else:
+		$Score.visible = false
 
 func up():
 	cursors[cursor].visible = false

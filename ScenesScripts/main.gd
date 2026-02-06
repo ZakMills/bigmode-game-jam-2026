@@ -44,7 +44,8 @@ func _ready() -> void:
 	
 func quiet_PC():
 	$PC.stop_audio()
-	
+func update_options_settings():
+	$PC.set_sfx_vol()
 func fade_in():
 	TransitionRef.fadeIn()
 func fade_out():
@@ -309,3 +310,7 @@ func music_pausing():
 	$Music/StageMusicBlizzard2.set_stream_paused(paused)
 	
 #endregion
+
+# Debug, ignore
+func check_vis():
+	mainMenu.check_vis()

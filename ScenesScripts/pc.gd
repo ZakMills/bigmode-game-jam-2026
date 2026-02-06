@@ -40,8 +40,15 @@ func start():
 	visibility_modulate(0)
 	blizzard_coming = false
 	$ReducedVision.visible = false
+	set_sfx_vol()
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+func set_sfx_vol():
+	var new_vol = -10 + (Global.volume_sfx-50)/2
+	$AudioStreamPlayer2DBounce.volume_db = new_vol
+	$AudioStreamPlayer2DSlide.volume_db = new_vol
+	$AudioStreamPlayer2DSplash.volume_db = new_vol
+	
 func _process(delta: float) -> void:
 	#print(position, "  and globally  ", global_position)
 	#print("global mode is ", Global.mode)
