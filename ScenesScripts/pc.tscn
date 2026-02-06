@@ -445,6 +445,8 @@ stream = ExtResource("71_hhabq")
 [node name="AudioStreamPlayer2DSlide" type="AudioStreamPlayer2D" parent="." unique_id=707132847]
 stream = ExtResource("71_p8a34")
 
+[node name="AudioStreamPlayer2DSplash" type="AudioStreamPlayer2D" parent="." unique_id=101980613]
+
 [node name="ReducedVision" type="Control" parent="." unique_id=1208515031]
 visible = false
 layout_mode = 3

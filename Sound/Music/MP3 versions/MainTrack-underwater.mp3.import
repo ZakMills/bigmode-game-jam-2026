@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d00shirygsg7v"
+path="res://.godot/imported/MainTrack-underwater.mp3-bcb1e1367dd4f4dab65a9787e631ede3.mp3str"
+
+[deps]
+
+source_file="res://Sound/Music/MP3 versions/MainTrack-underwater.mp3"
+dest_files=["res://.godot/imported/MainTrack-underwater.mp3-bcb1e1367dd4f4dab65a9787e631ede3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

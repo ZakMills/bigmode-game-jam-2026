@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://qhqyf8g62j0l"]
+
+[ext_resource type="PackedScene" uid="uid://b5gsok262pfoi" path="res://ScenesScripts/map_details/Logic/obstacle.tscn" id="1_7bgc4"]
+[ext_resource type="Texture2D" uid="uid://dlq0k2lyj6nrt" path="res://Art/buildings-plants-obstacles/igloo.png" id="2_qgh8b"]
+
+[node name="IglooFlip" type="Node2D" unique_id=585127459]
+
+[node name="obstacle" parent="." unique_id=93409579 instance=ExtResource("1_7bgc4")]
+position = Vector2(-508, -118.00001)
+scale = Vector2(25.143356, 11.680002)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2092591964]
+texture = ExtResource("2_qgh8b")
+flip_h = true

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c3r5fagmvqkvn"]
 
 [ext_resource type="Script" uid="uid://b5ilbgg1m3e40" path="res://ScenesScripts/menus/transition.gd" id="1_7lcqf"]
+[ext_resource type="Texture2D" uid="uid://d1l010dmifk4p" path="res://Art/UI/dayendscreen2.png" id="2_lxlcv"]
+[ext_resource type="FontFile" uid="uid://dedqmdyx263yq" path="res://Art/UI/LoveYaLikeASister-Regular.ttf" id="3_ugp6k"]
 
 [sub_resource type="Animation" id="Animation_lxlcv"]
 resource_name = "Fade_in"
@@ -60,6 +62,61 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_7lcqf")
 
+[node name="ScreenGameWin" type="Control" parent="." unique_id=338121669]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TempBG" type="ColorRect" parent="ScreenGameWin" unique_id=1379678627]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 1, 1, 1)
+
+[node name="BG" type="Sprite2D" parent="ScreenGameWin" unique_id=1233043524]
+position = Vector2(576, 324)
+texture = ExtResource("2_lxlcv")
+
+[node name="Cover" type="ColorRect" parent="ScreenGameWin/BG" unique_id=272542168]
+offset_left = -239.0
+offset_top = 82.0
+offset_right = 233.0
+offset_bottom = 179.0
+color = Color(0.93333334, 0.9607843, 0.99215686, 1)
+
+[node name="Message" type="RichTextLabel" parent="ScreenGameWin" unique_id=2134211475]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 128.0
+offset_right = 695.0
+offset_bottom = 197.0
+theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("3_ugp6k")
+theme_override_font_sizes/normal_font_size = 48
+text = "Victory!"
+
+[node name="Continue" type="RichTextLabel" parent="ScreenGameWin" unique_id=106628619]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 526.0
+offset_right = 714.0
+offset_bottom = 564.0
+theme_override_fonts/normal_font = ExtResource("3_ugp6k")
+theme_override_font_sizes/normal_font_size = 30
+text = "Back to Main Menu"
+
+[node name="CursorContinue" type="RichTextLabel" parent="ScreenGameWin" unique_id=746976164]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 524.0
+offset_right = 434.0
+offset_bottom = 574.0
+theme_override_font_sizes/normal_font_size = 30
+text = ">"
+
 [node name="ScreenSuccess" type="Control" parent="." unique_id=1710823239]
 visible = false
 anchors_preset = 0
@@ -67,38 +124,51 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TempBG" type="ColorRect" parent="ScreenSuccess" unique_id=1348226247]
+visible = false
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 1, 1, 1)
 
-[node name="BG" type="Sprite2D" parent="ScreenSuccess" unique_id=1324066710]
-visible = false
+[node name="BG2" type="Sprite2D" parent="ScreenSuccess" unique_id=1238825707]
+position = Vector2(576, 324)
+texture = ExtResource("2_lxlcv")
 
-[node name="Message" type="RichTextLabel" parent="ScreenSuccess" unique_id=2132858579]
+[node name="Cover" type="ColorRect" parent="ScreenSuccess/BG2" unique_id=5943387]
+offset_left = -239.0
+offset_top = 82.0
+offset_right = 233.0
+offset_bottom = 179.0
+color = Color(0.93333334, 0.9607843, 0.99215686, 1)
+
+[node name="Message2" type="RichTextLabel" parent="ScreenSuccess" unique_id=390242782]
 layout_mode = 0
-offset_left = 479.0
-offset_top = 43.0
-offset_right = 696.0
-offset_bottom = 137.0
-theme_override_font_sizes/normal_font_size = 36
+offset_left = 509.0
+offset_top = 128.0
+offset_right = 695.0
+offset_bottom = 197.0
+theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("3_ugp6k")
+theme_override_font_sizes/normal_font_size = 48
 text = "Success"
 
 [node name="Continue" type="RichTextLabel" parent="ScreenSuccess" unique_id=964716775]
 layout_mode = 0
-offset_left = 466.0
-offset_top = 498.0
-offset_right = 648.0
-offset_bottom = 596.0
+offset_left = 512.0
+offset_top = 524.0
+offset_right = 647.0
+offset_bottom = 571.0
+theme_override_fonts/normal_font = ExtResource("3_ugp6k")
 theme_override_font_sizes/normal_font_size = 30
 text = "Continue"
 
 [node name="CursorContinue" type="RichTextLabel" parent="ScreenSuccess" unique_id=435352219]
 layout_mode = 0
-offset_left = 372.0
-offset_top = 493.0
-offset_right = 421.0
-offset_bottom = 543.0
+offset_left = 401.0
+offset_top = 520.0
+offset_right = 450.0
+offset_bottom = 570.0
 theme_override_font_sizes/normal_font_size = 30
 text = ">"
 
@@ -109,56 +179,71 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TempBG" type="ColorRect" parent="ScreenFail" unique_id=1600413715]
+visible = false
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 1, 1, 1)
 
-[node name="BG" type="Sprite2D" parent="ScreenFail" unique_id=1176261438]
-visible = false
+[node name="BG3" type="Sprite2D" parent="ScreenFail" unique_id=1767697987]
+position = Vector2(576, 324)
+texture = ExtResource("2_lxlcv")
 
-[node name="Message" type="RichTextLabel" parent="ScreenFail" unique_id=1273544665]
+[node name="Cover" type="ColorRect" parent="ScreenFail/BG3" unique_id=2078872153]
+visible = false
+offset_left = -239.0
+offset_top = 82.0
+offset_right = 233.0
+offset_bottom = 179.0
+color = Color(0.93333334, 0.9607843, 0.99215686, 1)
+
+[node name="Message3" type="RichTextLabel" parent="ScreenFail" unique_id=918849527]
 layout_mode = 0
-offset_left = 479.0
-offset_top = 43.0
-offset_right = 696.0
-offset_bottom = 137.0
-theme_override_font_sizes/normal_font_size = 36
+offset_left = 509.0
+offset_top = 128.0
+offset_right = 695.0
+offset_bottom = 197.0
+theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("3_ugp6k")
+theme_override_font_sizes/normal_font_size = 48
 text = "Failure"
 
 [node name="Quit" type="RichTextLabel" parent="ScreenFail" unique_id=90715209]
 layout_mode = 0
-offset_left = 466.0
-offset_top = 498.0
-offset_right = 648.0
-offset_bottom = 596.0
+offset_left = 483.0
+offset_top = 521.0
+offset_right = 637.0
+offset_bottom = 568.0
+theme_override_fonts/normal_font = ExtResource("3_ugp6k")
 theme_override_font_sizes/normal_font_size = 30
 text = "Main Menu"
 
 [node name="CursorQuit" type="RichTextLabel" parent="ScreenFail" unique_id=343564896]
 layout_mode = 0
-offset_left = 372.0
-offset_top = 493.0
-offset_right = 421.0
-offset_bottom = 543.0
+offset_left = 429.0
+offset_top = 521.0
+offset_right = 478.0
+offset_bottom = 571.0
 theme_override_font_sizes/normal_font_size = 30
 text = ">"
 
 [node name="Retry" type="RichTextLabel" parent="ScreenFail" unique_id=1567081794]
 layout_mode = 0
-offset_left = 463.0
-offset_top = 385.0
-offset_right = 645.0
-offset_bottom = 483.0
+offset_left = 522.0
+offset_top = 436.0
+offset_right = 619.0
+offset_bottom = 487.0
+theme_override_fonts/normal_font = ExtResource("3_ugp6k")
 theme_override_font_sizes/normal_font_size = 30
 text = "Retry"
 
 [node name="CursorRetry" type="RichTextLabel" parent="ScreenFail" unique_id=1962060290]
 layout_mode = 0
-offset_left = 369.0
-offset_top = 391.0
-offset_right = 418.0
-offset_bottom = 441.0
+offset_left = 433.0
+offset_top = 435.0
+offset_right = 482.0
+offset_bottom = 485.0
 theme_override_font_sizes/normal_font_size = 30
 text = ">"
 

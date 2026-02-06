@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://d0y5vd2bh6557"]
 
 [ext_resource type="Script" uid="uid://daq0xesw3ver6" path="res://ScenesScripts/maps/terrain.gd" id="1_tbw4b"]
-[ext_resource type="Texture2D" uid="uid://djef2wdoxuom5" path="res://art/background/sealmap.png" id="2_0lm80"]
-[ext_resource type="PackedScene" uid="uid://coqwqsdd178lr" path="res://ScenesScripts/map_details/cliff.tscn" id="5_0lm80"]
-[ext_resource type="PackedScene" uid="uid://fyvp3lkrmjst" path="res://ScenesScripts/map_details/sliding_path.tscn" id="5_tls4m"]
-[ext_resource type="PackedScene" uid="uid://c4jq2d4het1q6" path="res://ScenesScripts/map_details/ocean.tscn" id="6_ffyxw"]
-[ext_resource type="PackedScene" uid="uid://cyejm51urx6gj" path="res://ScenesScripts/map_details/sliding_path_circle.tscn" id="6_r7q71"]
-[ext_resource type="PackedScene" uid="uid://ctvw3oqfu80ka" path="res://ScenesScripts/map_details/ocean_circle.tscn" id="7_uavq1"]
+[ext_resource type="Texture2D" uid="uid://djef2wdoxuom5" path="res://Art/background/sealmap.png" id="2_0lm80"]
+[ext_resource type="PackedScene" uid="uid://coqwqsdd178lr" path="res://ScenesScripts/map_details/Logic/cliff.tscn" id="5_0lm80"]
+[ext_resource type="PackedScene" uid="uid://fyvp3lkrmjst" path="res://ScenesScripts/map_details/Logic/sliding_path.tscn" id="5_tls4m"]
+[ext_resource type="PackedScene" uid="uid://c4jq2d4het1q6" path="res://ScenesScripts/map_details/Logic/ocean.tscn" id="6_ffyxw"]
+[ext_resource type="PackedScene" uid="uid://cyejm51urx6gj" path="res://ScenesScripts/map_details/Logic/sliding_path_circle.tscn" id="6_r7q71"]
+[ext_resource type="PackedScene" uid="uid://ctvw3oqfu80ka" path="res://ScenesScripts/map_details/Logic/ocean_circle.tscn" id="7_uavq1"]
+[ext_resource type="PackedScene" uid="uid://bg0fmwnuujnt5" path="res://ScenesScripts/map_details/Igloo.tscn" id="8_3fjxh"]
+[ext_resource type="PackedScene" uid="uid://smujklunx06" path="res://ScenesScripts/map_details/Logic/Dropoff.tscn" id="8_cknv5"]
+[ext_resource type="PackedScene" uid="uid://cfmi4ul0yaohj" path="res://ScenesScripts/map_details/Snowman.tscn" id="9_28rv2"]
+[ext_resource type="PackedScene" uid="uid://qhm8olulpagq" path="res://ScenesScripts/map_details/Tree.tscn" id="9_c5wsc"]
+[ext_resource type="PackedScene" uid="uid://qhqyf8g62j0l" path="res://ScenesScripts/map_details/IglooFlipped.tscn" id="10_mmvk3"]
+[ext_resource type="PackedScene" uid="uid://0pqfuhfbtdou" path="res://ScenesScripts/map_details/Hospital.tscn" id="11_8cx7f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tbw4b"]
 animations = [{
@@ -27,1154 +33,1276 @@ position = Vector2(1908, -1995)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_tbw4b")
 
-[node name="sliding_path" parent="." unique_id=436615094 instance=ExtResource("5_tls4m")]
-position = Vector2(372, -338)
-rotation = 2.3561945
-scale = Vector2(3, 8)
+[node name="TerrainLogic" type="Node2D" parent="AnimatedSprite2D" unique_id=870564470]
 
-[node name="sliding_path9" parent="." unique_id=1606979816 instance=ExtResource("5_tls4m")]
-position = Vector2(845.99994, -684)
+[node name="sliding_path" parent="AnimatedSprite2D/TerrainLogic" unique_id=436615094 instance=ExtResource("5_tls4m")]
+position = Vector2(-2008.0001, 2184.001)
+rotation = 2.3561945
+scale = Vector2(3.9999998, 10.666667)
+
+[node name="sliding_path9" parent="AnimatedSprite2D/TerrainLogic" unique_id=1606979816 instance=ExtResource("5_tls4m")]
+position = Vector2(-1416, 1748)
 rotation = 2.9763675
-scale = Vector2(2.4579008, 6.7485647)
+scale = Vector2(3.2772012, 8.998087)
 
-[node name="sliding_path10" parent="." unique_id=1585860813 instance=ExtResource("5_tls4m")]
-position = Vector2(1461.9999, -850.9999)
+[node name="sliding_path10" parent="AnimatedSprite2D/TerrainLogic" unique_id=1585860813 instance=ExtResource("5_tls4m")]
+position = Vector2(-594.6665, 1525.3335)
 rotation = 2.8184443
-scale = Vector2(1.8536494, 6.779176)
+scale = Vector2(2.4715326, 9.038902)
 
-[node name="sliding_path11" parent="." unique_id=2003160524 instance=ExtResource("5_tls4m")]
-position = Vector2(2580.0002, -757.99994)
-rotation = 3.571894
-scale = Vector2(1.8536494, 6.779176)
+[node name="sliding_path11" parent="AnimatedSprite2D/TerrainLogic" unique_id=2003160524 instance=ExtResource("5_tls4m")]
+position = Vector2(896.00073, 1649.3334)
+rotation = -2.7112913
+scale = Vector2(2.4715323, 9.038901)
 
-[node name="sliding_path12" parent="." unique_id=1783556185 instance=ExtResource("5_tls4m")]
-position = Vector2(2228, -914)
-rotation = 3.42627
-scale = Vector2(0.39764357, 6.779176)
+[node name="sliding_path12" parent="AnimatedSprite2D/TerrainLogic" unique_id=1783556185 instance=ExtResource("5_tls4m")]
+position = Vector2(426.66675, 1441.3334)
+rotation = -2.8569152
+scale = Vector2(0.5301915, 9.038903)
 
-[node name="sliding_path13" parent="." unique_id=186243282 instance=ExtResource("5_tls4m")]
-position = Vector2(2111, -944)
-rotation = 3.3460636
-scale = Vector2(0.39764357, 6.779176)
+[node name="sliding_path13" parent="AnimatedSprite2D/TerrainLogic" unique_id=186243282 instance=ExtResource("5_tls4m")]
+position = Vector2(270.66675, 1401.3334)
+rotation = -2.9371216
+scale = Vector2(0.5301915, 9.038902)
 
-[node name="sliding_path14" parent="." unique_id=1642813950 instance=ExtResource("5_tls4m")]
-position = Vector2(1985, -957.99994)
-rotation = 3.158091
-scale = Vector2(0.39764357, 6.779176)
+[node name="sliding_path14" parent="AnimatedSprite2D/TerrainLogic" unique_id=1642813950 instance=ExtResource("5_tls4m")]
+position = Vector2(102.66675, 1382.6667)
+rotation = -3.1250942
+scale = Vector2(0.53019154, 9.038902)
 
-[node name="sliding_path15" parent="." unique_id=2137648831 instance=ExtResource("5_tls4m")]
-position = Vector2(1886.0001, -960.0001)
-rotation = 3.158091
-scale = Vector2(0.39764357, 6.779176)
+[node name="sliding_path15" parent="AnimatedSprite2D/TerrainLogic" unique_id=2137648831 instance=ExtResource("5_tls4m")]
+position = Vector2(-29.333008, 1379.9998)
+rotation = -3.1250942
+scale = Vector2(0.53019154, 9.038902)
 
-[node name="sliding_path16" parent="." unique_id=996249030 instance=ExtResource("5_tls4m")]
-position = Vector2(1790, -954.00006)
+[node name="sliding_path16" parent="AnimatedSprite2D/TerrainLogic" unique_id=996249030 instance=ExtResource("5_tls4m")]
+position = Vector2(-157.33325, 1387.9999)
 rotation = 2.9790783
-scale = Vector2(0.39764357, 6.779176)
+scale = Vector2(0.5301914, 9.038902)
 
-[node name="sliding_path17" parent="." unique_id=504088290 instance=ExtResource("5_tls4m")]
-position = Vector2(3041, -500.99988)
-rotation = 3.7495298
-scale = Vector2(1.3106093, 7.280178)
+[node name="sliding_path17" parent="AnimatedSprite2D/TerrainLogic" unique_id=504088290 instance=ExtResource("5_tls4m")]
+position = Vector2(1510.667, 1992.0002)
+rotation = -2.5336554
+scale = Vector2(1.7474793, 9.706905)
 
-[node name="sliding_path18" parent="." unique_id=1967039320 instance=ExtResource("5_tls4m")]
-position = Vector2(3400, -305.9999)
-rotation = 3.4670115
-scale = Vector2(1.3106093, 7.280178)
+[node name="sliding_path18" parent="AnimatedSprite2D/TerrainLogic" unique_id=1967039320 instance=ExtResource("5_tls4m")]
+position = Vector2(1989.3335, 2252)
+rotation = -2.8161738
+scale = Vector2(1.7474791, 9.706904)
 
-[node name="sliding_path19" parent="." unique_id=1734318263 instance=ExtResource("5_tls4m")]
-position = Vector2(4114, -1369.0002)
+[node name="sliding_path19" parent="AnimatedSprite2D/TerrainLogic" unique_id=1734318263 instance=ExtResource("5_tls4m")]
+position = Vector2(2941.3335, 834.6664)
 rotation = 1.3941556
-scale = Vector2(3.8062172, 7.280178)
+scale = Vector2(5.0749564, 9.706904)
 
-[node name="sliding_path20" parent="." unique_id=845036198 instance=ExtResource("5_tls4m")]
-position = Vector2(2955.0002, -934)
+[node name="sliding_path20" parent="AnimatedSprite2D/TerrainLogic" unique_id=845036198 instance=ExtResource("5_tls4m")]
+position = Vector2(1396.001, 1414.6667)
 rotation = 2.7585707
-scale = Vector2(2.1206114, 10.755482)
+scale = Vector2(2.8274817, 14.340642)
 
-[node name="sliding_path21" parent="." unique_id=1980505280 instance=ExtResource("5_tls4m")]
-position = Vector2(3411.9995, -1101.0001)
+[node name="sliding_path21" parent="AnimatedSprite2D/TerrainLogic" unique_id=1980505280 instance=ExtResource("5_tls4m")]
+position = Vector2(2005.333, 1191.9998)
 rotation = 2.8192067
-scale = Vector2(0.7135079, 10.013484)
+scale = Vector2(0.9513439, 13.351313)
 
-[node name="sliding_path22" parent="." unique_id=1793532485 instance=ExtResource("5_tls4m")]
-position = Vector2(3644.0002, -1169)
+[node name="sliding_path22" parent="AnimatedSprite2D/TerrainLogic" unique_id=1793532485 instance=ExtResource("5_tls4m")]
+position = Vector2(2314.667, 1101.3334)
 rotation = 2.9060268
-scale = Vector2(0.7135079, 9.711223)
+scale = Vector2(0.95134383, 12.948297)
 
-[node name="sliding_path23" parent="." unique_id=440728527 instance=ExtResource("5_tls4m")]
-position = Vector2(3911, -1206)
+[node name="sliding_path23" parent="AnimatedSprite2D/TerrainLogic" unique_id=440728527 instance=ExtResource("5_tls4m")]
+position = Vector2(2670.667, 1052)
 rotation = 3.0977852
-scale = Vector2(0.8797722, 9.472966)
-
-[node name="sliding_path24" parent="." unique_id=635006541 instance=ExtResource("5_tls4m")]
-position = Vector2(2600.0002, -897.99994)
-rotation = 5.2278347
-scale = Vector2(0.8797722, 9.472966)
-
-[node name="sliding_path25" parent="." unique_id=1710598244 instance=ExtResource("5_tls4m")]
-position = Vector2(2654.0002, -1001.99994)
-rotation = 4.73841
-scale = Vector2(0.9743577, 7.059477)
-
-[node name="sliding_path26" parent="." unique_id=1518985159 instance=ExtResource("5_tls4m")]
-position = Vector2(2598, -1279)
-rotation = 4.3140984
-scale = Vector2(0.8797722, 7.257419)
-
-[node name="sliding_path27" parent="." unique_id=2029419182 instance=ExtResource("5_tls4m")]
-position = Vector2(2484, -1509)
-rotation = 4.225247
-scale = Vector2(0.8797722, 7.257419)
-
-[node name="sliding_path28" parent="." unique_id=1912686543 instance=ExtResource("5_tls4m")]
-position = Vector2(2363, -1675.0001)
-rotation = 5.7703385
-scale = Vector2(0.8797722, 7.257419)
-
-[node name="sliding_path29" parent="." unique_id=1311211607 instance=ExtResource("5_tls4m")]
-position = Vector2(2090, -1584.0002)
-rotation = 6.1499357
-scale = Vector2(0.8797722, 7.257419)
-
-[node name="sliding_path30" parent="." unique_id=1236578666 instance=ExtResource("5_tls4m")]
-position = Vector2(1799.0001, -1572.9999)
-rotation = 6.33782
-scale = Vector2(0.8797722, 7.257419)
-
-[node name="sliding_path31" parent="." unique_id=673495093 instance=ExtResource("5_tls4m")]
-position = Vector2(1551.0001, -1630.0001)
-rotation = 6.692504
-scale = Vector2(0.8797722, 7.257419)
-
-[node name="sliding_path32" parent="." unique_id=1321966747 instance=ExtResource("5_tls4m")]
-position = Vector2(1302.9999, -1787.0001)
-rotation = 7.015797
-scale = Vector2(0.8797722, 7.257419)
-
-[node name="sliding_path33" parent="." unique_id=165463016 instance=ExtResource("5_tls4m")]
-position = Vector2(1169.9999, -1997)
-rotation = 7.5322065
-scale = Vector2(0.8797722, 7.257419)
-
-[node name="sliding_path34" parent="." unique_id=130405202 instance=ExtResource("5_tls4m")]
-position = Vector2(1116, -2277)
-rotation = 7.8532634
-scale = Vector2(0.8797722, 7.257419)
-
-[node name="sliding_path35" parent="." unique_id=1542380082 instance=ExtResource("5_tls4m")]
-position = Vector2(1162.9999, -2550)
-rotation = 8.241825
-scale = Vector2(0.8797722, 7.257419)
-
-[node name="sliding_path36" parent="." unique_id=1064443445 instance=ExtResource("5_tls4m")]
-position = Vector2(1319.0001, -2781)
-rotation = 8.710744
-scale = Vector2(0.8797722, 7.257419)
-
-[node name="sliding_path37" parent="." unique_id=193361183 instance=ExtResource("5_tls4m")]
-position = Vector2(1572.9999, -2925.9998)
-rotation = 9.095183
-scale = Vector2(0.8797722, 7.257419)
-
-[node name="sliding_path38" parent="." unique_id=809974223 instance=ExtResource("5_tls4m")]
-position = Vector2(1904, -2981.0002)
-rotation = 9.399399
-scale = Vector2(1.1996697, 7.257419)
-
-[node name="sliding_path39" parent="." unique_id=284985572 instance=ExtResource("5_tls4m")]
-position = Vector2(2242, -2934)
-rotation = 9.800174
-scale = Vector2(0.912619, 7.618023)
-
-[node name="sliding_path40" parent="." unique_id=1416331850 instance=ExtResource("5_tls4m")]
-position = Vector2(2451.0002, -2820)
-rotation = 10.123958
-scale = Vector2(0.5744647, 7.618023)
-
-[node name="sliding_path41" parent="." unique_id=1786424384 instance=ExtResource("5_tls4m")]
-position = Vector2(2579, -2692)
-rotation = 10.38436
-scale = Vector2(0.5744647, 7.618023)
-
-[node name="sliding_path42" parent="." unique_id=471321357 instance=ExtResource("5_tls4m")]
-position = Vector2(2665, -2532)
-rotation = 10.722595
-scale = Vector2(0.5744647, 7.618023)
-
-[node name="sliding_path43" parent="." unique_id=645732200 instance=ExtResource("5_tls4m")]
-position = Vector2(2704.0002, -2326)
-rotation = 10.992008
-scale = Vector2(0.9203631, 8.043912)
-
-[node name="sliding_path44" parent="." unique_id=833596721 instance=ExtResource("5_tls4m")]
-position = Vector2(2665, -2042)
-rotation = 11.277473
-scale = Vector2(0.9203631, 8.043912)
-
-[node name="sliding_path45" parent="." unique_id=844373930 instance=ExtResource("5_tls4m")]
-position = Vector2(2583.0002, -1843.9999)
-rotation = 11.802327
-scale = Vector2(0.9203631, 8.043912)
-
-[node name="sliding_path46" parent="." unique_id=490685226 instance=ExtResource("5_tls4m")]
-position = Vector2(2997.9998, -1984)
-rotation = 12.397042
-scale = Vector2(2.144074, 8.827755)
-
-[node name="sliding_path47" parent="." unique_id=221904230 instance=ExtResource("5_tls4m")]
-position = Vector2(3584.0002, -2016.0001)
-rotation = 12.644095
-scale = Vector2(1.3526872, 7.790392)
-
-[node name="sliding_path48" parent="." unique_id=1592367249 instance=ExtResource("5_tls4m")]
-position = Vector2(3946.0002, -1894.0002)
-rotation = 13.160761
-scale = Vector2(1.197736, 7.790392)
-
-[node name="sliding_path49" parent="." unique_id=1157881908 instance=ExtResource("5_tls4m")]
-position = Vector2(4211.0005, -1931)
-rotation = 11.860843
-scale = Vector2(1.197736, 7.790392)
-
-[node name="sliding_path50" parent="." unique_id=649179527 instance=ExtResource("5_tls4m")]
-position = Vector2(4462, -2166.0002)
-rotation = 11.741864
-scale = Vector2(1.197736, 7.790392)
-
-[node name="sliding_path51" parent="." unique_id=82046052 instance=ExtResource("5_tls4m")]
-position = Vector2(4703, -2490)
-rotation = 11.52273
-scale = Vector2(1.197736, 7.790392)
-
-[node name="sliding_path52" parent="." unique_id=1894813817 instance=ExtResource("5_tls4m")]
-position = Vector2(4794.0005, -2804)
-rotation = 10.882032
-scale = Vector2(1.0362517, 6.493634)
-
-[node name="sliding_path53" parent="." unique_id=1643828700 instance=ExtResource("5_tls4m")]
-position = Vector2(4619, -3037.0002)
-rotation = 9.816632
-scale = Vector2(1.0362517, 6.493634)
-
-[node name="sliding_path54" parent="." unique_id=875487436 instance=ExtResource("5_tls4m")]
-position = Vector2(4286, -3151)
-rotation = 9.665023
-scale = Vector2(1.0362517, 6.493634)
-
-[node name="sliding_path55" parent="." unique_id=1632318058 instance=ExtResource("5_tls4m")]
-position = Vector2(3948, -3222)
-rotation = 9.573607
-scale = Vector2(1.0362517, 6.493634)
-
-[node name="sliding_path56" parent="." unique_id=1085943729 instance=ExtResource("5_tls4m")]
-position = Vector2(4836.9995, -2863.0002)
-rotation = 10.835676
-scale = Vector2(0.8411752, -5.0450187)
-
-[node name="sliding_path57" parent="." unique_id=1010844373 instance=ExtResource("5_tls4m")]
-position = Vector2(4888.9995, -2863.9998)
-rotation = 10.835676
-scale = Vector2(0.6258822, -5.0450187)
-
-[node name="sliding_path58" parent="." unique_id=1027660056 instance=ExtResource("5_tls4m")]
-position = Vector2(3587.0002, -3261.9998)
-rotation = 9.471755
-scale = Vector2(1.1125132, 5.971001)
-
-[node name="sliding_path59" parent="." unique_id=728484156 instance=ExtResource("5_tls4m")]
-position = Vector2(3546, -3060)
-rotation = 10.132865
-scale = Vector2(1.1125132, 7.0338526)
-
-[node name="sliding_path60" parent="." unique_id=506936961 instance=ExtResource("5_tls4m")]
-position = Vector2(3836, -2828.0002)
-rotation = 10.060405
-scale = Vector2(1.1125132, 7.0338526)
-
-[node name="sliding_path61" parent="." unique_id=691699934 instance=ExtResource("5_tls4m")]
-position = Vector2(3293.0002, -3045)
-rotation = 7.86311
-scale = Vector2(1.1125132, 7.0338526)
-
-[node name="sliding_path62" parent="." unique_id=210919326 instance=ExtResource("5_tls4m")]
-position = Vector2(3292, -2678.0002)
-rotation = 7.86311
-scale = Vector2(1.1125132, 7.0338526)
-
-[node name="sliding_path63" parent="." unique_id=1095407649 instance=ExtResource("5_tls4m")]
-position = Vector2(2960, -2424)
-rotation = 12.58027
-scale = Vector2(1.1125132, 7.0338526)
-
-[node name="sliding_path64" parent="." unique_id=1241204480 instance=ExtResource("5_tls4m")]
-position = Vector2(3169, -2422.0002)
-rotation = 12.58027
-scale = Vector2(1.1125132, 7.0338526)
-
-[node name="sliding_path65" parent="." unique_id=1253959330 instance=ExtResource("5_tls4m")]
-position = Vector2(3353, -2248)
-rotation = 13.745167
-scale = Vector2(1.1125132, 7.0338526)
-
-[node name="sliding_path66" parent="." unique_id=1002366772 instance=ExtResource("5_tls4m")]
-position = Vector2(3437, -2229)
-rotation = 13.683893
-scale = Vector2(0.9212876, 2.980835)
-
-[node name="sliding_path67" parent="." unique_id=1655971571 instance=ExtResource("5_tls4m")]
-position = Vector2(4061, -2145)
-rotation = 14.415198
-scale = Vector2(1.1410825, 6.7975345)
-
-[node name="sliding_path68" parent="." unique_id=251859427 instance=ExtResource("5_tls4m")]
-position = Vector2(4100, -2481)
-rotation = 14.0232
-scale = Vector2(0.9380319, -5.9476905)
-
-[node name="sliding_path69" parent="." unique_id=1732413343 instance=ExtResource("5_tls4m")]
-position = Vector2(4036, -2653.9998)
-rotation = 13.434443
-scale = Vector2(0.84974086, -5.9476905)
-
-[node name="sliding_path70" parent="." unique_id=763899961 instance=ExtResource("5_tls4m")]
-position = Vector2(4172, -2450)
-rotation = 14.083304
-scale = Vector2(0.772026, -1.5450735)
-
-[node name="sliding_path71" parent="." unique_id=516003666 instance=ExtResource("5_tls4m")]
-position = Vector2(4089.0002, -2698.0002)
-rotation = 13.419131
-scale = Vector2(0.5140763, -1.5837933)
-
-[node name="sliding_path72" parent="." unique_id=721857823 instance=ExtResource("5_tls4m")]
-position = Vector2(3120, -3335.9998)
-rotation = 13.11079
-scale = Vector2(1.602797, -9.129633)
-
-[node name="sliding_path73" parent="." unique_id=1652689880 instance=ExtResource("5_tls4m")]
-position = Vector2(3378.0002, -3228.0002)
-rotation = 13.11079
-scale = Vector2(0.34857106, 7.0181656)
-
-[node name="sliding_path74" parent="." unique_id=1159458247 instance=ExtResource("5_tls4m")]
-position = Vector2(2367, -3554.0002)
-rotation = 12.616076
-scale = Vector2(2.304221, 7.2625337)
-
-[node name="sliding_path75" parent="." unique_id=1553451892 instance=ExtResource("5_tls4m")]
-position = Vector2(1734, -3595)
-rotation = 12.610855
-scale = Vector2(1.4808115, 6.63537)
-
-[node name="sliding_path76" parent="." unique_id=771859491 instance=ExtResource("5_tls4m")]
-position = Vector2(2039.0001, -3289.9998)
-rotation = 11.1461115
-scale = Vector2(1.4485509, -8.386478)
-
-[node name="sliding_path77" parent="." unique_id=1933265850 instance=ExtResource("5_tls4m")]
-position = Vector2(2828, -3482.0002)
-rotation = 13.08544
-scale = Vector2(0.61152303, -6.905877)
-
-[node name="sliding_path78" parent="." unique_id=733897815 instance=ExtResource("5_tls4m")]
-position = Vector2(2842, -3560.9995)
-rotation = 12.848176
-scale = Vector2(0.547109, -3.1550179)
-
-[node name="sliding_path79" parent="." unique_id=995860490 instance=ExtResource("5_tls4m")]
-position = Vector2(1462, -3666)
-rotation = 14.145455
-scale = Vector2(0.547109, -3.1550179)
-
-[node name="sliding_path80" parent="." unique_id=907049741 instance=ExtResource("5_tls4m")]
-position = Vector2(1545.0001, -3722)
-rotation = 13.895788
-scale = Vector2(0.68326735, -5.512129)
-
-[node name="sliding_path81" parent="." unique_id=345921976 instance=ExtResource("5_tls4m")]
-position = Vector2(1219, -3793)
-rotation = 15.36259
-scale = Vector2(1.0420613, -8.151806)
-
-[node name="sliding_path84" parent="." unique_id=2020407126 instance=ExtResource("5_tls4m")]
-position = Vector2(780.00024, -3553.0005)
-rotation = 15.1325245
-scale = Vector2(1.9403231, -6.861054)
-
-[node name="sliding_path85" parent="." unique_id=611226458 instance=ExtResource("5_tls4m")]
-position = Vector2(448, -3311)
-rotation = 14.987619
-scale = Vector2(0.48799884, -6.861054)
-
-[node name="sliding_path86" parent="." unique_id=1909210550 instance=ExtResource("5_tls4m")]
-position = Vector2(336, -3209)
-rotation = 14.987619
-scale = Vector2(0.48799884, -6.861054)
-
-[node name="sliding_path87" parent="." unique_id=2110899932 instance=ExtResource("5_tls4m")]
-position = Vector2(209.99997, -3174.0002)
-rotation = 15.570512
-scale = Vector2(0.48799884, -5.8076944)
-
-[node name="sliding_path88" parent="." unique_id=296703458 instance=ExtResource("5_tls4m")]
-position = Vector2(-229, -3106)
-rotation = 15.553671
-scale = Vector2(2.1057944, -5.220976)
-
-[node name="sliding_path89" parent="." unique_id=969365284 instance=ExtResource("5_tls4m")]
-position = Vector2(-849, -3036.0005)
-rotation = 15.609732
-scale = Vector2(1.4744712, -5.220976)
-
-[node name="sliding_path90" parent="." unique_id=161813286 instance=ExtResource("5_tls4m")]
-position = Vector2(-582, -2896.0002)
-rotation = 14.176925
-scale = Vector2(0.6722877, 4.163286)
-
-[node name="sliding_path91" parent="." unique_id=1855911047 instance=ExtResource("5_tls4m")]
-position = Vector2(-608.00006, -2674)
-rotation = 14.323524
-scale = Vector2(0.6722877, 4.163286)
-
-[node name="sliding_path92" parent="." unique_id=388331068 instance=ExtResource("5_tls4m")]
-position = Vector2(-654.0001, -2515)
-rotation = 14.468692
-scale = Vector2(0.6722877, 4.163286)
-
-[node name="sliding_path93" parent="." unique_id=39625817 instance=ExtResource("5_tls4m")]
-position = Vector2(-706, -2386)
-rotation = 14.618062
-scale = Vector2(0.6722877, 4.163286)
-
-[node name="sliding_path94" parent="." unique_id=1525350555 instance=ExtResource("5_tls4m")]
-position = Vector2(-806, -2233)
-rotation = 16.27584
-scale = Vector2(0.6722877, 7.3326373)
-
-[node name="sliding_path95" parent="." unique_id=819311829 instance=ExtResource("5_tls4m")]
-position = Vector2(-466.99994, -2046.0002)
-rotation = 16.19794
-scale = Vector2(1.5828688, 7.3326373)
-
-[node name="sliding_path103" parent="." unique_id=229188052 instance=ExtResource("5_tls4m")]
-position = Vector2(-182.99992, -1824)
-rotation = 17.725594
-scale = Vector2(0.83863544, 7.3326373)
-
-[node name="sliding_path104" parent="." unique_id=280462875 instance=ExtResource("5_tls4m")]
-position = Vector2(-303.00003, -1568)
-rotation = 17.609713
-scale = Vector2(0.83863544, 6.333753)
-
-[node name="sliding_path105" parent="." unique_id=421570344 instance=ExtResource("5_tls4m")]
-position = Vector2(-352.99997, -1305)
-rotation = 17.352228
-scale = Vector2(0.80108666, 7.0933905)
-
-[node name="sliding_path106" parent="." unique_id=225485670 instance=ExtResource("5_tls4m")]
-position = Vector2(-302.99997, -1100.9999)
-rotation = 16.826126
-scale = Vector2(0.80108666, 7.0933905)
-
-[node name="sliding_path107" parent="." unique_id=1712873004 instance=ExtResource("5_tls4m")]
-position = Vector2(-150.99998, -956.00006)
-rotation = 16.090803
-scale = Vector2(0.80108666, 7.0933905)
-
-[node name="sliding_path108" parent="." unique_id=80425563 instance=ExtResource("5_tls4m")]
-position = Vector2(106.999985, -871)
-rotation = 16.000872
-scale = Vector2(0.80108666, 7.0933905)
-
-[node name="sliding_path109" parent="." unique_id=142763768 instance=ExtResource("5_tls4m")]
-position = Vector2(334, -815)
-rotation = 15.890266
-scale = Vector2(0.80108666, 7.0933905)
-
-[node name="sliding_path110" parent="." unique_id=994222940 instance=ExtResource("5_tls4m")]
-position = Vector2(603, -755)
-rotation = 15.950189
-scale = Vector2(0.80108666, 7.0933905)
-
-[node name="sliding_path111" parent="." unique_id=1988786431 instance=ExtResource("5_tls4m")]
-position = Vector2(734, -728)
-rotation = 15.950189
-scale = Vector2(0.80108666, 7.0933905)
-
-[node name="sliding_path112" parent="." unique_id=823009168 instance=ExtResource("5_tls4m")]
-position = Vector2(481, -595)
-rotation = 17.152418
-scale = Vector2(0.80108666, 7.0933905)
-
-[node name="sliding_path113" parent="." unique_id=108893226 instance=ExtResource("5_tls4m")]
-position = Vector2(-364.00006, -1077.9999)
-rotation = 16.804317
-scale = Vector2(0.45132276, 4.150668)
-
-[node name="sliding_path114" parent="." unique_id=1717427345 instance=ExtResource("5_tls4m")]
-position = Vector2(-16.999939, -1921)
-rotation = 18.009115
-scale = Vector2(1.7424165, 4.150668)
-
-[node name="sliding_path115" parent="." unique_id=284281755 instance=ExtResource("5_tls4m")]
-position = Vector2(169.00003, -1964.0001)
-rotation = 19.137587
-scale = Vector2(0.5834435, 6.931613)
-
-[node name="sliding_path116" parent="." unique_id=248515282 instance=ExtResource("5_tls4m")]
-position = Vector2(350.9999, -1911)
-rotation = 19.270555
-scale = Vector2(0.5834435, 6.931613)
-
-[node name="sliding_path117" parent="." unique_id=882273217 instance=ExtResource("5_tls4m")]
-position = Vector2(521.00006, -1822)
-rotation = 19.518648
-scale = Vector2(0.5834435, 6.931613)
-
-[node name="sliding_path118" parent="." unique_id=886908589 instance=ExtResource("5_tls4m")]
-position = Vector2(663.00006, -1687)
-rotation = 19.651472
-scale = Vector2(0.5834435, 6.931613)
-
-[node name="sliding_path119" parent="." unique_id=1942320974 instance=ExtResource("5_tls4m")]
-position = Vector2(211.00006, -2096.0002)
-rotation = 21.110748
-scale = Vector2(0.5834435, 6.931613)
-
-[node name="sliding_path120" parent="." unique_id=759213990 instance=ExtResource("5_tls4m")]
-position = Vector2(13, -1977.9999)
-rotation = 21.213955
-scale = Vector2(0.5834435, 6.931613)
-
-[node name="sliding_path121" parent="." unique_id=1947248259 instance=ExtResource("5_tls4m")]
-position = Vector2(339.99994, -2200.9998)
-rotation = 21.472948
-scale = Vector2(0.5834435, 6.3911834)
-
-[node name="sliding_path122" parent="." unique_id=1756988594 instance=ExtResource("5_tls4m")]
-position = Vector2(512, -2282)
-rotation = 21.643324
-scale = Vector2(0.5834435, 6.3911834)
-
-[node name="sliding_path123" parent="." unique_id=880467891 instance=ExtResource("5_tls4m")]
-position = Vector2(704.00006, -2330.0002)
-rotation = 21.830315
-scale = Vector2(0.5834435, 6.3911834)
-
-[node name="sliding_path124" parent="." unique_id=134538097 instance=ExtResource("5_tls4m")]
-position = Vector2(900.99994, -2350)
-rotation = 21.965025
-scale = Vector2(0.5834435, 6.3911834)
-
-[node name="sliding_path125" parent="." unique_id=1676240878 instance=ExtResource("5_tls4m")]
-position = Vector2(997.99994, -2355)
-rotation = 21.965025
-scale = Vector2(0.5834435, 6.3911834)
-
-[node name="sliding_path126" parent="." unique_id=112591336 instance=ExtResource("5_tls4m")]
-position = Vector2(1058, -1868)
-rotation = 21.213633
-scale = Vector2(0.5834435, 6.3911834)
-
-[node name="sliding_path127" parent="." unique_id=529813182 instance=ExtResource("5_tls4m")]
-position = Vector2(922, -1723.0001)
-rotation = 21.170218
-scale = Vector2(0.5834435, 6.3911834)
-
-[node name="sliding_path128" parent="." unique_id=1301979989 instance=ExtResource("5_tls4m")]
-position = Vector2(788.0001, -1570.0001)
-rotation = 21.120983
-scale = Vector2(0.5834435, 6.3911834)
-
-[node name="sliding_path129" parent="." unique_id=1850002686 instance=ExtResource("5_tls4m")]
-position = Vector2(683, -1409)
-rotation = 21.021158
-scale = Vector2(0.5834435, 6.3911834)
-
-[node name="sliding_path130" parent="." unique_id=1751978388 instance=ExtResource("5_tls4m")]
-position = Vector2(575.00006, -1242)
-rotation = 20.96375
-scale = Vector2(0.5834435, 6.3911834)
-
-[node name="sliding_path131" parent="." unique_id=625587833 instance=ExtResource("5_tls4m")]
-position = Vector2(472.00006, -1067)
-rotation = 20.96375
-scale = Vector2(0.5834435, 7.0702143)
-
-[node name="sliding_path132" parent="." unique_id=1282500272 instance=ExtResource("5_tls4m")]
-position = Vector2(402, -943)
-rotation = 20.871796
-scale = Vector2(0.5834435, 7.0702143)
-
-[node name="sliding_path133" parent="." unique_id=1781782372 instance=ExtResource("5_tls4m")]
-position = Vector2(1530, -1477.9999)
-rotation = 20.521376
-scale = Vector2(0.5834435, 7.0702143)
-
-[node name="sliding_path134" parent="." unique_id=1009778393 instance=ExtResource("5_tls4m")]
-position = Vector2(1504.0001, -1292.9999)
-rotation = 20.612389
-scale = Vector2(0.5834435, 7.0702143)
-
-[node name="sliding_path135" parent="." unique_id=494081550 instance=ExtResource("5_tls4m")]
-position = Vector2(1461.9999, -1097)
-rotation = 20.602596
-scale = Vector2(0.5834435, 7.0702143)
-
-[node name="sliding_path136" parent="." unique_id=1956129173 instance=ExtResource("5_tls4m")]
-position = Vector2(1418.9999, -947)
-rotation = 20.69784
-scale = Vector2(0.5834435, 7.0702143)
-
-[node name="sliding_path137" parent="." unique_id=251701623 instance=ExtResource("5_tls4m")]
-position = Vector2(1596, -920.99994)
-rotation = 21.887072
-scale = Vector2(0.5834435, 7.0702143)
-
-[node name="sliding_path138" parent="." unique_id=1553148882 instance=ExtResource("5_tls4m")]
-position = Vector2(3693.9998, -234.00003)
-rotation = 22.044598
-scale = Vector2(0.5834435, 7.0702143)
-
-[node name="sliding_path139" parent="." unique_id=248479223 instance=ExtResource("5_tls4m")]
-position = Vector2(3857, -254.00006)
-rotation = 21.719072
-scale = Vector2(0.5834435, 7.0702143)
-
-[node name="sliding_path140" parent="." unique_id=1030857521 instance=ExtResource("5_tls4m")]
-position = Vector2(4021.0002, -328.99994)
-rotation = 21.40324
-scale = Vector2(0.5834435, 7.0702143)
-
-[node name="sliding_path141" parent="." unique_id=1485669836 instance=ExtResource("5_tls4m")]
-position = Vector2(4137, -449.0001)
-rotation = 20.997824
-scale = Vector2(0.5834435, 7.0702143)
-
-[node name="sliding_path142" parent="." unique_id=1356126559 instance=ExtResource("5_tls4m")]
-position = Vector2(4211.0005, -624)
-rotation = 20.56618
-scale = Vector2(0.7580725, 7.0702143)
-
-[node name="sliding_path143" parent="." unique_id=1041415811 instance=ExtResource("5_tls4m")]
-position = Vector2(1121.0001, -2822)
-rotation = 19.357199
-scale = Vector2(0.7580725, 7.0702143)
-
-[node name="sliding_path144" parent="." unique_id=907162365 instance=ExtResource("5_tls4m")]
-position = Vector2(897.0001, -2919)
-rotation = 19.207851
-scale = Vector2(0.7580725, 7.0702143)
-
-[node name="sliding_path145" parent="." unique_id=452384091 instance=ExtResource("5_tls4m")]
-position = Vector2(662.00006, -3023)
-rotation = 19.31442
-scale = Vector2(0.7580725, 7.0702143)
-
-[node name="sliding_path146" parent="." unique_id=1663228154 instance=ExtResource("5_tls4m")]
-position = Vector2(487.0001, -3108)
-rotation = 19.258774
-scale = Vector2(0.33145726, 6.2061753)
-
-[node name="sliding_path147" parent="." unique_id=1154031670 instance=ExtResource("5_tls4m")]
-position = Vector2(340.00003, -3148.0002)
-rotation = 19.01454
-scale = Vector2(0.61078835, 6.2061753)
-
-[node name="sliding_path148" parent="." unique_id=1191612185 instance=ExtResource("5_tls4m")]
-position = Vector2(758, -2828)
-rotation = 19.25778
-scale = Vector2(0.61078835, 6.2061753)
-
-[node name="sliding_path149" parent="." unique_id=176017327 instance=ExtResource("5_tls4m")]
-position = Vector2(699.00006, -2714)
-rotation = 20.925013
-scale = Vector2(0.3987131, 7.9872103)
-
-[node name="sliding_path150" parent="." unique_id=1344371264 instance=ExtResource("5_tls4m")]
-position = Vector2(531.99994, -2570)
-rotation = 21.5068
-scale = Vector2(1.2375848, 4.894454)
-
-[node name="sliding_path151" parent="." unique_id=372075112 instance=ExtResource("5_tls4m")]
-position = Vector2(192.99995, -2439)
-rotation = 21.712938
-scale = Vector2(0.92321247, 5.4985037)
-
-[node name="sliding_path152" parent="." unique_id=1091224658 instance=ExtResource("5_tls4m")]
-position = Vector2(55.000023, -2457)
-rotation = 21.962816
-scale = Vector2(0.92321247, 5.4985037)
-
-[node name="sliding_path153" parent="." unique_id=1764141256 instance=ExtResource("5_tls4m")]
-position = Vector2(-113.999954, -2536)
-rotation = 23.172441
-scale = Vector2(0.3849185, 6.55324)
-
-[node name="sliding_path154" parent="." unique_id=1169680075 instance=ExtResource("5_tls4m")]
-position = Vector2(306, -2542.0002)
-rotation = 23.342073
-scale = Vector2(-0.06806346, -10.640822)
-
-[node name="sliding_path155" parent="." unique_id=700962432 instance=ExtResource("5_tls4m")]
-position = Vector2(512.00006, -2625.9998)
-rotation = 23.058458
-scale = Vector2(-0.06806346, -10.640822)
-
-[node name="sliding_path96" parent="." unique_id=1912714787 instance=ExtResource("5_tls4m")]
-position = Vector2(-1020, -2383)
-rotation = 16.381586
-scale = Vector2(0.9618336, 6.449981)
-
-[node name="sliding_path97" parent="." unique_id=2081706476 instance=ExtResource("5_tls4m")]
-position = Vector2(-1240, -2607)
-rotation = 16.684233
-scale = Vector2(0.9618336, 5.331246)
-
-[node name="sliding_path98" parent="." unique_id=1499429775 instance=ExtResource("5_tls4m")]
-position = Vector2(-1259.0001, -2786.9998)
-rotation = 17.218801
-scale = Vector2(1.1399195, 4.058331)
-
-[node name="sliding_path99" parent="." unique_id=2091869836 instance=ExtResource("5_tls4m")]
-position = Vector2(-1165.0001, -2991.9998)
-rotation = 18.541052
-scale = Vector2(0.4465961, 5.1837363)
-
-[node name="sliding_path82" parent="." unique_id=739722231 instance=ExtResource("5_tls4m")]
-position = Vector2(1447.0001, -3810)
-rotation = 16.40588
-scale = Vector2(0.50439525, -8.151806)
-
-[node name="sliding_path2" parent="." unique_id=745089957 instance=ExtResource("5_tls4m")]
-position = Vector2(266.00003, -353.00003)
-rotation = 0.61086524
-scale = Vector2(1, 8)
-
-[node name="sliding_path3" parent="." unique_id=642245157 instance=ExtResource("5_tls4m")]
-position = Vector2(-69, 22.999998)
+scale = Vector2(1.1730294, 12.630624)
+
+[node name="sliding_path24" parent="AnimatedSprite2D/TerrainLogic" unique_id=635006541 instance=ExtResource("5_tls4m")]
+position = Vector2(922.667, 1462.6667)
+rotation = -1.0553507
+scale = Vector2(1.1730298, 12.630624)
+
+[node name="sliding_path25" parent="AnimatedSprite2D/TerrainLogic" unique_id=1710598244 instance=ExtResource("5_tls4m")]
+position = Vector2(994.667, 1324)
+rotation = -1.5447754
+scale = Vector2(1.2991437, 9.412636)
+
+[node name="sliding_path26" parent="AnimatedSprite2D/TerrainLogic" unique_id=1518985159 instance=ExtResource("5_tls4m")]
+position = Vector2(920, 954.66675)
+rotation = -1.969087
+scale = Vector2(1.1730297, 9.67656)
+
+[node name="sliding_path27" parent="AnimatedSprite2D/TerrainLogic" unique_id=2029419182 instance=ExtResource("5_tls4m")]
+position = Vector2(768, 648)
+rotation = -2.0579383
+scale = Vector2(1.1730295, 9.67656)
+
+[node name="sliding_path28" parent="AnimatedSprite2D/TerrainLogic" unique_id=1912686543 instance=ExtResource("5_tls4m")]
+position = Vector2(606.66675, 426.6665)
+rotation = -0.5128468
+scale = Vector2(1.1730297, 9.6765585)
+
+[node name="sliding_path29" parent="AnimatedSprite2D/TerrainLogic" unique_id=1311211607 instance=ExtResource("5_tls4m")]
+position = Vector2(242.66675, 547.9995)
+rotation = -0.13324957
+scale = Vector2(1.1730298, 9.67656)
+
+[node name="sliding_path30" parent="AnimatedSprite2D/TerrainLogic" unique_id=1236578666 instance=ExtResource("5_tls4m")]
+position = Vector2(-145.33301, 562.66675)
+rotation = 0.05463473
+scale = Vector2(1.1730299, 9.676559)
+
+[node name="sliding_path31" parent="AnimatedSprite2D/TerrainLogic" unique_id=673495093 instance=ExtResource("5_tls4m")]
+position = Vector2(-475.9995, 486.6665)
+rotation = 0.4093186
+scale = Vector2(1.1730297, 9.676559)
+
+[node name="sliding_path32" parent="AnimatedSprite2D/TerrainLogic" unique_id=1321966747 instance=ExtResource("5_tls4m")]
+position = Vector2(-806.6666, 277.333)
+rotation = 0.73261184
+scale = Vector2(1.1730298, 9.676559)
+
+[node name="sliding_path33" parent="AnimatedSprite2D/TerrainLogic" unique_id=165463016 instance=ExtResource("5_tls4m")]
+position = Vector2(-984.0001, -2.666748)
+rotation = 1.2490212
+scale = Vector2(1.1730295, 9.6765585)
+
+[node name="sliding_path34" parent="AnimatedSprite2D/TerrainLogic" unique_id=130405202 instance=ExtResource("5_tls4m")]
+position = Vector2(-1056, -376)
+rotation = 1.570078
+scale = Vector2(1.1730298, 9.676559)
+
+[node name="sliding_path35" parent="AnimatedSprite2D/TerrainLogic" unique_id=1542380082 instance=ExtResource("5_tls4m")]
+position = Vector2(-993.3335, -740)
+rotation = 1.9586397
+scale = Vector2(1.1730298, 9.6765585)
+
+[node name="sliding_path36" parent="AnimatedSprite2D/TerrainLogic" unique_id=1064443445 instance=ExtResource("5_tls4m")]
+position = Vector2(-785.3331, -1048)
+rotation = 2.4275587
+scale = Vector2(1.1730297, 9.676559)
+
+[node name="sliding_path37" parent="AnimatedSprite2D/TerrainLogic" unique_id=193361183 instance=ExtResource("5_tls4m")]
+position = Vector2(-446.6665, -1241.333)
+rotation = 2.8119981
+scale = Vector2(1.1730297, 9.6765585)
+
+[node name="sliding_path38" parent="AnimatedSprite2D/TerrainLogic" unique_id=809974223 instance=ExtResource("5_tls4m")]
+position = Vector2(-5.333252, -1314.6672)
+rotation = 3.1162136
+scale = Vector2(1.5995597, 9.676558)
+
+[node name="sliding_path39" parent="AnimatedSprite2D/TerrainLogic" unique_id=284985572 instance=ExtResource("5_tls4m")]
+position = Vector2(445.3335, -1252)
+rotation = -2.7661967
+scale = Vector2(1.2168254, 10.157363)
+
+[node name="sliding_path40" parent="AnimatedSprite2D/TerrainLogic" unique_id=1416331850 instance=ExtResource("5_tls4m")]
+position = Vector2(724.00073, -1100)
+rotation = -2.442413
+scale = Vector2(0.765953, 10.157364)
+
+[node name="sliding_path41" parent="AnimatedSprite2D/TerrainLogic" unique_id=1786424384 instance=ExtResource("5_tls4m")]
+position = Vector2(894.66675, -929.33325)
+rotation = -2.1820102
+scale = Vector2(0.76595294, 10.157364)
+
+[node name="sliding_path42" parent="AnimatedSprite2D/TerrainLogic" unique_id=471321357 instance=ExtResource("5_tls4m")]
+position = Vector2(1009.3335, -716)
+rotation = -1.8437754
+scale = Vector2(0.76595294, 10.157365)
+
+[node name="sliding_path43" parent="AnimatedSprite2D/TerrainLogic" unique_id=645732200 instance=ExtResource("5_tls4m")]
+position = Vector2(1061.3337, -441.33325)
+rotation = -1.5743624
+scale = Vector2(1.2271509, 10.725216)
+
+[node name="sliding_path44" parent="AnimatedSprite2D/TerrainLogic" unique_id=833596721 instance=ExtResource("5_tls4m")]
+position = Vector2(1009.3335, -62.666748)
+rotation = -1.2888972
+scale = Vector2(1.2271508, 10.725215)
+
+[node name="sliding_path45" parent="AnimatedSprite2D/TerrainLogic" unique_id=844373930 instance=ExtResource("5_tls4m")]
+position = Vector2(900.00073, 201.3335)
+rotation = -0.76404345
+scale = Vector2(1.2271508, 10.725217)
+
+[node name="sliding_path46" parent="AnimatedSprite2D/TerrainLogic" unique_id=490685226 instance=ExtResource("5_tls4m")]
+position = Vector2(1453.333, 14.666748)
+rotation = -0.16932836
+scale = Vector2(2.8587654, 11.77034)
+
+[node name="sliding_path47" parent="AnimatedSprite2D/TerrainLogic" unique_id=221904230 instance=ExtResource("5_tls4m")]
+position = Vector2(2234.667, -28.000244)
+rotation = 0.07772481
+scale = Vector2(1.8035831, 10.38719)
+
+[node name="sliding_path48" parent="AnimatedSprite2D/TerrainLogic" unique_id=1592367249 instance=ExtResource("5_tls4m")]
+position = Vector2(2717.334, 134.66626)
+rotation = 0.5943903
+scale = Vector2(1.5969814, 10.38719)
+
+[node name="sliding_path49" parent="AnimatedSprite2D/TerrainLogic" unique_id=1157881908 instance=ExtResource("5_tls4m")]
+position = Vector2(3070.6675, 85.33325)
+rotation = -0.70552784
+scale = Vector2(1.5969814, 10.38719)
+
+[node name="sliding_path50" parent="AnimatedSprite2D/TerrainLogic" unique_id=649179527 instance=ExtResource("5_tls4m")]
+position = Vector2(3405.3335, -228.00073)
+rotation = -0.82450646
+scale = Vector2(1.5969814, 10.38719)
+
+[node name="sliding_path51" parent="AnimatedSprite2D/TerrainLogic" unique_id=82046052 instance=ExtResource("5_tls4m")]
+position = Vector2(3726.667, -660)
+rotation = -1.0436409
+scale = Vector2(1.5969815, 10.38719)
+
+[node name="sliding_path52" parent="AnimatedSprite2D/TerrainLogic" unique_id=1894813817 instance=ExtResource("5_tls4m")]
+position = Vector2(3848.0015, -1078.6667)
+rotation = -1.6843382
+scale = Vector2(1.381669, 8.65818)
+
+[node name="sliding_path53" parent="AnimatedSprite2D/TerrainLogic" unique_id=1643828700 instance=ExtResource("5_tls4m")]
+position = Vector2(3614.667, -1389.3337)
+rotation = -2.7497385
+scale = Vector2(1.381669, 8.658179)
+
+[node name="sliding_path54" parent="AnimatedSprite2D/TerrainLogic" unique_id=875487436 instance=ExtResource("5_tls4m")]
+position = Vector2(3170.667, -1541.3333)
+rotation = -2.9013476
+scale = Vector2(1.3816689, 8.658179)
+
+[node name="sliding_path55" parent="AnimatedSprite2D/TerrainLogic" unique_id=1632318058 instance=ExtResource("5_tls4m")]
+position = Vector2(2720, -1636.0002)
+rotation = -2.9927633
+scale = Vector2(1.3816692, 8.658181)
+
+[node name="sliding_path56" parent="AnimatedSprite2D/TerrainLogic" unique_id=1085943729 instance=ExtResource("5_tls4m")]
+position = Vector2(3905.3335, -1157.3337)
+rotation = -1.7306944
+scale = Vector2(1.121567, -6.726692)
+
+[node name="sliding_path57" parent="AnimatedSprite2D/TerrainLogic" unique_id=1010844373 instance=ExtResource("5_tls4m")]
+position = Vector2(3974.666, -1158.6667)
+rotation = -1.7306944
+scale = Vector2(0.8345096, -6.726692)
+
+[node name="sliding_path58" parent="AnimatedSprite2D/TerrainLogic" unique_id=1027660056 instance=ExtResource("5_tls4m")]
+position = Vector2(2238.667, -1689.3333)
+rotation = -3.0946157
+scale = Vector2(1.4833511, 7.961335)
+
+[node name="sliding_path59" parent="AnimatedSprite2D/TerrainLogic" unique_id=728484156 instance=ExtResource("5_tls4m")]
+position = Vector2(2184, -1420.0002)
+rotation = -2.4335058
+scale = Vector2(1.483351, 9.37847)
+
+[node name="sliding_path60" parent="AnimatedSprite2D/TerrainLogic" unique_id=506936961 instance=ExtResource("5_tls4m")]
+position = Vector2(2570.667, -1110.667)
+rotation = -2.505966
+scale = Vector2(1.4833511, 9.378469)
+
+[node name="sliding_path61" parent="AnimatedSprite2D/TerrainLogic" unique_id=691699934 instance=ExtResource("5_tls4m")]
+position = Vector2(1846.667, -1400.0002)
+rotation = 1.5799247
+scale = Vector2(1.483351, 9.378471)
+
+[node name="sliding_path62" parent="AnimatedSprite2D/TerrainLogic" unique_id=210919326 instance=ExtResource("5_tls4m")]
+position = Vector2(1845.3335, -910.667)
+rotation = 1.5799247
+scale = Vector2(1.483351, 9.378471)
+
+[node name="sliding_path63" parent="AnimatedSprite2D/TerrainLogic" unique_id=1095407649 instance=ExtResource("5_tls4m")]
+position = Vector2(1402.667, -572)
+rotation = 0.0138992015
+scale = Vector2(1.4833509, 9.378471)
+
+[node name="sliding_path64" parent="AnimatedSprite2D/TerrainLogic" unique_id=1241204480 instance=ExtResource("5_tls4m")]
+position = Vector2(1681.3335, -569.33374)
+rotation = 0.0138992015
+scale = Vector2(1.4833509, 9.378471)
+
+[node name="sliding_path65" parent="AnimatedSprite2D/TerrainLogic" unique_id=1253959330 instance=ExtResource("5_tls4m")]
+position = Vector2(1926.667, -337.33325)
+rotation = 1.1787962
+scale = Vector2(1.483351, 9.378471)
+
+[node name="sliding_path66" parent="AnimatedSprite2D/TerrainLogic" unique_id=1002366772 instance=ExtResource("5_tls4m")]
+position = Vector2(2038.667, -312)
+rotation = 1.1175227
+scale = Vector2(1.2283835, 3.974447)
+
+[node name="sliding_path67" parent="AnimatedSprite2D/TerrainLogic" unique_id=1655971571 instance=ExtResource("5_tls4m")]
+position = Vector2(2870.667, -200)
+rotation = 1.8488277
+scale = Vector2(1.5214434, 9.063379)
+
+[node name="sliding_path68" parent="AnimatedSprite2D/TerrainLogic" unique_id=251859427 instance=ExtResource("5_tls4m")]
+position = Vector2(2922.667, -648)
+rotation = 1.4568294
+scale = Vector2(1.2507093, -7.930254)
+
+[node name="sliding_path69" parent="AnimatedSprite2D/TerrainLogic" unique_id=1732413343 instance=ExtResource("5_tls4m")]
+position = Vector2(2837.3335, -878.66675)
+rotation = 0.86807287
+scale = Vector2(1.132988, -7.9302545)
+
+[node name="sliding_path70" parent="AnimatedSprite2D/TerrainLogic" unique_id=763899961 instance=ExtResource("5_tls4m")]
+position = Vector2(3018.667, -606.66675)
+rotation = 1.5169338
+scale = Vector2(1.029368, -2.060098)
+
+[node name="sliding_path71" parent="AnimatedSprite2D/TerrainLogic" unique_id=516003666 instance=ExtResource("5_tls4m")]
+position = Vector2(2908.001, -937.33374)
+rotation = 0.85276073
+scale = Vector2(0.6854351, -2.1117244)
+
+[node name="sliding_path72" parent="AnimatedSprite2D/TerrainLogic" unique_id=721857823 instance=ExtResource("5_tls4m")]
+position = Vector2(1616, -1788.0002)
+rotation = 0.54441965
+scale = Vector2(2.1370628, -12.172845)
+
+[node name="sliding_path73" parent="AnimatedSprite2D/TerrainLogic" unique_id=1652689880 instance=ExtResource("5_tls4m")]
+position = Vector2(1960.001, -1644.0007)
+rotation = 0.54441965
+scale = Vector2(0.46476147, 9.357555)
+
+[node name="sliding_path74" parent="AnimatedSprite2D/TerrainLogic" unique_id=1159458247 instance=ExtResource("5_tls4m")]
+position = Vector2(612, -2078.6672)
+rotation = 0.04970585
+scale = Vector2(3.0722947, 9.683378)
+
+[node name="sliding_path75" parent="AnimatedSprite2D/TerrainLogic" unique_id=1553451892 instance=ExtResource("5_tls4m")]
+position = Vector2(-232, -2133.3333)
+rotation = 0.044484492
+scale = Vector2(1.9744153, 8.847159)
+
+[node name="sliding_path76" parent="AnimatedSprite2D/TerrainLogic" unique_id=771859491 instance=ExtResource("5_tls4m")]
+position = Vector2(174.66699, -1726.6667)
+rotation = -1.4202591
+scale = Vector2(1.9314015, -11.181972)
+
+[node name="sliding_path77" parent="AnimatedSprite2D/TerrainLogic" unique_id=1933265850 instance=ExtResource("5_tls4m")]
+position = Vector2(1226.6667, -1982.6672)
+rotation = 0.5190692
+scale = Vector2(0.81536406, -9.207837)
+
+[node name="sliding_path78" parent="AnimatedSprite2D/TerrainLogic" unique_id=733897815 instance=ExtResource("5_tls4m")]
+position = Vector2(1245.3335, -2087.9993)
+rotation = 0.2818054
+scale = Vector2(0.72947866, -4.206691)
+
+[node name="sliding_path79" parent="AnimatedSprite2D/TerrainLogic" unique_id=995860490 instance=ExtResource("5_tls4m")]
+position = Vector2(-594.6665, -2228.0002)
+rotation = 1.5790848
+scale = Vector2(0.7294788, -4.206691)
+
+[node name="sliding_path80" parent="AnimatedSprite2D/TerrainLogic" unique_id=907049741 instance=ExtResource("5_tls4m")]
+position = Vector2(-483.9995, -2302.6672)
+rotation = 1.3294176
+scale = Vector2(0.91102314, -7.349505)
+
+[node name="sliding_path81" parent="AnimatedSprite2D/TerrainLogic" unique_id=345921976 instance=ExtResource("5_tls4m")]
+position = Vector2(-918.6666, -2397.3333)
+rotation = 2.796219
+scale = Vector2(1.3894153, -10.869077)
+
+[node name="sliding_path84" parent="AnimatedSprite2D/TerrainLogic" unique_id=2020407126 instance=ExtResource("5_tls4m")]
+position = Vector2(-1503.9996, -2077.3342)
+rotation = 2.5661538
+scale = Vector2(2.5870981, -9.148072)
+
+[node name="sliding_path85" parent="AnimatedSprite2D/TerrainLogic" unique_id=611226458 instance=ExtResource("5_tls4m")]
+position = Vector2(-1946.6666, -1754.6672)
+rotation = 2.4212487
+scale = Vector2(0.6506651, -9.148072)
+
+[node name="sliding_path86" parent="AnimatedSprite2D/TerrainLogic" unique_id=1909210550 instance=ExtResource("5_tls4m")]
+position = Vector2(-2096, -1618.6672)
+rotation = 2.4212487
+scale = Vector2(0.6506651, -9.148072)
+
+[node name="sliding_path87" parent="AnimatedSprite2D/TerrainLogic" unique_id=2110899932 instance=ExtResource("5_tls4m")]
+position = Vector2(-2264, -1572.0007)
+rotation = 3.004141
+scale = Vector2(0.6506651, -7.7435927)
+
+[node name="sliding_path88" parent="AnimatedSprite2D/TerrainLogic" unique_id=296703458 instance=ExtResource("5_tls4m")]
+position = Vector2(-2849.3333, -1481.3333)
+rotation = 2.9873002
+scale = Vector2(2.807726, -6.961301)
+
+[node name="sliding_path89" parent="AnimatedSprite2D/TerrainLogic" unique_id=969365284 instance=ExtResource("5_tls4m")]
+position = Vector2(-3676, -1388.0007)
+rotation = 3.043361
+scale = Vector2(1.9659618, -6.9613013)
+
+[node name="sliding_path90" parent="AnimatedSprite2D/TerrainLogic" unique_id=161813286 instance=ExtResource("5_tls4m")]
+position = Vector2(-3320, -1201.3337)
+rotation = 1.6105541
+scale = Vector2(0.8963837, 5.5510488)
+
+[node name="sliding_path91" parent="AnimatedSprite2D/TerrainLogic" unique_id=1855911047 instance=ExtResource("5_tls4m")]
+position = Vector2(-3354.6667, -905.33325)
+rotation = 1.7571539
+scale = Vector2(0.8963836, 5.5510488)
+
+[node name="sliding_path92" parent="AnimatedSprite2D/TerrainLogic" unique_id=388331068 instance=ExtResource("5_tls4m")]
+position = Vector2(-3416.0005, -693.33325)
+rotation = 1.9023212
+scale = Vector2(0.8963837, 5.551048)
+
+[node name="sliding_path93" parent="AnimatedSprite2D/TerrainLogic" unique_id=39625817 instance=ExtResource("5_tls4m")]
+position = Vector2(-3485.3335, -521.33325)
+rotation = 2.0516913
+scale = Vector2(0.8963837, 5.5510483)
+
+[node name="sliding_path94" parent="AnimatedSprite2D/TerrainLogic" unique_id=1525350555 instance=ExtResource("5_tls4m")]
+position = Vector2(-3618.6667, -317.33325)
+rotation = -2.5737152
+scale = Vector2(0.8963836, 9.77685)
+
+[node name="sliding_path95" parent="AnimatedSprite2D/TerrainLogic" unique_id=819311829 instance=ExtResource("5_tls4m")]
+position = Vector2(-3166.6667, -68.00073)
+rotation = -2.6516151
+scale = Vector2(2.1104918, 9.77685)
+
+[node name="sliding_path103" parent="AnimatedSprite2D/TerrainLogic" unique_id=229188052 instance=ExtResource("5_tls4m")]
+position = Vector2(-2788, 228)
+rotation = -1.1239624
+scale = Vector2(1.1181808, 9.77685)
+
+[node name="sliding_path104" parent="AnimatedSprite2D/TerrainLogic" unique_id=280462875 instance=ExtResource("5_tls4m")]
+position = Vector2(-2948, 569.33325)
+rotation = -1.2398434
+scale = Vector2(1.1181805, 8.445004)
+
+[node name="sliding_path105" parent="AnimatedSprite2D/TerrainLogic" unique_id=421570344 instance=ExtResource("5_tls4m")]
+position = Vector2(-3014.6667, 920)
+rotation = -1.4973278
+scale = Vector2(1.0681157, 9.457854)
+
+[node name="sliding_path106" parent="AnimatedSprite2D/TerrainLogic" unique_id=225485670 instance=ExtResource("5_tls4m")]
+position = Vector2(-2948, 1192.0002)
+rotation = -2.0234299
+scale = Vector2(1.0681157, 9.457854)
+
+[node name="sliding_path107" parent="AnimatedSprite2D/TerrainLogic" unique_id=1712873004 instance=ExtResource("5_tls4m")]
+position = Vector2(-2745.3333, 1385.3334)
+rotation = -2.7587528
+scale = Vector2(1.0681157, 9.457854)
+
+[node name="sliding_path108" parent="AnimatedSprite2D/TerrainLogic" unique_id=80425563 instance=ExtResource("5_tls4m")]
+position = Vector2(-2401.3333, 1498.6667)
+rotation = -2.8486843
+scale = Vector2(1.0681156, 9.457854)
+
+[node name="sliding_path109" parent="AnimatedSprite2D/TerrainLogic" unique_id=142763768 instance=ExtResource("5_tls4m")]
+position = Vector2(-2098.6665, 1573.3334)
+rotation = -2.9592896
+scale = Vector2(1.0681157, 9.457856)
+
+[node name="sliding_path110" parent="AnimatedSprite2D/TerrainLogic" unique_id=994222940 instance=ExtResource("5_tls4m")]
+position = Vector2(-1740, 1653.3334)
+rotation = -2.8993673
+scale = Vector2(1.0681156, 9.457854)
+
+[node name="sliding_path111" parent="AnimatedSprite2D/TerrainLogic" unique_id=1988786431 instance=ExtResource("5_tls4m")]
+position = Vector2(-1565.3333, 1689.3334)
+rotation = -2.8993673
+scale = Vector2(1.0681156, 9.457854)
+
+[node name="sliding_path112" parent="AnimatedSprite2D/TerrainLogic" unique_id=823009168 instance=ExtResource("5_tls4m")]
+position = Vector2(-1902.6666, 1866.6667)
+rotation = -1.6971378
+scale = Vector2(1.0681158, 9.457854)
+
+[node name="sliding_path113" parent="AnimatedSprite2D/TerrainLogic" unique_id=108893226 instance=ExtResource("5_tls4m")]
+position = Vector2(-3029.3333, 1222.6667)
+rotation = -2.0452385
+scale = Vector2(0.6017637, 5.534224)
+
+[node name="sliding_path114" parent="AnimatedSprite2D/TerrainLogic" unique_id=1717427345 instance=ExtResource("5_tls4m")]
+position = Vector2(-2566.6665, 98.66675)
+rotation = -0.8404407
+scale = Vector2(2.3232222, 5.5342245)
+
+[node name="sliding_path115" parent="AnimatedSprite2D/TerrainLogic" unique_id=284281755 instance=ExtResource("5_tls4m")]
+position = Vector2(-2318.6665, 41.333008)
+rotation = 0.28803068
+scale = Vector2(0.7779247, 9.24215)
+
+[node name="sliding_path116" parent="AnimatedSprite2D/TerrainLogic" unique_id=248515282 instance=ExtResource("5_tls4m")]
+position = Vector2(-2076, 112)
+rotation = 0.4209996
+scale = Vector2(0.7779248, 9.242151)
+
+[node name="sliding_path117" parent="AnimatedSprite2D/TerrainLogic" unique_id=882273217 instance=ExtResource("5_tls4m")]
+position = Vector2(-1849.3333, 230.6665)
+rotation = 0.66909224
+scale = Vector2(0.7779248, 9.24215)
+
+[node name="sliding_path118" parent="AnimatedSprite2D/TerrainLogic" unique_id=886908589 instance=ExtResource("5_tls4m")]
+position = Vector2(-1659.9998, 410.6665)
+rotation = 0.80191624
+scale = Vector2(0.77792484, 9.242151)
+
+[node name="sliding_path119" parent="AnimatedSprite2D/TerrainLogic" unique_id=1942320974 instance=ExtResource("5_tls4m")]
+position = Vector2(-2262.6665, -134.66699)
+rotation = 2.2611923
+scale = Vector2(0.77792466, 9.242151)
+
+[node name="sliding_path120" parent="AnimatedSprite2D/TerrainLogic" unique_id=759213990 instance=ExtResource("5_tls4m")]
+position = Vector2(-2526.6667, 22.666748)
+rotation = 2.364399
+scale = Vector2(0.7779247, 9.24215)
+
+[node name="sliding_path121" parent="AnimatedSprite2D/TerrainLogic" unique_id=1947248259 instance=ExtResource("5_tls4m")]
+position = Vector2(-2090.6665, -274.66675)
+rotation = 2.623392
+scale = Vector2(0.7779247, 8.521578)
+
+[node name="sliding_path122" parent="AnimatedSprite2D/TerrainLogic" unique_id=1756988594 instance=ExtResource("5_tls4m")]
+position = Vector2(-1861.3333, -382.66675)
+rotation = 2.793768
+scale = Vector2(0.77792484, 8.521578)
+
+[node name="sliding_path123" parent="AnimatedSprite2D/TerrainLogic" unique_id=880467891 instance=ExtResource("5_tls4m")]
+position = Vector2(-1605.3333, -446.667)
+rotation = 2.9807587
+scale = Vector2(0.7779248, 8.521579)
+
+[node name="sliding_path124" parent="AnimatedSprite2D/TerrainLogic" unique_id=134538097 instance=ExtResource("5_tls4m")]
+position = Vector2(-1342.6666, -473.33325)
+rotation = 3.115469
+scale = Vector2(0.7779247, 8.521579)
+
+[node name="sliding_path125" parent="AnimatedSprite2D/TerrainLogic" unique_id=1676240878 instance=ExtResource("5_tls4m")]
+position = Vector2(-1213.3333, -480)
+rotation = 3.115469
+scale = Vector2(0.7779247, 8.521579)
+
+[node name="sliding_path126" parent="AnimatedSprite2D/TerrainLogic" unique_id=112591336 instance=ExtResource("5_tls4m")]
+position = Vector2(-1133.3333, 169.33325)
+rotation = 2.3640766
+scale = Vector2(0.77792484, 8.521579)
+
+[node name="sliding_path127" parent="AnimatedSprite2D/TerrainLogic" unique_id=529813182 instance=ExtResource("5_tls4m")]
+position = Vector2(-1314.6666, 362.6665)
+rotation = 2.3206615
+scale = Vector2(0.77792484, 8.521578)
+
+[node name="sliding_path128" parent="AnimatedSprite2D/TerrainLogic" unique_id=1301979989 instance=ExtResource("5_tls4m")]
+position = Vector2(-1493.3331, 566.6665)
+rotation = 2.2714272
+scale = Vector2(0.7779248, 8.521578)
+
+[node name="sliding_path129" parent="AnimatedSprite2D/TerrainLogic" unique_id=1850002686 instance=ExtResource("5_tls4m")]
+position = Vector2(-1633.3333, 781.33325)
+rotation = 2.1716022
+scale = Vector2(0.7779247, 8.521578)
+
+[node name="sliding_path130" parent="AnimatedSprite2D/TerrainLogic" unique_id=1751978388 instance=ExtResource("5_tls4m")]
+position = Vector2(-1777.3333, 1004)
+rotation = 2.1141949
+scale = Vector2(0.77792466, 8.521578)
+
+[node name="sliding_path131" parent="AnimatedSprite2D/TerrainLogic" unique_id=625587833 instance=ExtResource("5_tls4m")]
+position = Vector2(-1914.6665, 1237.3334)
+rotation = 2.1141949
+scale = Vector2(0.77792466, 9.426952)
+
+[node name="sliding_path132" parent="AnimatedSprite2D/TerrainLogic" unique_id=1282500272 instance=ExtResource("5_tls4m")]
+position = Vector2(-2008, 1402.6667)
+rotation = 2.0222397
+scale = Vector2(0.7779248, 9.426953)
+
+[node name="sliding_path133" parent="AnimatedSprite2D/TerrainLogic" unique_id=1781782372 instance=ExtResource("5_tls4m")]
+position = Vector2(-504, 689.3335)
+rotation = 1.6718197
+scale = Vector2(0.7779247, 9.426952)
+
+[node name="sliding_path134" parent="AnimatedSprite2D/TerrainLogic" unique_id=1009778393 instance=ExtResource("5_tls4m")]
+position = Vector2(-538.6665, 936.00024)
+rotation = 1.7628326
+scale = Vector2(0.7779247, 9.426953)
+
+[node name="sliding_path135" parent="AnimatedSprite2D/TerrainLogic" unique_id=494081550 instance=ExtResource("5_tls4m")]
+position = Vector2(-594.6665, 1197.3334)
+rotation = 1.7530403
+scale = Vector2(0.77792466, 9.426953)
+
+[node name="sliding_path136" parent="AnimatedSprite2D/TerrainLogic" unique_id=1956129173 instance=ExtResource("5_tls4m")]
+position = Vector2(-652, 1397.3334)
+rotation = 1.8482838
+scale = Vector2(0.77792466, 9.426952)
+
+[node name="sliding_path137" parent="AnimatedSprite2D/TerrainLogic" unique_id=251701623 instance=ExtResource("5_tls4m")]
+position = Vector2(-416, 1432)
+rotation = 3.0375156
+scale = Vector2(0.7779247, 9.426951)
+
+[node name="sliding_path138" parent="AnimatedSprite2D/TerrainLogic" unique_id=1553148882 instance=ExtResource("5_tls4m")]
+position = Vector2(2381.333, 2348)
+rotation = -3.0881436
+scale = Vector2(0.77792466, 9.426952)
+
+[node name="sliding_path139" parent="AnimatedSprite2D/TerrainLogic" unique_id=248479223 instance=ExtResource("5_tls4m")]
+position = Vector2(2598.667, 2321.3335)
+rotation = 2.8695164
+scale = Vector2(0.7779248, 9.426953)
+
+[node name="sliding_path140" parent="AnimatedSprite2D/TerrainLogic" unique_id=1030857521 instance=ExtResource("5_tls4m")]
+position = Vector2(2817.334, 2221.3335)
+rotation = 2.5536842
+scale = Vector2(0.7779247, 9.426952)
+
+[node name="sliding_path141" parent="AnimatedSprite2D/TerrainLogic" unique_id=1485669836 instance=ExtResource("5_tls4m")]
+position = Vector2(2972, 2061.3335)
+rotation = 2.1482677
+scale = Vector2(0.77792466, 9.426953)
+
+[node name="sliding_path142" parent="AnimatedSprite2D/TerrainLogic" unique_id=1356126559 instance=ExtResource("5_tls4m")]
+position = Vector2(3070.6675, 1828)
+rotation = 1.7166233
+scale = Vector2(1.0107638, 9.426952)
+
+[node name="sliding_path143" parent="AnimatedSprite2D/TerrainLogic" unique_id=1041415811 instance=ExtResource("5_tls4m")]
+position = Vector2(-1049.3331, -1102.6667)
+rotation = 0.50764275
+scale = Vector2(1.0107635, 9.426953)
+
+[node name="sliding_path144" parent="AnimatedSprite2D/TerrainLogic" unique_id=907162365 instance=ExtResource("5_tls4m")]
+position = Vector2(-1347.9996, -1232)
+rotation = 0.35829544
+scale = Vector2(1.0107634, 9.426952)
+
+[node name="sliding_path145" parent="AnimatedSprite2D/TerrainLogic" unique_id=452384091 instance=ExtResource("5_tls4m")]
+position = Vector2(-1661.3333, -1370.6667)
+rotation = 0.4648648
+scale = Vector2(1.0107634, 9.426952)
+
+[node name="sliding_path146" parent="AnimatedSprite2D/TerrainLogic" unique_id=1663228154 instance=ExtResource("5_tls4m")]
+position = Vector2(-1894.6665, -1484.0002)
+rotation = 0.40921786
+scale = Vector2(0.44194305, 8.2749)
+
+[node name="sliding_path147" parent="AnimatedSprite2D/TerrainLogic" unique_id=1154031670 instance=ExtResource("5_tls4m")]
+position = Vector2(-2090.6665, -1537.3342)
+rotation = 0.16498382
+scale = Vector2(0.8143845, 8.2749)
+
+[node name="sliding_path148" parent="AnimatedSprite2D/TerrainLogic" unique_id=1191612185 instance=ExtResource("5_tls4m")]
+position = Vector2(-1533.3333, -1110.6667)
+rotation = 0.40822414
+scale = Vector2(0.8143845, 8.2749)
+
+[node name="sliding_path149" parent="AnimatedSprite2D/TerrainLogic" unique_id=176017327 instance=ExtResource("5_tls4m")]
+position = Vector2(-1611.9998, -958.66675)
+rotation = 2.0754566
+scale = Vector2(0.53161746, 10.649614)
+
+[node name="sliding_path150" parent="AnimatedSprite2D/TerrainLogic" unique_id=1344371264 instance=ExtResource("5_tls4m")]
+position = Vector2(-1834.6666, -766.66675)
+rotation = 2.6572437
+scale = Vector2(1.6501131, 6.5259385)
+
+[node name="sliding_path151" parent="AnimatedSprite2D/TerrainLogic" unique_id=372075112 instance=ExtResource("5_tls4m")]
+position = Vector2(-2286.6667, -592)
+rotation = 2.8633823
+scale = Vector2(1.2309502, 7.3313384)
+
+[node name="sliding_path152" parent="AnimatedSprite2D/TerrainLogic" unique_id=1091224658 instance=ExtResource("5_tls4m")]
+position = Vector2(-2470.6667, -616)
+rotation = 3.1132603
+scale = Vector2(1.2309501, 7.331339)
+
+[node name="sliding_path153" parent="AnimatedSprite2D/TerrainLogic" unique_id=1764141256 instance=ExtResource("5_tls4m")]
+position = Vector2(-2696, -721.33325)
+rotation = -1.9602997
+scale = Vector2(0.5132247, 8.737653)
+
+[node name="sliding_path154" parent="AnimatedSprite2D/TerrainLogic" unique_id=1169680075 instance=ExtResource("5_tls4m")]
+position = Vector2(-2136, -729.33374)
+rotation = 1.3509248
+scale = Vector2(0.09075129, 14.187765)
+
+[node name="sliding_path155" parent="AnimatedSprite2D/TerrainLogic" unique_id=700962432 instance=ExtResource("5_tls4m")]
+position = Vector2(-1861.3333, -841.333)
+rotation = 1.0673097
+scale = Vector2(0.09075129, 14.187764)
+
+[node name="sliding_path96" parent="AnimatedSprite2D/TerrainLogic" unique_id=1912714787 instance=ExtResource("5_tls4m")]
+position = Vector2(-3904, -517.33325)
+rotation = -2.4679697
+scale = Vector2(1.2824448, 8.599975)
+
+[node name="sliding_path97" parent="AnimatedSprite2D/TerrainLogic" unique_id=2081706476 instance=ExtResource("5_tls4m")]
+position = Vector2(-4197.3335, -816)
+rotation = -2.1653233
+scale = Vector2(1.2824448, 7.108328)
+
+[node name="sliding_path98" parent="AnimatedSprite2D/TerrainLogic" unique_id=1499429775 instance=ExtResource("5_tls4m")]
+position = Vector2(-4222.667, -1055.9998)
+rotation = -1.6307545
+scale = Vector2(1.5198929, 5.411108)
+
+[node name="sliding_path99" parent="AnimatedSprite2D/TerrainLogic" unique_id=2091869836 instance=ExtResource("5_tls4m")]
+position = Vector2(-4097.3335, -1329.3333)
+rotation = -0.30850405
+scale = Vector2(0.5954615, 6.9116483)
+
+[node name="sliding_path82" parent="AnimatedSprite2D/TerrainLogic" unique_id=739722231 instance=ExtResource("5_tls4m")]
+position = Vector2(-614.6665, -2420.0002)
+rotation = -2.443676
+scale = Vector2(0.672527, -10.869074)
+
+[node name="sliding_path3" parent="AnimatedSprite2D/TerrainLogic" unique_id=642245157 instance=ExtResource("5_tls4m")]
+position = Vector2(-2564.0002, 2617.3337)
 rotation = 2.3561945
-scale = Vector2(0.3, 6)
+scale = Vector2(0.4, 7.9999995)
 
-[node name="sliding_path4" parent="." unique_id=1773839835 instance=ExtResource("5_tls4m")]
-position = Vector2(106.999985, -452.00003)
-rotation = 0.61086524
-scale = Vector2(0.3, 4)
-
-[node name="ocean" parent="." unique_id=22154270 instance=ExtResource("6_ffyxw")]
-position = Vector2(-681, 524)
+[node name="ocean" parent="AnimatedSprite2D/TerrainLogic" unique_id=22154270 instance=ExtResource("6_ffyxw")]
+position = Vector2(-3452, 3358.6667)
 rotation = 0.17453292
-scale = Vector2(5, 3)
+scale = Vector2(6.666667, 3.9999995)
 
-[node name="ocean2" parent="." unique_id=619013238 instance=ExtResource("6_ffyxw")]
-position = Vector2(267.99994, 510)
+[node name="ocean2" parent="AnimatedSprite2D/TerrainLogic" unique_id=619013238 instance=ExtResource("6_ffyxw")]
+position = Vector2(-2186.6665, 3340)
 rotation = 2.8797932
-scale = Vector2(10, 3)
+scale = Vector2(13.333334, 4)
 
-[node name="ocean3" parent="." unique_id=1981614420 instance=ExtResource("6_ffyxw")]
-position = Vector2(3541.0002, 487.00006)
+[node name="ocean3" parent="AnimatedSprite2D/TerrainLogic" unique_id=1981614420 instance=ExtResource("6_ffyxw")]
+position = Vector2(2177.334, 3309.3335)
 rotation = 0.2617994
-scale = Vector2(10, 3)
+scale = Vector2(13.333334, 4)
 
-[node name="ocean4" parent="." unique_id=2070366362 instance=ExtResource("6_ffyxw")]
-position = Vector2(4773, 447.99982)
+[node name="ocean4" parent="AnimatedSprite2D/TerrainLogic" unique_id=2070366362 instance=ExtResource("6_ffyxw")]
+position = Vector2(3820, 3257.333)
 rotation = 2.9670596
-scale = Vector2(5, 3)
+scale = Vector2(6.6666675, 4)
 
-[node name="ocean5" parent="." unique_id=1419166721 instance=ExtResource("6_ffyxw")]
-position = Vector2(4883, 56.99997)
+[node name="ocean5" parent="AnimatedSprite2D/TerrainLogic" unique_id=1419166721 instance=ExtResource("6_ffyxw")]
+position = Vector2(3966.667, 2736)
 rotation = 1.5707964
-scale = Vector2(5, 3)
+scale = Vector2(6.666667, 4)
 
-[node name="ocean8" parent="." unique_id=1082504211 instance=ExtResource("6_ffyxw")]
-position = Vector2(5620, -2913)
+[node name="ocean8" parent="AnimatedSprite2D/TerrainLogic" unique_id=1082504211 instance=ExtResource("6_ffyxw")]
+position = Vector2(4949.3335, -1224)
 rotation = 1.5707964
-scale = Vector2(5, 3)
+scale = Vector2(6.666667, 4)
 
-[node name="ocean24" parent="." unique_id=756227406 instance=ExtResource("6_ffyxw")]
-position = Vector2(5438, -3079.9995)
+[node name="ocean24" parent="AnimatedSprite2D/TerrainLogic" unique_id=756227406 instance=ExtResource("6_ffyxw")]
+position = Vector2(4706.667, -1446.6663)
 rotation = 0.7853982
-scale = Vector2(2, 3)
+scale = Vector2(2.6666667, 3.9999998)
 
-[node name="ocean9" parent="." unique_id=1430881997 instance=ExtResource("6_ffyxw")]
-position = Vector2(4806.9995, -3373)
+[node name="ocean9" parent="AnimatedSprite2D/TerrainLogic" unique_id=1430881997 instance=ExtResource("6_ffyxw")]
+position = Vector2(3865.3335, -1837.3333)
 rotation = 0.20943952
-scale = Vector2(8, 3)
+scale = Vector2(10.666667, 4.0000005)
 
-[node name="ocean10" parent="." unique_id=1044358982 instance=ExtResource("6_ffyxw")]
-position = Vector2(2475, -4524)
+[node name="ocean10" parent="AnimatedSprite2D/TerrainLogic" unique_id=1044358982 instance=ExtResource("6_ffyxw")]
+position = Vector2(756, -3372.0002)
 rotation = 0.6981317
-scale = Vector2(8, 3)
+scale = Vector2(10.666666, 4)
 
-[node name="ocean13" parent="." unique_id=745109827 instance=ExtResource("6_ffyxw")]
-position = Vector2(2308.0002, -4554)
+[node name="ocean13" parent="AnimatedSprite2D/TerrainLogic" unique_id=745109827 instance=ExtResource("6_ffyxw")]
+position = Vector2(533.33374, -3412.0002)
 rotation = 0.43633232
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 
-[node name="ocean14" parent="." unique_id=1303295840 instance=ExtResource("6_ffyxw")]
-position = Vector2(1423.0002, -4508.0005)
+[node name="ocean14" parent="AnimatedSprite2D/TerrainLogic" unique_id=1303295840 instance=ExtResource("6_ffyxw")]
+position = Vector2(-646.66626, -3350.6672)
 rotation = 2.7052603
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 
-[node name="ocean11" parent="." unique_id=1659164634 instance=ExtResource("6_ffyxw")]
-position = Vector2(1404.0001, -4558)
+[node name="ocean11" parent="AnimatedSprite2D/TerrainLogic" unique_id=1659164634 instance=ExtResource("6_ffyxw")]
+position = Vector2(-671.9995, -3417.3333)
 rotation = 2.443461
-scale = Vector2(8, 3)
+scale = Vector2(10.666667, 4)
 
-[node name="ocean15" parent="." unique_id=981048816 instance=ExtResource("6_ffyxw")]
-position = Vector2(-984, -3396.9998)
+[node name="ocean15" parent="AnimatedSprite2D/TerrainLogic" unique_id=981048816 instance=ExtResource("6_ffyxw")]
+position = Vector2(-3856, -1869.3333)
 rotation = 2.9496064
-scale = Vector2(8, 3)
+scale = Vector2(10.666667, 3.9999998)
 
-[node name="ocean16" parent="." unique_id=2039933894 instance=ExtResource("6_ffyxw")]
-position = Vector2(-1650.0001, -3124)
+[node name="ocean16" parent="AnimatedSprite2D/TerrainLogic" unique_id=2039933894 instance=ExtResource("6_ffyxw")]
+position = Vector2(-4744, -1505.3333)
 rotation = 2.7052603
-scale = Vector2(4, 3)
+scale = Vector2(5.333334, 4)
 
-[node name="ocean17" parent="." unique_id=1892263062 instance=ExtResource("6_ffyxw")]
-position = Vector2(-1791.0002, -2934)
+[node name="ocean17" parent="AnimatedSprite2D/TerrainLogic" unique_id=1892263062 instance=ExtResource("6_ffyxw")]
+position = Vector2(-4932.001, -1252)
 rotation = 2.268928
-scale = Vector2(4, 3)
+scale = Vector2(5.3333335, 4)
 
-[node name="ocean18" parent="." unique_id=82277219 instance=ExtResource("6_ffyxw")]
-position = Vector2(-1794.0004, -2565)
+[node name="ocean18" parent="AnimatedSprite2D/TerrainLogic" unique_id=82277219 instance=ExtResource("6_ffyxw")]
+position = Vector2(-4936.001, -760)
 rotation = 1.5707964
-scale = Vector2(2, 3)
+scale = Vector2(2.6666667, 4)
 
-[node name="ocean19" parent="." unique_id=408029211 instance=ExtResource("6_ffyxw")]
-position = Vector2(-1612.9998, -2292)
+[node name="ocean19" parent="AnimatedSprite2D/TerrainLogic" unique_id=408029211 instance=ExtResource("6_ffyxw")]
+position = Vector2(-4694.667, -396)
 rotation = 1.0471976
-scale = Vector2(2, 3)
+scale = Vector2(2.6666667, 4)
 
-[node name="ocean25" parent="." unique_id=523221750 instance=ExtResource("6_ffyxw")]
-position = Vector2(-1116, -1530)
-scale = Vector2(2, 3)
+[node name="ocean25" parent="AnimatedSprite2D/TerrainLogic" unique_id=523221750 instance=ExtResource("6_ffyxw")]
+position = Vector2(-4032, 620)
+scale = Vector2(2.6666667, 4)
 
-[node name="ocean26" parent="." unique_id=144226561 instance=ExtResource("6_ffyxw")]
-position = Vector2(4925, -1540.0001)
-scale = Vector2(2, 3)
+[node name="ocean26" parent="AnimatedSprite2D/TerrainLogic" unique_id=144226561 instance=ExtResource("6_ffyxw")]
+position = Vector2(4022.667, 606.6665)
+scale = Vector2(2.6666667, 4)
 
-[node name="ocean20" parent="." unique_id=1886394373 instance=ExtResource("6_ffyxw")]
-position = Vector2(-1322.0001, -2013.0001)
+[node name="ocean20" parent="AnimatedSprite2D/TerrainLogic" unique_id=1886394373 instance=ExtResource("6_ffyxw")]
+position = Vector2(-4306.667, -24.000244)
 rotation = 0.7853982
-scale = Vector2(4, 3)
+scale = Vector2(5.3333335, 3.9999998)
 
-[node name="ocean21" parent="." unique_id=1298170486 instance=ExtResource("6_ffyxw")]
-position = Vector2(-963.9999, -877.9999)
+[node name="ocean21" parent="AnimatedSprite2D/TerrainLogic" unique_id=1298170486 instance=ExtResource("6_ffyxw")]
+position = Vector2(-3829.3335, 1489.3335)
 rotation = 1.7453293
-scale = Vector2(4, 3)
+scale = Vector2(5.3333335, 3.9999995)
 
-[node name="ocean22" parent="." unique_id=1454817135 instance=ExtResource("6_ffyxw")]
-position = Vector2(-1051, 262)
+[node name="ocean22" parent="AnimatedSprite2D/TerrainLogic" unique_id=1454817135 instance=ExtResource("6_ffyxw")]
+position = Vector2(-3945.3335, 3009.3335)
 rotation = 1.5707964
-scale = Vector2(4, 3)
+scale = Vector2(5.3333335, 4)
 
-[node name="ocean23" parent="." unique_id=339438785 instance=ExtResource("6_ffyxw")]
-position = Vector2(-1097, 275)
-rotation = 0.5235988
-scale = Vector2(4, 3)
+[node name="ocean23" parent="AnimatedSprite2D/TerrainLogic" unique_id=339438785 instance=ExtResource("6_ffyxw")]
+position = Vector2(-4006.6667, 3026.6667)
+rotation = 0.52359873
+scale = Vector2(5.333333, 4)
 
-[node name="ocean12" parent="." unique_id=747294797 instance=ExtResource("6_ffyxw")]
-position = Vector2(1916, -4660)
-scale = Vector2(4, 3)
+[node name="ocean12" parent="AnimatedSprite2D/TerrainLogic" unique_id=747294797 instance=ExtResource("6_ffyxw")]
+position = Vector2(10.666748, -3553.3333)
+scale = Vector2(5.3333335, 4)
 
-[node name="ocean6" parent="." unique_id=593390703 instance=ExtResource("6_ffyxw")]
-position = Vector2(4796, -687)
+[node name="ocean6" parent="AnimatedSprite2D/TerrainLogic" unique_id=593390703 instance=ExtResource("6_ffyxw")]
+position = Vector2(3850.667, 1744)
 rotation = 1.3962634
-scale = Vector2(5, 3)
+scale = Vector2(6.666667, 3.9999995)
 
-[node name="ocean7" parent="." unique_id=1287679760 instance=ExtResource("6_ffyxw")]
-position = Vector2(5296, -2138)
+[node name="ocean7" parent="AnimatedSprite2D/TerrainLogic" unique_id=1287679760 instance=ExtResource("6_ffyxw")]
+position = Vector2(4517.3335, -190.66675)
 rotation = 2.3561945
-scale = Vector2(5, 3)
+scale = Vector2(6.666667, 3.9999998)
 
-[node name="cliff" parent="." unique_id=741624693 instance=ExtResource("5_0lm80")]
-position = Vector2(-644, 228)
-rotation = 0.34906584
-scale = Vector2(1.5, 1)
+[node name="cliff" parent="AnimatedSprite2D/TerrainLogic" unique_id=741624693 instance=ExtResource("5_0lm80")]
+position = Vector2(-3402.6667, 2964)
+rotation = 0.3490658
+scale = Vector2(2, 1.3333334)
 
-[node name="cliff9" parent="." unique_id=1002365714 instance=ExtResource("5_0lm80")]
-position = Vector2(-930, 55)
+[node name="cliff9" parent="AnimatedSprite2D/TerrainLogic" unique_id=1002365714 instance=ExtResource("5_0lm80")]
+position = Vector2(-3784, 2733.3335)
 rotation = 0.6981317
+scale = Vector2(1.3333333, 1.3333333)
 
-[node name="cliff10" parent="." unique_id=64924624 instance=ExtResource("5_0lm80")]
-position = Vector2(-971.00006, -46.99997)
+[node name="cliff10" parent="AnimatedSprite2D/TerrainLogic" unique_id=64924624 instance=ExtResource("5_0lm80")]
+position = Vector2(-3838.6667, 2597.3335)
 rotation = 1.0471976
+scale = Vector2(1.3333334, 1.3333334)
 
-[node name="cliff11" parent="." unique_id=2074727482 instance=ExtResource("5_0lm80")]
-position = Vector2(-960, 28.999992)
+[node name="cliff11" parent="AnimatedSprite2D/TerrainLogic" unique_id=2074727482 instance=ExtResource("5_0lm80")]
+position = Vector2(-3824, 2698.6667)
 rotation = 1.3962634
+scale = Vector2(1.3333334, 1.3333334)
 
-[node name="cliff12" parent="." unique_id=1920532750 instance=ExtResource("5_0lm80")]
-position = Vector2(4736, 65.99986)
+[node name="cliff12" parent="AnimatedSprite2D/TerrainLogic" unique_id=1920532750 instance=ExtResource("5_0lm80")]
+position = Vector2(3770.667, 2747.9998)
 rotation = 2.443461
+scale = Vector2(1.3333334, 1.3333334)
 
-[node name="cliff13" parent="." unique_id=1874835850 instance=ExtResource("5_0lm80")]
-position = Vector2(4737, 35.999756)
+[node name="cliff13" parent="AnimatedSprite2D/TerrainLogic" unique_id=1874835850 instance=ExtResource("5_0lm80")]
+position = Vector2(3772, 2707.9998)
 rotation = 2.0943952
+scale = Vector2(1.3333334, 1.3333334)
 
-[node name="cliff14" parent="." unique_id=1782143235 instance=ExtResource("5_0lm80")]
-position = Vector2(4793, 1.9999771)
+[node name="cliff14" parent="AnimatedSprite2D/TerrainLogic" unique_id=1782143235 instance=ExtResource("5_0lm80")]
+position = Vector2(3846.667, 2662.6667)
 rotation = 1.7453293
+scale = Vector2(1.3333334, 1.3333334)
 
-[node name="cliff8" parent="." unique_id=714839427 instance=ExtResource("5_0lm80")]
-position = Vector2(4495, 220.99988)
+[node name="cliff8" parent="AnimatedSprite2D/TerrainLogic" unique_id=714839427 instance=ExtResource("5_0lm80")]
+position = Vector2(3449.3335, 2954.6667)
 rotation = 2.7925267
-scale = Vector2(1.5, 1)
+scale = Vector2(2, 1.3333334)
 
-[node name="cliff15" parent="." unique_id=1503228731 instance=ExtResource("5_0lm80")]
-position = Vector2(5003, -2117.0002)
+[node name="cliff15" parent="AnimatedSprite2D/TerrainLogic" unique_id=1503228731 instance=ExtResource("5_0lm80")]
+position = Vector2(4126.667, -162.66699)
 rotation = 2.4958208
-scale = Vector2(3, 1)
+scale = Vector2(4, 1.3333334)
 
-[node name="cliff16" parent="." unique_id=89475524 instance=ExtResource("5_0lm80")]
-position = Vector2(5355, -2482.0002)
+[node name="cliff16" parent="AnimatedSprite2D/TerrainLogic" unique_id=89475524 instance=ExtResource("5_0lm80")]
+position = Vector2(4596, -649.33374)
 rotation = 2.268928
-scale = Vector2(2, 1)
+scale = Vector2(2.6666667, 1.3333334)
 
-[node name="cliff17" parent="." unique_id=1366844507 instance=ExtResource("5_0lm80")]
-position = Vector2(5522, -2737.9995)
+[node name="cliff17" parent="AnimatedSprite2D/TerrainLogic" unique_id=1366844507 instance=ExtResource("5_0lm80")]
+position = Vector2(4818.667, -990.666)
 rotation = 2.0071287
-scale = Vector2(0.5, 1)
+scale = Vector2(0.66666675, 1.3333335)
 
-[node name="cliff18" parent="." unique_id=38983092 instance=ExtResource("5_0lm80")]
-position = Vector2(-1201, -2134.0002)
-rotation = 0.6457718
-scale = Vector2(3, 1)
+[node name="cliff18" parent="AnimatedSprite2D/TerrainLogic" unique_id=38983092 instance=ExtResource("5_0lm80")]
+position = Vector2(-4145.3335, -185.33374)
+rotation = 0.64577174
+scale = Vector2(4, 1.3333334)
 
-[node name="cliff19" parent="." unique_id=1011180843 instance=ExtResource("5_0lm80")]
-position = Vector2(-1445.0001, -2373.0002)
+[node name="cliff19" parent="AnimatedSprite2D/TerrainLogic" unique_id=1011180843 instance=ExtResource("5_0lm80")]
+position = Vector2(-4470.667, -504.00073)
 rotation = 0.87266463
-scale = Vector2(2, 1)
+scale = Vector2(2.6666667, 1.3333334)
 
-[node name="cliff20" parent="." unique_id=2027484811 instance=ExtResource("5_0lm80")]
-position = Vector2(-1692.0001, -2713.0002)
+[node name="cliff20" parent="AnimatedSprite2D/TerrainLogic" unique_id=2027484811 instance=ExtResource("5_0lm80")]
+position = Vector2(-4800, -957.33374)
 rotation = 1.134464
-scale = Vector2(0.5, 1)
+scale = Vector2(0.6666667, 1.3333334)
 
-[node name="cliff22" parent="." unique_id=552837231 instance=ExtResource("5_0lm80")]
-position = Vector2(-993, -2839.9998)
+[node name="cliff22" parent="AnimatedSprite2D/TerrainLogic" unique_id=552837231 instance=ExtResource("5_0lm80")]
+position = Vector2(-3861.3335, -1123.9993)
 rotation = 2.8797932
-scale = Vector2(0.358347, 0.6183975)
+scale = Vector2(0.47779608, 0.82453)
 
-[node name="cliff25" parent="." unique_id=1441108934 instance=ExtResource("5_0lm80")]
-position = Vector2(-892.00006, -2853.0002)
-rotation = 3.1654003
-scale = Vector2(0.28026107, 0.6183975)
+[node name="cliff25" parent="AnimatedSprite2D/TerrainLogic" unique_id=1441108934 instance=ExtResource("5_0lm80")]
+position = Vector2(-3733.3335, -1138.667)
+rotation = -3.117785
+scale = Vector2(0.37368143, 0.82453)
 
-[node name="cliff42" parent="." unique_id=596040421 instance=ExtResource("5_0lm80")]
-position = Vector2(-808.00006, -2832)
-rotation = 3.6032867
-scale = Vector2(0.28026107, 0.6183975)
+[node name="cliff42" parent="AnimatedSprite2D/TerrainLogic" unique_id=596040421 instance=ExtResource("5_0lm80")]
+position = Vector2(-3629.3335, -1114.6667)
+rotation = -2.6798985
+scale = Vector2(0.37368146, 0.82453007)
 
-[node name="cliff24" parent="." unique_id=732288451 instance=ExtResource("5_0lm80")]
-position = Vector2(3394.9998, -712.0001)
+[node name="cliff24" parent="AnimatedSprite2D/TerrainLogic" unique_id=732288451 instance=ExtResource("5_0lm80")]
+position = Vector2(2007.9995, 1704.0002)
 rotation = 2.6997917
-scale = Vector2(0.5, 1)
+scale = Vector2(0.6666667, 1.3333334)
 
-[node name="cliff43" parent="." unique_id=1797048975 instance=ExtResource("5_0lm80")]
-position = Vector2(3549, -751.00006)
+[node name="cliff43" parent="AnimatedSprite2D/TerrainLogic" unique_id=1797048975 instance=ExtResource("5_0lm80")]
+position = Vector2(2188, 1658.6665)
 rotation = 3.0924928
-scale = Vector2(0.5, 1)
+scale = Vector2(0.6666667, 1.3333334)
 
-[node name="cliff44" parent="." unique_id=1881936670 instance=ExtResource("5_0lm80")]
-position = Vector2(3705, -730)
-rotation = 3.4442716
-scale = Vector2(0.4331641, 1)
+[node name="cliff44" parent="AnimatedSprite2D/TerrainLogic" unique_id=1881936670 instance=ExtResource("5_0lm80")]
+position = Vector2(2369.3335, 1686.6667)
+rotation = -2.8389137
+scale = Vector2(0.57755214, 1.3333335)
 
-[node name="cliff26" parent="." unique_id=1551298554 instance=ExtResource("5_0lm80")]
-position = Vector2(2514.0002, -3300.0002)
+[node name="cliff26" parent="AnimatedSprite2D/TerrainLogic" unique_id=1551298554 instance=ExtResource("5_0lm80")]
+position = Vector2(825.3335, -1746.6672)
 rotation = 2.5770056
-scale = Vector2(0.3351172, 1)
+scale = Vector2(0.26660156, 1.3333334)
 
-[node name="cliff39" parent="." unique_id=835942652 instance=ExtResource("5_0lm80")]
-position = Vector2(2582.0002, -3332.0002)
+[node name="cliff39" parent="AnimatedSprite2D/TerrainLogic" unique_id=835942652 instance=ExtResource("5_0lm80")]
+position = Vector2(898.667, -1782.6672)
 rotation = 3.0960262
-scale = Vector2(0.12988278, 1)
+scale = Vector2(0.17317705, 1.3333336)
 
-[node name="cliff38" parent="." unique_id=1185450328 instance=ExtResource("5_0lm80")]
-position = Vector2(2683, -3313)
-rotation = 3.3993487
-scale = Vector2(0.5, 1)
+[node name="cliff38" parent="AnimatedSprite2D/TerrainLogic" unique_id=1185450328 instance=ExtResource("5_0lm80")]
+position = Vector2(1033.3335, -1757.3333)
+rotation = -2.8838365
+scale = Vector2(0.6666667, 1.3333334)
 
-[node name="cliff40" parent="." unique_id=1489732668 instance=ExtResource("5_0lm80")]
-position = Vector2(2829, -3260.0002)
-rotation = 3.6051562
-scale = Vector2(0.5, 1)
+[node name="cliff40" parent="AnimatedSprite2D/TerrainLogic" unique_id=1489732668 instance=ExtResource("5_0lm80")]
+position = Vector2(1228, -1686.6672)
+rotation = -2.678029
+scale = Vector2(0.6666667, 1.3333334)
 
-[node name="cliff41" parent="." unique_id=1729238405 instance=ExtResource("5_0lm80")]
-position = Vector2(2945.9998, -3159)
-rotation = 4.1320796
-scale = Vector2(0.5, 1)
+[node name="cliff41" parent="AnimatedSprite2D/TerrainLogic" unique_id=1729238405 instance=ExtResource("5_0lm80")]
+position = Vector2(1384, -1552.0002)
+rotation = -2.1511056
+scale = Vector2(0.6666666, 1.3333333)
 
-[node name="cliff27" parent="." unique_id=612846408 instance=ExtResource("5_0lm80")]
-position = Vector2(2127.0002, -2841)
-rotation = 0.2617994
-scale = Vector2(0.5, 1)
+[node name="cliff27" parent="AnimatedSprite2D/TerrainLogic" unique_id=612846408 instance=ExtResource("5_0lm80")]
+position = Vector2(292.00073, -1128)
+rotation = 0.26179937
+scale = Vector2(0.6666667, 1.3333334)
 
-[node name="cliff28" parent="." unique_id=1737144821 instance=ExtResource("5_0lm80")]
-position = Vector2(1663, -2839)
+[node name="cliff45" parent="AnimatedSprite2D/TerrainLogic" unique_id=1089361594 instance=ExtResource("5_0lm80")]
+position = Vector2(490.66675, -1053.333)
+rotation = 0.45675898
+scale = Vector2(0.6666667, 1.3333334)
+
+[node name="cliff46" parent="AnimatedSprite2D/TerrainLogic" unique_id=409410900 instance=ExtResource("5_0lm80")]
+position = Vector2(673.3335, -926.66675)
+rotation = 0.64794075
+scale = Vector2(0.6666667, 1.3333334)
+
+[node name="cliff47" parent="AnimatedSprite2D/TerrainLogic" unique_id=14076318 instance=ExtResource("5_0lm80")]
+position = Vector2(812, -750.66675)
+rotation = 1.0706457
+scale = Vector2(0.6666667, 1.3333334)
+
+[node name="cliff28" parent="AnimatedSprite2D/TerrainLogic" unique_id=1737144821 instance=ExtResource("5_0lm80")]
+position = Vector2(-326.6665, -1125.3333)
 rotation = 2.8797932
-scale = Vector2(0.5, 1)
+scale = Vector2(0.6666667, 1.3333334)
 
-[node name="cliff35" parent="." unique_id=1519500995 instance=ExtResource("5_0lm80")]
-position = Vector2(1509, -2776)
+[node name="cliff35" parent="AnimatedSprite2D/TerrainLogic" unique_id=1519500995 instance=ExtResource("5_0lm80")]
+position = Vector2(-532, -1041.3333)
 rotation = 2.6179938
-scale = Vector2(0.5, 1)
+scale = Vector2(0.6666667, 1.3333334)
 
-[node name="cliff36" parent="." unique_id=1244649448 instance=ExtResource("5_0lm80")]
-position = Vector2(1379.9999, -2674)
+[node name="cliff36" parent="AnimatedSprite2D/TerrainLogic" unique_id=1244649448 instance=ExtResource("5_0lm80")]
+position = Vector2(-704.0001, -905.33325)
 rotation = 2.443461
-scale = Vector2(0.5, 1)
+scale = Vector2(0.6666667, 1.3333334)
 
-[node name="cliff37" parent="." unique_id=1926199460 instance=ExtResource("5_0lm80")]
-position = Vector2(1289.0001, -2548.0002)
+[node name="cliff37" parent="AnimatedSprite2D/TerrainLogic" unique_id=1926199460 instance=ExtResource("5_0lm80")]
+position = Vector2(-825.3331, -737.33374)
 rotation = 1.9198622
-scale = Vector2(0.5, 1)
+scale = Vector2(0.6666667, 1.3333334)
 
-[node name="cliff34" parent="." unique_id=1201295006 instance=ExtResource("5_0lm80")]
-position = Vector2(1900, -2862)
+[node name="cliff34" parent="AnimatedSprite2D/TerrainLogic" unique_id=1201295006 instance=ExtResource("5_0lm80")]
+position = Vector2(-10.666504, -1156)
+scale = Vector2(1.3333334, 1.3333334)
 
-[node name="cliff29" parent="." unique_id=1211053125 instance=ExtResource("5_0lm80")]
-position = Vector2(122.000015, -1375)
-rotation = 0.2617994
-scale = Vector2(0.25, 1)
+[node name="cliff29" parent="AnimatedSprite2D/TerrainLogic" unique_id=1211053125 instance=ExtResource("5_0lm80")]
+position = Vector2(-2381.3333, 826.66675)
+rotation = 0.26179937
+scale = Vector2(0.33333334, 1.3333334)
 
-[node name="cliff30" parent="." unique_id=1266562692 instance=ExtResource("5_0lm80")]
-position = Vector2(-45, -1346)
+[node name="cliff30" parent="AnimatedSprite2D/TerrainLogic" unique_id=1266562692 instance=ExtResource("5_0lm80")]
+position = Vector2(-2594.6667, 865.3334)
 rotation = 2.6179938
-scale = Vector2(0.3, 1)
+scale = Vector2(0.4, 1.3333334)
 
-[node name="cliff32" parent="." unique_id=1059861303 instance=ExtResource("5_0lm80")]
-position = Vector2(192, -1386)
+[node name="cliff32" parent="AnimatedSprite2D/TerrainLogic" unique_id=1059861303 instance=ExtResource("5_0lm80")]
+position = Vector2(-2288, 812)
 rotation = 2.6179938
-scale = Vector2(0.2, 1)
+scale = Vector2(0.2666667, 1.3333334)
 
-[node name="cliff31" parent="." unique_id=764738599 instance=ExtResource("5_0lm80")]
-position = Vector2(47, -1376)
-scale = Vector2(0.3, 1)
+[node name="cliff31" parent="AnimatedSprite2D/TerrainLogic" unique_id=764738599 instance=ExtResource("5_0lm80")]
+position = Vector2(-2481.3333, 825.3334)
+scale = Vector2(0.40000004, 1.3333334)
 
-[node name="cliff33" parent="." unique_id=418761533 instance=ExtResource("5_0lm80")]
-position = Vector2(235, -1399)
-scale = Vector2(0.3, 1)
+[node name="cliff33" parent="AnimatedSprite2D/TerrainLogic" unique_id=418761533 instance=ExtResource("5_0lm80")]
+position = Vector2(-2230.6665, 794.66675)
+scale = Vector2(0.40000004, 1.3333334)
 
-[node name="cliff2" parent="." unique_id=888738017 instance=ExtResource("5_0lm80")]
-position = Vector2(-237, 310)
+[node name="cliff2" parent="AnimatedSprite2D/TerrainLogic" unique_id=888738017 instance=ExtResource("5_0lm80")]
+position = Vector2(-2860, 3073.3335)
+scale = Vector2(1.3333334, 1.3333334)
 
-[node name="cliff7" parent="." unique_id=1030877420 instance=ExtResource("5_0lm80")]
-position = Vector2(4076, 318)
+[node name="cliff7" parent="AnimatedSprite2D/TerrainLogic" unique_id=1030877420 instance=ExtResource("5_0lm80")]
+position = Vector2(2890.667, 3084)
+scale = Vector2(1.3333334, 1.3333334)
 
-[node name="cliff3" parent="." unique_id=310265015 instance=ExtResource("5_0lm80")]
-position = Vector2(98, 281)
+[node name="cliff3" parent="AnimatedSprite2D/TerrainLogic" unique_id=310265015 instance=ExtResource("5_0lm80")]
+position = Vector2(-2413.3333, 3034.6667)
 rotation = 2.9670596
+scale = Vector2(1.3333334, 1.3333334)
 
-[node name="cliff6" parent="." unique_id=787674620 instance=ExtResource("5_0lm80")]
-position = Vector2(3740.0002, 285)
-rotation = 0.17453292
+[node name="cliff6" parent="AnimatedSprite2D/TerrainLogic" unique_id=787674620 instance=ExtResource("5_0lm80")]
+position = Vector2(2442.667, 3040)
+rotation = 0.17453295
+scale = Vector2(1.3333331, 1.3333331)
 
-[node name="cliff4" parent="." unique_id=1253303326 instance=ExtResource("5_0lm80")]
-position = Vector2(1084, 15.000036)
+[node name="cliff4" parent="AnimatedSprite2D/TerrainLogic" unique_id=1253303326 instance=ExtResource("5_0lm80")]
+position = Vector2(-1098.6666, 2680)
 rotation = 2.86234
-scale = Vector2(5, 1)
+scale = Vector2(6.6666665, 1.3333334)
 
-[node name="cliff5" parent="." unique_id=36248578 instance=ExtResource("5_0lm80")]
-position = Vector2(2733.0002, 13.000006)
-rotation = 0.27925268
-scale = Vector2(5, 1)
+[node name="cliff5" parent="AnimatedSprite2D/TerrainLogic" unique_id=36248578 instance=ExtResource("5_0lm80")]
+position = Vector2(1100.0007, 2677.3335)
+rotation = 0.27925274
+scale = Vector2(6.6666665, 1.3333334)
 
-[node name="sliding_path5" parent="." unique_id=1978486565 instance=ExtResource("6_r7q71")]
-position = Vector2(61, -2767)
-scale = Vector2(3.3890862, -3.0317402)
+[node name="sliding_path5" parent="AnimatedSprite2D/TerrainLogic" unique_id=1978486565 instance=ExtResource("6_r7q71")]
+position = Vector2(-2462.6667, -1029.3333)
+scale = Vector2(4.5187817, -4.0423203)
 
-[node name="sliding_path6" parent="." unique_id=1907188044 instance=ExtResource("6_r7q71")]
-position = Vector2(-126, -2642)
-scale = Vector2(4.2339783, -3.4660428)
+[node name="sliding_path6" parent="AnimatedSprite2D/TerrainLogic" unique_id=1907188044 instance=ExtResource("6_r7q71")]
+position = Vector2(-2712, -862.66675)
+scale = Vector2(5.6453047, -4.6213903)
 
-[node name="sliding_path7" parent="." unique_id=1512378629 instance=ExtResource("6_r7q71")]
-position = Vector2(-78.999985, -2707)
+[node name="sliding_path7" parent="AnimatedSprite2D/TerrainLogic" unique_id=1512378629 instance=ExtResource("6_r7q71")]
+position = Vector2(-2649.3333, -949.33325)
 rotation = -0.5317453
-scale = Vector2(5.7258153, -3.4888337)
+scale = Vector2(7.6344204, -4.6517777)
 
-[node name="sliding_path8" parent="." unique_id=67170485 instance=ExtResource("6_r7q71")]
-position = Vector2(-10.000057, -2739.0002)
+[node name="sliding_path8" parent="AnimatedSprite2D/TerrainLogic" unique_id=67170485 instance=ExtResource("6_r7q71")]
+position = Vector2(-2557.3335, -992.00073)
 rotation = -0.26244885
-scale = Vector2(4.513444, -3.2512624)
+scale = Vector2(6.0179257, -4.3350167)
 
-[node name="sliding_path100" parent="." unique_id=1807664883 instance=ExtResource("6_r7q71")]
-position = Vector2(-1311.0001, -2837)
+[node name="sliding_path100" parent="AnimatedSprite2D/TerrainLogic" unique_id=1807664883 instance=ExtResource("6_r7q71")]
+position = Vector2(-4292, -1122.6667)
 rotation = -1.2710458
-scale = Vector2(6.3886843, -3.995496)
+scale = Vector2(8.518246, -5.327328)
 
-[node name="sliding_path101" parent="." unique_id=14169286 instance=ExtResource("6_r7q71")]
-position = Vector2(-1265, -2963)
+[node name="sliding_path101" parent="AnimatedSprite2D/TerrainLogic" unique_id=14169286 instance=ExtResource("6_r7q71")]
+position = Vector2(-4230.667, -1290.6667)
 rotation = -0.59578496
-scale = Vector2(4.0323224, -1.8773869)
+scale = Vector2(5.3764305, -2.503183)
 
-[node name="sliding_path102" parent="." unique_id=1302804627 instance=ExtResource("6_r7q71")]
-position = Vector2(-50.000072, -2415)
-rotation = 0.41090578
-scale = Vector2(4.7249627, -2.6963325)
+[node name="sliding_path102" parent="AnimatedSprite2D/TerrainLogic" unique_id=1302804627 instance=ExtResource("6_r7q71")]
+position = Vector2(-2610.6667, -560)
+rotation = 0.41090575
+scale = Vector2(6.2999506, -3.5951097)
 
-[node name="sliding_path83" parent="." unique_id=273626400 instance=ExtResource("6_r7q71")]
-position = Vector2(1453.9999, -3829.9998)
+[node name="sliding_path83" parent="AnimatedSprite2D/TerrainLogic" unique_id=273626400 instance=ExtResource("6_r7q71")]
+position = Vector2(-605.3335, -2446.6667)
 rotation = 0.4844575
-scale = Vector2(5.44903, -4.670169)
+scale = Vector2(7.265373, -6.2268925)
 
-[node name="ocean42" parent="." unique_id=2070716113 instance=ExtResource("7_uavq1")]
-position = Vector2(2549.0002, -3222.0002)
-scale = Vector2(-2.9275296, 2.597109)
+[node name="ocean42" parent="AnimatedSprite2D/TerrainLogic" unique_id=2070716113 instance=ExtResource("7_uavq1")]
+position = Vector2(870.66675, -1636.0007)
+rotation = -3.1415925
+scale = Vector2(3.6697936, -2.7997446)
 
-[node name="ocean43" parent="." unique_id=1831290614 instance=ExtResource("7_uavq1")]
-position = Vector2(2880.0002, -2990)
-scale = Vector2(-5.173802, 3.5953817)
+[node name="ocean43" parent="AnimatedSprite2D/TerrainLogic" unique_id=1831290614 instance=ExtResource("7_uavq1")]
+position = Vector2(1296.0007, -1326.6667)
+rotation = -3.1415925
+scale = Vector2(6.311736, -3.4071822)
 
-[node name="ocean44" parent="." unique_id=980470176 instance=ExtResource("7_uavq1")]
-position = Vector2(2783, -3124.0002)
-rotation = 0.5787535
-scale = Vector2(-10.5017395, 4.100108)
+[node name="ocean44" parent="AnimatedSprite2D/TerrainLogic" unique_id=980470176 instance=ExtResource("7_uavq1")]
+position = Vector2(1166.6667, -1505.3342)
+rotation = -2.5628393
+scale = Vector2(12.688499, -5.054845)
 
-[node name="ocean45" parent="." unique_id=1314899148 instance=ExtResource("7_uavq1")]
-position = Vector2(2773, -3041)
-rotation = 1.0202521
-scale = Vector2(-4.294709, -3.10228)
+[node name="ocean45" parent="AnimatedSprite2D/TerrainLogic" unique_id=1314899148 instance=ExtResource("7_uavq1")]
+position = Vector2(1153.3335, -1394.6667)
+rotation = -2.1213405
+scale = Vector2(5.7262793, 3.2025583)
 
-[node name="ocean46" parent="." unique_id=972997865 instance=ExtResource("7_uavq1")]
-position = Vector2(2664.9998, -3096)
-rotation = 0.62515694
-scale = Vector2(-6.679694, 1.3841399)
+[node name="ocean46" parent="AnimatedSprite2D/TerrainLogic" unique_id=972997865 instance=ExtResource("7_uavq1")]
+position = Vector2(1009.333, -1468.0002)
+rotation = -2.5164359
+scale = Vector2(8.906259, -1.2859496)
 
-[node name="ocean47" parent="." unique_id=303163702 instance=ExtResource("7_uavq1")]
-position = Vector2(1906.0001, -2252.0002)
-rotation = -0.015121877
-scale = Vector2(-26.706299, 22.777456)
+[node name="ocean47" parent="AnimatedSprite2D/TerrainLogic" unique_id=303163702 instance=ExtResource("7_uavq1")]
+position = Vector2(-2.666504, -342.667)
+rotation = 3.1264708
+scale = Vector2(34.322903, -28.405704)
 
-[node name="ocean48" parent="." unique_id=887918159 instance=ExtResource("7_uavq1")]
-position = Vector2(-915.9999, -2742.9998)
-rotation = -0.015121877
-scale = Vector2(-6.6536593, 3.8480937)
+[node name="ocean48" parent="AnimatedSprite2D/TerrainLogic" unique_id=887918159 instance=ExtResource("7_uavq1")]
+position = Vector2(-3765.3335, -997.333)
+rotation = 3.1264708
+scale = Vector2(7.7945213, -4.5457916)
 
-[node name="ocean49" parent="." unique_id=306447588 instance=ExtResource("7_uavq1")]
-position = Vector2(92.000015, -1245.0001)
-rotation = -0.015121877
-scale = Vector2(-8.263295, 4.52415)
+[node name="ocean49" parent="AnimatedSprite2D/TerrainLogic" unique_id=306447588 instance=ExtResource("7_uavq1")]
+position = Vector2(-2421.3333, 999.99976)
+rotation = 3.1264708
+scale = Vector2(9.738681, -5.39873)
 
-[node name="ocean50" parent="." unique_id=248793321 instance=ExtResource("7_uavq1")]
-position = Vector2(237, -1328.0001)
-rotation = -0.12210128
-scale = Vector2(-2.566621, 2.277014)
+[node name="ocean50" parent="AnimatedSprite2D/TerrainLogic" unique_id=248793321 instance=ExtResource("7_uavq1")]
+position = Vector2(-2228, 889.33325)
+rotation = 3.0194914
+scale = Vector2(2.8992968, -3.0360188)
 
-[node name="ocean51" parent="." unique_id=1702755665 instance=ExtResource("7_uavq1")]
-position = Vector2(3563.9998, -591)
-rotation = 0.007857978
-scale = Vector2(-9.347116, 5.7183347)
+[node name="ocean51" parent="AnimatedSprite2D/TerrainLogic" unique_id=1702755665 instance=ExtResource("7_uavq1")]
+position = Vector2(2191.9995, 1871.9999)
+rotation = -3.1337347
+scale = Vector2(11.869894, -7.141526)
 
-[node name="ocean52" parent="." unique_id=1723869587 instance=ExtResource("7_uavq1")]
-position = Vector2(3493, -601)
-rotation = 0.007857978
-scale = Vector2(-7.9501185, 4.106952)
+[node name="dropoff" parent="AnimatedSprite2D/TerrainLogic" unique_id=700283722 instance=ExtResource("8_cknv5")]
 
-[node name="ocean53" parent="." unique_id=730841733 instance=ExtResource("7_uavq1")]
-position = Vector2(3506.0002, -545.99994)
-rotation = 0.16387366
-scale = Vector2(-7.9501185, 4.106952)
+[node name="Decorations" type="Node2D" parent="AnimatedSprite2D" unique_id=25574317]
+
+[node name="Snowman" parent="AnimatedSprite2D/Decorations" unique_id=1132507594 instance=ExtResource("9_28rv2")]
+position = Vector2(-2005.3335, 2568)
+scale = Vector2(0.20000002, 0.20000002)
+
+[node name="Snowman2" parent="AnimatedSprite2D/Decorations" unique_id=30445679 instance=ExtResource("9_28rv2")]
+position = Vector2(-938.66675, 596.0005)
+scale = Vector2(0.20000002, 0.20000002)
+
+[node name="Tree" parent="AnimatedSprite2D/Decorations" unique_id=438247434 instance=ExtResource("9_c5wsc")]
+position = Vector2(-2568, 2149.3333)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree2" parent="AnimatedSprite2D/Decorations" unique_id=2098092485 instance=ExtResource("9_c5wsc")]
+position = Vector2(-1526.6667, 1304)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree3" parent="AnimatedSprite2D/Decorations" unique_id=1126471172 instance=ExtResource("9_c5wsc")]
+position = Vector2(-3052, -902.66656)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree5" parent="AnimatedSprite2D/Decorations" unique_id=1633811322 instance=ExtResource("9_c5wsc")]
+position = Vector2(-3089.3333, -761.33325)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree4" parent="AnimatedSprite2D/Decorations" unique_id=228385585 instance=ExtResource("9_c5wsc")]
+position = Vector2(-2978.6667, -694.66656)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree6" parent="AnimatedSprite2D/Decorations" unique_id=199207392 instance=ExtResource("9_c5wsc")]
+position = Vector2(-3070.6667, -590.66656)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree7" parent="AnimatedSprite2D/Decorations" unique_id=1241894294 instance=ExtResource("9_c5wsc")]
+position = Vector2(-2972, -443.9999)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree17" parent="AnimatedSprite2D/Decorations" unique_id=1421201953 instance=ExtResource("9_c5wsc")]
+position = Vector2(2167.9995, 362.66672)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree18" parent="AnimatedSprite2D/Decorations" unique_id=336055894 instance=ExtResource("9_c5wsc")]
+position = Vector2(2042.6669, 416.00006)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree19" parent="AnimatedSprite2D/Decorations" unique_id=983125217 instance=ExtResource("9_c5wsc")]
+position = Vector2(2222.6667, 488.00006)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree8" parent="AnimatedSprite2D/Decorations" unique_id=1881292172 instance=ExtResource("9_c5wsc")]
+position = Vector2(2401.333, -609.33325)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree9" parent="AnimatedSprite2D/Decorations" unique_id=56330373 instance=ExtResource("9_c5wsc")]
+position = Vector2(42.666763, -3169.3333)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree10" parent="AnimatedSprite2D/Decorations" unique_id=408818038 instance=ExtResource("9_c5wsc")]
+position = Vector2(141.33344, -3070.6665)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree11" parent="AnimatedSprite2D/Decorations" unique_id=2037860772 instance=ExtResource("9_c5wsc")]
+position = Vector2(-23.999893, -3021.3333)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree14" parent="AnimatedSprite2D/Decorations" unique_id=1835805103 instance=ExtResource("9_c5wsc")]
+position = Vector2(141.33344, -2893.3333)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree15" parent="AnimatedSprite2D/Decorations" unique_id=1969728356 instance=ExtResource("9_c5wsc")]
+position = Vector2(-17.333221, -2825.3333)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree16" parent="AnimatedSprite2D/Decorations" unique_id=1526719540 instance=ExtResource("9_c5wsc")]
+position = Vector2(-1030.6665, -1614.6666)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree12" parent="AnimatedSprite2D/Decorations" unique_id=1894390707 instance=ExtResource("9_c5wsc")]
+position = Vector2(276.00006, -3052)
+scale = Vector2(0.3, 0.3)
+
+[node name="Tree13" parent="AnimatedSprite2D/Decorations" unique_id=57083725 instance=ExtResource("9_c5wsc")]
+position = Vector2(276.00006, -3052)
+scale = Vector2(0.3, 0.3)
+
+[node name="Igloo" parent="AnimatedSprite2D" unique_id=585127459 instance=ExtResource("8_3fjxh")]
+position = Vector2(-2953.3333, 2584)
+scale = Vector2(0.40000004, 0.40000004)
+
+[node name="Igloo2" parent="AnimatedSprite2D" unique_id=1998589217 instance=ExtResource("8_3fjxh")]
+position = Vector2(1423.9998, 933.33325)
+scale = Vector2(0.40000004, 0.40000004)
+
+[node name="IglooFlip" parent="AnimatedSprite2D" unique_id=1927290786 instance=ExtResource("10_mmvk3")]
+position = Vector2(-1476, 2200.0002)
+scale = Vector2(0.4, 0.4)
+
+[node name="IglooFlip2" parent="AnimatedSprite2D" unique_id=1586019469 instance=ExtResource("10_mmvk3")]
+position = Vector2(-2096.0005, -1068)
+scale = Vector2(0.40000004, 0.40000004)
+
+[node name="IglooFlip3" parent="AnimatedSprite2D" unique_id=1522558246 instance=ExtResource("10_mmvk3")]
+position = Vector2(1385.3335, -957.33325)
+scale = Vector2(0.4, 0.4)
+
+[node name="Hospital" parent="AnimatedSprite2D" unique_id=1785523556 instance=ExtResource("11_8cx7f")]
+position = Vector2(149.3335, 977.3334)
+scale = Vector2(0.5, 0.5)

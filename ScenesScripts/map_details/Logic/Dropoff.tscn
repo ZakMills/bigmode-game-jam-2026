@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://smujklunx06"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6fvd"]
+size = Vector2(306, 257)
+
+[node name="dropoff" type="CharacterBody2D" unique_id=700283722]
+collision_layer = 8
+collision_mask = 8
+
+[node name="GivingRange" type="CollisionShape2D" parent="." unique_id=2144704552]
+shape = SubResource("RectangleShape2D_a6fvd")

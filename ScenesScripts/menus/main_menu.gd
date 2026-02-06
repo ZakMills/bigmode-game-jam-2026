@@ -4,6 +4,7 @@ var menu : int = 0 #  0 = main, 1 = instructions, 2 = credits.  Options is in Gl
 @onready var menus = [$Main, $Instructions, $Credits] # 0 = main, 1 = instructions, 2 = credits.
 var active : bool = false
 var returned : bool = false # just returned from pause
+var music_2 : bool = false
 
 func _ready():
 	$MenuMusic.volume_db = -20
@@ -35,7 +36,8 @@ func start():
 	hide_other_menus()
 	menus[0].start()
 	$MenuMusic.play()
-	
+	music_2 = false
+	$Timer.start(101)
 
 func start_game():
 	active = false
@@ -46,6 +48,7 @@ func start_game():
 	Global.mode = 3
 	Global.score_reset()
 	Global.start_world()
+	Global.stage_load()
 	stop_audio()
 	#$TerrainManager/Terrain.start()
 	
@@ -70,7 +73,29 @@ func hide_other_menus():
 	for each in menus:
 		each.visible = false
 	
+	
+#region audio
 func stop_audio():
 	$MenuMusic.stop()
+	$MenuMusic2.stop()
+	$Timer.stop()
 	pass
 	
+func _on_menu_music_finished() -> void:
+	$MenuMusic.stop()
+	pass # Replace with function body.
+
+func _on_menu_music_2_finished() -> void:
+	$MenuMusic.stop()
+	pass # Replace with function body.
+
+func _on_timer_timeout() -> void:
+	if (music_2): # 1 is playing
+		$MenuMusic2.play(0)
+		music_2 = true
+	else:
+		$MenuMusic.play(0)
+		music_2 = false
+	$Timer.start(101)
+	pass # Replace with function body.
+#endregion

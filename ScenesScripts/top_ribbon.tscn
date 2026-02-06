@@ -75,4 +75,7 @@ offset_right = 1152.0
 offset_bottom = 70.0
 color = Color(0, 0, 0, 1)
 
+[node name="TimerWeather" type="Timer" parent="." unique_id=792452507]
+
 [connection signal="timeout" from="Time_left" to="." method="_on_time_left_timeout"]
+[connection signal="timeout" from="TimerWeather" to="." method="_on_timer_weather_timeout"]

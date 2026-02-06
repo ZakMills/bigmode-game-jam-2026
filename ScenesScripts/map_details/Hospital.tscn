@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://0pqfuhfbtdou"]
+
+[ext_resource type="PackedScene" uid="uid://b5gsok262pfoi" path="res://ScenesScripts/map_details/Logic/obstacle.tscn" id="1_jamlh"]
+[ext_resource type="Texture2D" uid="uid://bbcxu4ie7ugup" path="res://Art/buildings-plants-obstacles/hospitallodge.png" id="2_vy1at"]
+
+[node name="Hospital" type="Node2D" unique_id=585127459]
+
+[node name="obstacle" parent="." unique_id=93409579 instance=ExtResource("1_jamlh")]
+position = Vector2(-476.99997, -387)
+scale = Vector2(23.903357, 18.400002)
+
+[node name="obstacle2" parent="." unique_id=2123034522 instance=ExtResource("1_jamlh")]
+position = Vector2(-194, 240)
+scale = Vector2(10.374771, 3.880001)
+
+[node name="obstacle3" parent="." unique_id=1761452950 instance=ExtResource("1_jamlh")]
+position = Vector2(34, -443.99997)
+scale = Vector2(7.754279, 2.5252614)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2092591964]
+texture = ExtResource("2_vy1at")

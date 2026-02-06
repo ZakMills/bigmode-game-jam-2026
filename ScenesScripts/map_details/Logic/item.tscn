@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b3nmka13x2r4e"]
+
+[ext_resource type="Script" uid="uid://cs0f0nxt16ae" path="res://ScenesScripts/map_details/Logic/item.gd" id="1_3i5tg"]
+[ext_resource type="Texture2D" uid="uid://ctsw2qu41off3" path="res://Art/deliveries_/feesh.png" id="2_hxaid"]
+[ext_resource type="Texture2D" uid="uid://cwyjic2caifxk" path="res://Art/deliveries_/Oilspillbird/oilbird.png" id="3_72mu6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8l5lv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hxaid")
+}],
+"loop": true,
+"name": &"feesh",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_72mu6")
+}],
+"loop": true,
+"name": &"oilbird",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nadu"]
+size = Vector2(67, 35)
+
+[node name="Item" type="Area2D" unique_id=1398980768 groups=["Items"]]
+collision_layer = 2
+script = ExtResource("1_3i5tg")
+
+[node name="Shape" type="AnimatedSprite2D" parent="." unique_id=1621467229]
+sprite_frames = SubResource("SpriteFrames_8l5lv")
+animation = &"feesh"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1807464891]
+position = Vector2(3.5, 8.5)
+shape = SubResource("RectangleShape2D_1nadu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

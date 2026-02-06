@@ -5,6 +5,7 @@ extends Control
 #@onready var camera = get_tree().get_root().get_node("Main").get_node("Camera2D")
 # Called when the node enters the scene tree for the first time.
 #var destination : Vector2
+var weather_on = false
 
 func _ready() -> void:
 	if Global.test:
@@ -17,6 +18,10 @@ func _process(delta: float) -> void:
 	set_direction()
 	time_update()
 	pass
+
+func stop_timers():
+	$Time_left.set_paused(true)
+	$TimerWeather.set_paused(true)
 	
 func score_update():
 	$ScoreValue.text = str(Global.score)
@@ -27,6 +32,7 @@ func stage_start(time):
 	$Time_left.start(time)
 	Global.items_today = 0
 	$ItemCount.text = str(Global.items_today) + " / " + str(Stages.items_minimum[Global.day])
+	weatherSchedule()
 
 func time_update():
 	$TimeLeft.text = str(int($Time_left.time_left))
@@ -63,4 +69,24 @@ func cover(setting):
 func _on_time_left_timeout() -> void:
 	cover(true)
 	Global.stage_over()
+	pass # Replace with function body.
+	
+func weatherSchedule(): # schedule is between this and _on_timer_weather_timeout()
+	if Global.day == 3:
+		$TimerWeather.start(Global.day_length / 3) # will turn blizzard on
+		weather_on = false # but it is currently off
+	pass
+
+
+func _on_timer_weather_timeout() -> void:
+	if Global.day == 3 :
+		if !(weather_on): # weather turns on
+			$TimerWeather.start(Global.day_length / 3)
+			weather_on = true
+			Global.blizzard(true)
+		elif weather_on: # weather turns off
+			$TimerWeather.start(Global.day_length / 3)
+			weather_on = false
+			Global.blizzard(false)
+			
 	pass # Replace with function body.

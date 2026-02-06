@@ -45,6 +45,8 @@ func _process(delta: float) -> void:
 		proceed()
 func proceed():
 	if (Input.is_action_just_pressed("pause") && Global.mode == 3): # meaning in the game
+		#cursor = 2
+		#space()
 		pass
 	if (visible):
 		if (Input.is_action_just_pressed("up")):
