@@ -17,7 +17,7 @@ var blizzard_on : bool = false
 var carrying_item : bool = false
 var items_today : int = 0
 var day : int = 0 # 0 for test, then 1-5.
-var day_length : float = 40
+var day_length : float = 15
 
 
 # Stages.gd contains:
