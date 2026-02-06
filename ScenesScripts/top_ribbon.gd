@@ -93,6 +93,8 @@ func _on_timer_weather_timeout() -> void:
 			$TimerWeather.start(Global.day_length / 3)
 			weather_on = true
 			Global.blizzard(true)
+			await get_tree().create_timer(2).timeout
+			Global.oil_visible(true)
 		elif weather_on: # weather turns off
 			#$TimerWeather.start(Global.day_length / 3)
 			weather_on = false

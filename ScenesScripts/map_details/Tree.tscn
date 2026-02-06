@@ -5,10 +5,6 @@
 
 [node name="Tree" type="Node2D" unique_id=438247434]
 
-[node name="obstacle" parent="." unique_id=2123034522 instance=ExtResource("1_0c37i")]
-position = Vector2(-100, 237.00002)
-scale = Vector2(4.8115916, 4.7748327)
-
 [node name="obstacle2" parent="." unique_id=1480264195 instance=ExtResource("1_0c37i")]
 position = Vector2(-348, 145)
 scale = Vector2(17.918686, 4.891422)

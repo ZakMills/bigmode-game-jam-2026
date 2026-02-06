@@ -92,23 +92,31 @@ stream = ExtResource("13_rig04")
 
 [node name="StageMusic" type="AudioStreamPlayer2D" parent="Music" unique_id=272537816]
 stream = ExtResource("13_l6irp")
-max_distance = 20000.0
+volume_db = -10.0
+max_distance = 200000.0
 attenuation = 1e-05
+panning_strength = 0.0
 
 [node name="StageMusic2" type="AudioStreamPlayer2D" parent="Music" unique_id=989151658]
 stream = ExtResource("13_l6irp")
-max_distance = 20000.0
+volume_db = -10.0
+max_distance = 200000.0
 attenuation = 1e-05
+panning_strength = 0.0
 
 [node name="StageMusicBlizzard" type="AudioStreamPlayer2D" parent="Music" unique_id=999198706]
 stream = ExtResource("14_rig04")
-max_distance = 20000.0
+volume_db = -10.0
+max_distance = 200000.0
 attenuation = 1e-05
+panning_strength = 0.0
 
 [node name="StageMusicBlizzard2" type="AudioStreamPlayer2D" parent="Music" unique_id=463877419]
 stream = ExtResource("14_rig04")
-max_distance = 20000.0
+volume_db = -10.0
+max_distance = 200000.0
 attenuation = 1e-05
+panning_strength = 0.0
 
 [node name="MusicTimer" type="Timer" parent="Music" unique_id=2021444710]
 one_shot = true
@@ -121,10 +129,11 @@ one_shot = true
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="Music" unique_id=1920262215]
 stream = ExtResource("16_obq8c")
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="MenuMusic2" type="AudioStreamPlayer2D" parent="Music" unique_id=231209566]
 stream = ExtResource("16_obq8c")
+volume_db = -10.0
 
 [node name="MenuMusicTimer" type="Timer" parent="Music" unique_id=287080178]
 

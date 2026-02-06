@@ -117,6 +117,24 @@ tab_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Instructions2" type="RichTextLabel" parent="Main" unique_id=1792492574]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 448.0
+offset_right = 805.0
+offset_bottom = 643.0
+pivot_offset = Vector2(150, 0)
+theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("4_krchw")
+theme_override_font_sizes/normal_font_size = 30
+text = "Move: WASD / arrows
+
+Menu Select: space
+
+Pause: Esc"
+tab_size = 6
+
 [node name="Options" type="RichTextLabel" parent="Main" unique_id=1084927648]
 layout_mode = 0
 offset_left = 789.0

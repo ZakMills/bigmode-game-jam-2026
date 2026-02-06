@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cs0f0nxt16ae" path="res://ScenesScripts/map_details/Logic/item.gd" id="1_3i5tg"]
 [ext_resource type="Texture2D" uid="uid://ctsw2qu41off3" path="res://Art/deliveries_/feesh.png" id="2_hxaid"]
 [ext_resource type="Texture2D" uid="uid://cwyjic2caifxk" path="res://Art/deliveries_/Oilspillbird/oilbird.png" id="3_72mu6"]
+[ext_resource type="Texture2D" uid="uid://cmvm8l1tv1cj7" path="res://Art/deliveries_/shell.png" id="4_72mu6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8l5lv"]
 animations = [{
@@ -21,6 +22,14 @@ animations = [{
 "loop": true,
 "name": &"oilbird",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_72mu6")
+}],
+"loop": true,
+"name": &"shell",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1nadu"]
@@ -32,10 +41,11 @@ script = ExtResource("1_3i5tg")
 
 [node name="Shape" type="AnimatedSprite2D" parent="." unique_id=1621467229]
 sprite_frames = SubResource("SpriteFrames_8l5lv")
-animation = &"feesh"
+animation = &"shell"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1807464891]
 position = Vector2(3.5, 8.5)
+scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_1nadu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

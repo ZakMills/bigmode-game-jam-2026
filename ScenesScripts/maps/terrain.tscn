@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://qhm8olulpagq" path="res://ScenesScripts/map_details/Tree.tscn" id="9_c5wsc"]
 [ext_resource type="PackedScene" uid="uid://qhqyf8g62j0l" path="res://ScenesScripts/map_details/IglooFlipped.tscn" id="10_mmvk3"]
 [ext_resource type="PackedScene" uid="uid://0pqfuhfbtdou" path="res://ScenesScripts/map_details/Hospital.tscn" id="11_8cx7f"]
+[ext_resource type="Texture2D" uid="uid://iudx172enwsf" path="res://Art/deliveries_/Oilspillbird/oilspill.png" id="14_a440j"]
 [ext_resource type="PackedScene" uid="uid://1hq4w73tiv6o" path="res://ScenesScripts/map_details/NPCs/penguin.tscn" id="14_ivhd4"]
 [ext_resource type="PackedScene" uid="uid://c8gwcgr8a3vwk" path="res://ScenesScripts/map_details/NPCs/biggie.tscn" id="15_1vykt"]
 [ext_resource type="PackedScene" uid="uid://chyh317j82qcv" path="res://ScenesScripts/map_details/NPCs/stoat.tscn" id="16_md6h6"]
@@ -775,12 +776,12 @@ rotation = 2.8797932
 scale = Vector2(13.333334, 4)
 
 [node name="ocean3" parent="AnimatedSprite2D/TerrainLogic" unique_id=1981614420 instance=ExtResource("6_ffyxw")]
-position = Vector2(2177.334, 3309.3335)
+position = Vector2(2177.334, 3339.3335)
 rotation = 0.2617994
 scale = Vector2(13.333334, 4)
 
 [node name="ocean4" parent="AnimatedSprite2D/TerrainLogic" unique_id=2070366362 instance=ExtResource("6_ffyxw")]
-position = Vector2(3820, 3257.333)
+position = Vector2(3820, 3271.333)
 rotation = 2.9670596
 scale = Vector2(6.6666675, 4)
 
@@ -854,7 +855,7 @@ position = Vector2(-4032, 620)
 scale = Vector2(2.6666667, 4)
 
 [node name="ocean26" parent="AnimatedSprite2D/TerrainLogic" unique_id=144226561 instance=ExtResource("6_ffyxw")]
-position = Vector2(4022.667, 606.6665)
+position = Vector2(4034.667, 656.6665)
 scale = Vector2(2.6666667, 4)
 
 [node name="ocean20" parent="AnimatedSprite2D/TerrainLogic" unique_id=1886394373 instance=ExtResource("6_ffyxw")]
@@ -873,7 +874,7 @@ rotation = 1.5707964
 scale = Vector2(5.3333335, 4)
 
 [node name="ocean23" parent="AnimatedSprite2D/TerrainLogic" unique_id=339438785 instance=ExtResource("6_ffyxw")]
-position = Vector2(-4006.6667, 3026.6667)
+position = Vector2(-4006.6667, 3040.6677)
 rotation = 0.52359873
 scale = Vector2(5.333333, 4)
 
@@ -932,7 +933,7 @@ rotation = 2.7925267
 scale = Vector2(2, 1.3333334)
 
 [node name="cliff15" parent="AnimatedSprite2D/TerrainLogic" unique_id=1503228731 instance=ExtResource("5_0lm80")]
-position = Vector2(4126.667, -162.66699)
+position = Vector2(4148.668, -162.66699)
 rotation = 2.4958208
 scale = Vector2(4, 1.3333334)
 
@@ -992,7 +993,7 @@ rotation = -2.8389137
 scale = Vector2(0.57755214, 1.3333335)
 
 [node name="cliff26" parent="AnimatedSprite2D/TerrainLogic" unique_id=1551298554 instance=ExtResource("5_0lm80")]
-position = Vector2(825.3335, -1746.6672)
+position = Vector2(858, -1756.0002)
 rotation = 2.5770056
 scale = Vector2(0.26660156, 1.3333334)
 
@@ -1080,7 +1081,7 @@ position = Vector2(-2481.3333, 825.3334)
 scale = Vector2(0.40000004, 1.3333334)
 
 [node name="cliff33" parent="AnimatedSprite2D/TerrainLogic" unique_id=418761533 instance=ExtResource("5_0lm80")]
-position = Vector2(-2230.6665, 794.66675)
+position = Vector2(-2240.667, 794.66675)
 scale = Vector2(0.40000004, 1.3333334)
 
 [node name="cliff2" parent="AnimatedSprite2D/TerrainLogic" unique_id=888738017 instance=ExtResource("5_0lm80")]
@@ -1152,59 +1153,59 @@ scale = Vector2(7.265373, -6.2268925)
 [node name="ocean42" parent="AnimatedSprite2D/TerrainLogic" unique_id=2070716113 instance=ExtResource("7_uavq1")]
 position = Vector2(870.66675, -1636.0007)
 rotation = -3.1415925
-scale = Vector2(3.6697936, -2.7997446)
+scale = Vector2(2.4697838, -2.0797446)
 
 [node name="ocean43" parent="AnimatedSprite2D/TerrainLogic" unique_id=1831290614 instance=ExtResource("7_uavq1")]
 position = Vector2(1296.0007, -1326.6667)
 rotation = -3.1415925
-scale = Vector2(6.311736, -3.4071822)
+scale = Vector2(5.765833, -2.3671823)
 
 [node name="ocean44" parent="AnimatedSprite2D/TerrainLogic" unique_id=980470176 instance=ExtResource("7_uavq1")]
 position = Vector2(1166.6667, -1505.3342)
 rotation = -2.5628393
-scale = Vector2(12.688499, -5.054845)
+scale = Vector2(12.688499, -4.0403914)
 
 [node name="ocean45" parent="AnimatedSprite2D/TerrainLogic" unique_id=1314899148 instance=ExtResource("7_uavq1")]
 position = Vector2(1153.3335, -1394.6667)
 rotation = -2.1213405
-scale = Vector2(5.7262793, 3.2025583)
+scale = Vector2(4.4058986, 2.0077732)
 
 [node name="ocean46" parent="AnimatedSprite2D/TerrainLogic" unique_id=972997865 instance=ExtResource("7_uavq1")]
 position = Vector2(1009.333, -1468.0002)
 rotation = -2.5164359
-scale = Vector2(8.906259, -1.2859496)
+scale = Vector2(8.906259, -0.6773168)
 
 [node name="ocean47" parent="AnimatedSprite2D/TerrainLogic" unique_id=303163702 instance=ExtResource("7_uavq1")]
 position = Vector2(-2.666504, -342.667)
 rotation = 3.1264708
-scale = Vector2(34.322903, -28.405704)
+scale = Vector2(33.195774, -25.292105)
 
 [node name="ocean48" parent="AnimatedSprite2D/TerrainLogic" unique_id=887918159 instance=ExtResource("7_uavq1")]
 position = Vector2(-3765.3335, -997.333)
 rotation = 3.1264708
-scale = Vector2(7.7945213, -4.5457916)
+scale = Vector2(7.394568, -3.044112)
 
 [node name="ocean49" parent="AnimatedSprite2D/TerrainLogic" unique_id=306447588 instance=ExtResource("7_uavq1")]
-position = Vector2(-2421.3333, 999.99976)
+position = Vector2(-2421.3333, 979.99976)
 rotation = 3.1264708
-scale = Vector2(9.738681, -5.39873)
+scale = Vector2(9.421136, -3.420734)
 
 [node name="ocean50" parent="AnimatedSprite2D/TerrainLogic" unique_id=248793321 instance=ExtResource("7_uavq1")]
 position = Vector2(-2228, 889.33325)
 rotation = 3.0194914
-scale = Vector2(2.8992968, -3.0360188)
+scale = Vector2(2.5217626, -2.6682258)
 
 [node name="ocean51" parent="AnimatedSprite2D/TerrainLogic" unique_id=1702755665 instance=ExtResource("7_uavq1")]
-position = Vector2(2191.9995, 1871.9999)
+position = Vector2(2191.9995, 1868)
 rotation = -3.1337347
-scale = Vector2(11.869894, -7.141526)
+scale = Vector2(11.869894, -4.9828534)
 
 [node name="dropoff" parent="AnimatedSprite2D/TerrainLogic" unique_id=700283722 instance=ExtResource("8_cknv5")]
 
 [node name="Decorations" type="Node2D" parent="AnimatedSprite2D" unique_id=25574317]
 
 [node name="Snowman" parent="AnimatedSprite2D/Decorations" unique_id=1132507594 instance=ExtResource("9_28rv2")]
-position = Vector2(-1896.0001, 2596)
+position = Vector2(-1964.0001, 2676)
 scale = Vector2(0.35, 0.35)
 
 [node name="Snowman2" parent="AnimatedSprite2D/Decorations" unique_id=30445679 instance=ExtResource("9_28rv2")]
@@ -1212,7 +1213,7 @@ position = Vector2(-2798, -1234)
 scale = Vector2(0.35, 0.35)
 
 [node name="Tree" parent="AnimatedSprite2D/Decorations" unique_id=438247434 instance=ExtResource("9_c5wsc")]
-position = Vector2(-2568, 2149.3333)
+position = Vector2(-2568, 2049.333)
 scale = Vector2(0.5, 0.5)
 
 [node name="Tree2" parent="AnimatedSprite2D/Decorations" unique_id=2098092485 instance=ExtResource("9_c5wsc")]
@@ -1288,7 +1289,7 @@ position = Vector2(276.00006, -3052)
 scale = Vector2(0.5, 0.5)
 
 [node name="Igloo" parent="AnimatedSprite2D" unique_id=585127459 instance=ExtResource("8_3fjxh")]
-position = Vector2(-2996, 2408)
+position = Vector2(-3096, 2258)
 scale = Vector2(0.6, 0.6)
 
 [node name="Igloo2" parent="AnimatedSprite2D" unique_id=1998589217 instance=ExtResource("8_3fjxh")]
@@ -1311,18 +1312,23 @@ scale = Vector2(0.6, 0.6)
 position = Vector2(219.3335, 967.3335)
 scale = Vector2(0.6, 0.6)
 
+[node name="Oil" type="Sprite2D" parent="AnimatedSprite2D" unique_id=386899827]
+visible = false
+position = Vector2(-2174, 3388)
+texture = ExtResource("14_a440j")
+
 [node name="NPC" parent="AnimatedSprite2D" unique_id=1433705664 instance=ExtResource("14_ivhd4")]
 position = Vector2(-1586, 2452)
 scale = Vector2(2, 2)
 
 [node name="NPC2" parent="AnimatedSprite2D" unique_id=1597532318 instance=ExtResource("15_1vykt")]
-position = Vector2(-2378, -842.00006)
+position = Vector2(-2342, -904.00006)
 scale = Vector2(2, 2)
 
 [node name="NPC3" parent="AnimatedSprite2D" unique_id=273226008 instance=ExtResource("16_md6h6")]
-position = Vector2(-211.99991, 1082)
+position = Vector2(-41.99991, 1094)
 scale = Vector2(2, 2)
 
 [node name="NPC4" parent="AnimatedSprite2D" unique_id=1176660810 instance=ExtResource("17_v75sd")]
-position = Vector2(1488, -1380)
+position = Vector2(1492, -1439.999)
 scale = Vector2(2.5, 2.5)
