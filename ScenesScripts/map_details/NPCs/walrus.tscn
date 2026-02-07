@@ -25,8 +25,8 @@ collision_mask = 8
 script = ExtResource("1_s42ey")
 
 [node name="obstacle" parent="." unique_id=921783860 instance=ExtResource("2_gmibs")]
-position = Vector2(-78, -57.000004)
-scale = Vector2(4.0299993, 2.5325)
+position = Vector2(-28.000004, -57.000004)
+scale = Vector2(2.789999, 2.5325)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2004280203]
 scale = Vector2(0.25, 0.25)

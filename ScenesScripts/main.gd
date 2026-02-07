@@ -63,7 +63,7 @@ func update_options_settings():
 	$PC.set_sfx_vol()
 	var new_vol = 0 + (Global.volume_sfx-50)/2
 	$Music/sfx_itemdeliver.volume_db = new_vol
-	$Music/sfx_itemget.volume_db = new_vol
+	$Music/sfx_itemget.volume_db = new_vol - 15
 	$Music/sfx_menuback.volume_db = new_vol
 	$Music/sfx_menufwd.volume_db = new_vol
 func fade_in():

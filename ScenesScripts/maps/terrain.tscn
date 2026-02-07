@@ -34,7 +34,7 @@ animations = [{
 script = ExtResource("1_tbw4b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1361751644]
-position = Vector2(1286, -1310)
+position = Vector2(1286, -1298)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_tbw4b")
 
@@ -1028,11 +1028,6 @@ position = Vector2(1228, -1686.6672)
 rotation = -2.678029
 scale = Vector2(0.6666667, 1.3333334)
 
-[node name="cliff41" parent="AnimatedSprite2D/TerrainLogic" unique_id=1729238405 instance=ExtResource("5_0lm80")]
-position = Vector2(1384, -1552.0002)
-rotation = -2.1511056
-scale = Vector2(0.6666666, 1.3333333)
-
 [node name="cliff27" parent="AnimatedSprite2D/TerrainLogic" unique_id=612846408 instance=ExtResource("5_0lm80")]
 position = Vector2(292.00073, -1128)
 rotation = 0.26179937
@@ -1179,7 +1174,7 @@ scale = Vector2(5.765833, -2.3671823)
 [node name="ocean44" parent="AnimatedSprite2D/TerrainLogic" unique_id=980470176 instance=ExtResource("7_uavq1")]
 position = Vector2(1166.6667, -1505.3342)
 rotation = -2.5628393
-scale = Vector2(12.688499, -4.0403914)
+scale = Vector2(12.688499, -4.9707036)
 
 [node name="ocean45" parent="AnimatedSprite2D/TerrainLogic" unique_id=1314899148 instance=ExtResource("7_uavq1")]
 position = Vector2(1153.3335, -1394.6667)
@@ -1217,6 +1212,7 @@ rotation = -3.1337347
 scale = Vector2(11.869894, -4.9828534)
 
 [node name="dropoff" parent="AnimatedSprite2D/TerrainLogic" unique_id=700283722 instance=ExtResource("8_cknv5")]
+scale = Vector2(1.5, 1.5)
 
 [node name="Decorations" type="Node2D" parent="AnimatedSprite2D" unique_id=25574317]
 
@@ -1225,7 +1221,7 @@ position = Vector2(-1964.0001, 2676)
 scale = Vector2(0.35, 0.35)
 
 [node name="Snowman2" parent="AnimatedSprite2D/Decorations" unique_id=30445679 instance=ExtResource("9_28rv2")]
-position = Vector2(-2798, -1234)
+position = Vector2(-2798, -1206)
 scale = Vector2(0.35, 0.35)
 
 [node name="Tree" parent="AnimatedSprite2D/Decorations" unique_id=438247434 instance=ExtResource("9_c5wsc")]
@@ -1309,24 +1305,24 @@ position = Vector2(-3096, 2258)
 scale = Vector2(0.6, 0.6)
 
 [node name="Igloo2" parent="AnimatedSprite2D" unique_id=1998589217 instance=ExtResource("8_3fjxh")]
-position = Vector2(1441.9998, 849.333)
+position = Vector2(1511.9998, 780)
 scale = Vector2(0.6, 0.6)
 
 [node name="Igloo3" parent="AnimatedSprite2D" unique_id=223113305 instance=ExtResource("8_3fjxh")]
 position = Vector2(1432, -984)
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.55, 0.55)
 
 [node name="IglooFlip" parent="AnimatedSprite2D" unique_id=1927290786 instance=ExtResource("10_mmvk3")]
-position = Vector2(-1374, 2200)
+position = Vector2(-1274, 2268)
 scale = Vector2(0.6, 0.6)
 
 [node name="IglooFlip2" parent="AnimatedSprite2D" unique_id=1586019469 instance=ExtResource("10_mmvk3")]
-position = Vector2(-2118, -1136)
-scale = Vector2(0.6, 0.6)
+position = Vector2(-2172, -1100)
+scale = Vector2(0.5, 0.5)
 
 [node name="Hospital" parent="AnimatedSprite2D" unique_id=1785523556 instance=ExtResource("11_8cx7f")]
-position = Vector2(219.3335, 967.3335)
-scale = Vector2(0.6, 0.6)
+position = Vector2(219.3335, 969.3335)
+scale = Vector2(0.55, 0.55)
 
 [node name="Oil" type="Sprite2D" parent="AnimatedSprite2D" unique_id=386899827]
 visible = false
@@ -1334,7 +1330,7 @@ position = Vector2(-2174, 3388)
 texture = ExtResource("14_a440j")
 
 [node name="NPC" parent="AnimatedSprite2D" unique_id=1433705664 instance=ExtResource("14_ivhd4")]
-position = Vector2(-1586, 2452)
+position = Vector2(-1608, 2390)
 scale = Vector2(2, 2)
 
 [node name="NPC2" parent="AnimatedSprite2D" unique_id=1597532318 instance=ExtResource("15_1vykt")]
@@ -1342,9 +1338,9 @@ position = Vector2(-2342, -904.00006)
 scale = Vector2(2, 2)
 
 [node name="NPC3" parent="AnimatedSprite2D" unique_id=273226008 instance=ExtResource("16_md6h6")]
-position = Vector2(-41.99991, 1094)
+position = Vector2(-62, 1052)
 scale = Vector2(2, 2)
 
 [node name="NPC4" parent="AnimatedSprite2D" unique_id=1176660810 instance=ExtResource("17_v75sd")]
-position = Vector2(1492, -1439.999)
+position = Vector2(1500, -1404)
 scale = Vector2(2.5, 2.5)
