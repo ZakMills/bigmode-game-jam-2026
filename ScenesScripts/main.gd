@@ -12,12 +12,15 @@ var BGAdjust
 @onready var map_test = $TerrainManager/Terrain_test
 @onready var map_real = $TerrainManager/Terrain
 @onready var terrain_manager = $TerrainManager
+@onready var weather_ref = $UILayer/Weather
 var item_pos : Vector2
 var dest_pos : Vector2
 var music_2 : bool = false
 var music_start_point : float = 195
-var music_vol_base : float = -20
+var music_vol_base : float = 0#-10
 var music_vol_current : float = -10
+var music_vol_blizzard : float = 0
+var music_blizzard_max_adjust : float = 30
 
 var test : bool = false
 
@@ -46,7 +49,9 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#print($Music/Lose.playing)
+	#print($Music/BlizzardFadeTimer.is_stopped())
+	if (!$Music/BlizzardFadeTimer.is_stopped() && !$Music/BlizzardFadeTimer.paused):
+		music_vol_blizzard_fade()
 	$Background.position = CamRef.global_position - BGAdjust
 	#music_pausing()
 	#if ($Music/MusicFadeTimer.time_left != 0):
@@ -72,12 +77,12 @@ func stage_load():
 	reset_PC_position()
 	#music_start()
 	if (test): 
-		TopRibbonRef.stage_start(30) # TODO: Global.day_length  
+		TopRibbonRef.stage_start(999) # TODO: Global.day_length  
 		map_test.clear_items()
 		#print("stage_load, item starting pos")
 		map_test.add_item(Stages.items_starting[0])
-		$Music/MusicTimer.start(5)
-		$Music/StageMusic.volume_db = -10
+		#$Music/MusicTimer.start(5)
+		#$Music/StageMusic.volume_db = -10
 	else: 
 		#print("stage_load real, item starting pos")
 		TopRibbonRef.stage_start(Global.day_length)
@@ -151,7 +156,12 @@ func back_to_main_menu():
 	#$PC/Camera2D.set_zoom(Vector2.ONE)
 	stop_pc_audio()
 	TopRibbonRef.stop_timers()
+	$Music/BlizzardFadeTimer.start(0.0001)
+	music_vol_blizzard_fade()
 	reset_audio()
+	Global.windy = false
+	Global.blizzard_on = false
+	$PC.reset_visibility()
 	to_main_menu()
 	
 func reset_PC_position():
@@ -164,6 +174,7 @@ func score_update():
 func blizzard(blizzard_on):
 	Global.blizzard_on = blizzard_on
 	$PC.switchVisibility(blizzard_on)
+	$Music/BlizzardFadeTimer.start(Global.blizzard_fade_time)
 	#$PC.switchVisibility(1)
 	pass
 
@@ -236,15 +247,31 @@ func attach_item(item : Node):
 #region audio
 func music_vol():
 	music_vol_current = music_vol_base + ((Global.volume_music-50)/2)
-	if ($Music/StageMusic.volume_db != -100):
-		$Music/StageMusic.volume_db = music_vol_current
-	if ($Music/StageMusicBlizzard.volume_db != -100):
-		$Music/StageMusicBlizzard.volume_db = music_vol_current
+	$Music/StageMusic.volume_db = music_vol_current #- music_vol_blizzard
+	$Music/StageMusicBlizzard.volume_db = music_vol_current #- (music_blizzard_max_adjust-music_vol_blizzard)
 	$Music/MenuMusic.volume_db = music_vol_current
 	$Music/Win.volume_db = music_vol_current
 	$Music/Lose.volume_db = music_vol_current
-	
+	if (($Music/BlizzardFadeTimer.is_stopped())):
+		_on_blizzard_fade_timer_timeout()
 	pass
+	
+func music_vol_blizzard_fade(): # 0 to 100, 0 means no adjustment, clear weather
+	var transition_prct = (1-($Music/BlizzardFadeTimer.time_left / Global.blizzard_fade_time)) * 100
+	if (Global.blizzard_on):
+		music_vol_blizzard = transition_prct
+	else:
+		music_vol_blizzard = 100-transition_prct
+	music_vol_blizzard *= (music_blizzard_max_adjust/100) # adjust by 60 decibels
+	
+	# This is meant to make the coming-in-track 
+	if (Global.blizzard_on): 
+		$Music/StageMusic.volume_db = music_vol_current - music_vol_blizzard
+		$Music/StageMusicBlizzard.volume_db = music_vol_current - ((music_blizzard_max_adjust-music_vol_blizzard)/2)
+	else:
+		$Music/StageMusic.volume_db = music_vol_current - (music_vol_blizzard/2)
+		$Music/StageMusicBlizzard.volume_db = music_vol_current - (music_blizzard_max_adjust-music_vol_blizzard)
+	#music_vol()
 	
 func transition_music_play(victory : bool):
 	#print("transition_music_play, ", victory)
@@ -259,35 +286,41 @@ func transition_music_stop():
 	$Music/Lose.stop()
 
 func reset_audio():
-	$Music/StageMusic.volume_db = music_vol_base
+	music_vol()
+	#$Music/StageMusic.volume_db = music_vol_base
 	$Music/StageMusic.stop()
 	#$Music/StageMusic2.volume_db = -100
 	#$Music/StageMusic2.stop()
-	$Music/StageMusicBlizzard.volume_db = -100
+	#$Music/StageMusicBlizzard.volume_db = -100
 	$Music/StageMusicBlizzard.stop()
 	#$Music/StageMusicBlizzard2.volume_db = -100
 	#$Music/StageMusicBlizzard2.stop()
 	#$Music/MusicTimer.stop()
+	music_vol_blizzard = 0
 	music_2 = false
 	music_vol()
 	pass
 
 func _on_stage_music_finished() -> void:
-	$Music/StageMusic.stop()
-	$Music/StageMusic.volume_db = -100
+	#$Music/StageMusic.stop()
+	#$Music/StageMusic.volume_db = -100
+	pass
 func _on_stage_music_2_finished() -> void:
-	$Music/StageMusic2.stop()
-	$Music/StageMusic2.volume_db = -100
+	#$Music/StageMusic2.stop()
+	#$Music/StageMusic2.volume_db = -100
+	pass
 func _on_stage_music_blizzard_finished() -> void:
-	$Music/StageMusicBlizzard.stop()
-	$Music/StageMusicBlizzard.volume_db = -100
+	#$Music/StageMusicBlizzard.stop()
+	#$Music/StageMusicBlizzard.volume_db = -100
+	pass
 func _on_stage_music_blizzard_2_finished() -> void:
-	$Music/StageMusicBlizzard2.stop()
-	$Music/StageMusicBlizzard2.volume_db = -100
+	#$Music/StageMusicBlizzard2.stop()
+	#$Music/StageMusicBlizzard2.volume_db = -100
+	pass
 
 
 func _on_music_timer_timeout() -> void:
-	print("_on_music_timer_timeout, ", music_2)
+	#print("_on_music_timer_timeout, ", music_2)
 	$Music/StageMusic.play(0)
 	#if (music_2): # 1 is playing
 		#$Music/StageMusic2.play(0)
@@ -302,14 +335,6 @@ func _on_music_timer_timeout() -> void:
 	pass # Replace with function body.
 	
 func music_start():
-	#print("main, music start")
-	#print("music_start")
-	#$Music/MusicTimer.start(5)
-	#print("music_timer start")
-	#$Music/MusicFadeTimer.start(5)
-	#print("music_fade_timer start")
-	
-	
 	$Music/StageMusic.play(0)
 	$Music/StageMusic.volume_db = music_vol_current
 	$Music/StageMusicBlizzard.play(0)
@@ -321,26 +346,26 @@ func music_start():
 	#$Music/StageMusic.set_stream_paused(true)
 	#$Music/StageMusicBlizzard.set_stream_paused(true)
 
-func music_loop():
-	var incoming_vol = -50 + (((5-$Music/MusicFadeTimer.time_left)/10)*100)
-	#print("music_loop vol = ", $Music/MusicFadeTimer.time_left, "  ", incoming_vol)
-	if (music_2):
-		if (!Global.blizzard_on):
-			$Music/StageMusic2.volume_db = incoming_vol
-		else:
-			$Music/StageMusicBlizzard2.volume_db = incoming_vol
-	else:
-		if (!Global.blizzard_on):
-			$Music/StageMusic.volume_db = incoming_vol
-		else:
-			$Music/StageMusicBlizzard.volume_db = incoming_vol
-	print($Music/StageMusic.volume_db, "    ", $Music/StageMusic2.volume_db, "    ", music_2)
-	#print("music_loop music_2 = ", music_2 , "1 = ", $Music/StageMusic.volume_db, " 2 = ", $Music/StageMusic2.volume_db)
-	pass
+#func music_loop():
+	#var incoming_vol = -50 + (((5-$Music/MusicFadeTimer.time_left)/10)*100)
+	##print("music_loop vol = ", $Music/MusicFadeTimer.time_left, "  ", incoming_vol)
+	#if (music_2):
+		#if (!Global.blizzard_on):
+			#$Music/StageMusic2.volume_db = incoming_vol
+		#else:
+			#$Music/StageMusicBlizzard2.volume_db = incoming_vol
+	#else:
+		#if (!Global.blizzard_on):
+			#$Music/StageMusic.volume_db = incoming_vol
+		#else:
+			#$Music/StageMusicBlizzard.volume_db = incoming_vol
+	#print($Music/StageMusic.volume_db, "    ", $Music/StageMusic2.volume_db, "    ", music_2)
+	##print("music_loop music_2 = ", music_2 , "1 = ", $Music/StageMusic.volume_db, " 2 = ", $Music/StageMusic2.volume_db)
+	#pass
 
 #func music_pausing():
 func stage_music_pausing(is_paused):
-	print ("stage_music_pausing")
+	#print ("stage_music_pausing")
 	#var paused = false
 	#if ($MenuManager/PauseMenu.visible || TransitionRef.is_active() || $PC.is_paused()):
 		#paused = true
@@ -351,6 +376,8 @@ func stage_music_pausing(is_paused):
 	$Music/StageMusic.set_stream_paused(is_paused)
 	#$Music/StageMusic2.set_stream_paused(paused)
 	$Music/StageMusicBlizzard.set_stream_paused(is_paused)
+	if !$Music/BlizzardFadeTimer.is_stopped():
+		$Music/BlizzardFadeTimer.paused = is_paused
 	#$Music/StageMusicBlizzard2.set_stream_paused(paused)
 	
 
@@ -384,8 +411,20 @@ func _on_menu_music_timer_timeout() -> void:
 #endregion
 
 func oil_visible(vis):
-	map_real.oil_visible(vis)
+	if (!test):
+		map_real.oil_visible(vis)
+
+func wind_on(is_windy): # TODO: figure this out.  The graphics don't work if you add_child() to a UI layer object?
+	TopRibbonRef.wind_on(is_windy)
+	#weather_ref.wind_on(is_windy)
 
 # Debug, ignore
 func check_vis():
 	mainMenu.check_vis()
+
+
+func _on_blizzard_fade_timer_timeout() -> void:
+	if (Global.blizzard_on):
+		$Music/StageMusic.volume_db = - 100
+	else:
+		$Music/StageMusicBlizzard.volume_db = - 100

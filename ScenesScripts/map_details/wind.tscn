@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dnbj1f6uo4cd6"]
+
+[ext_resource type="Texture2D" uid="uid://rwnyvjlrcvw" path="res://Art/VE/wind/windlightblue.png" id="1_ypxkf"]
+[ext_resource type="Script" uid="uid://uvmodm3hwvpq" path="res://ScenesScripts/map_details/wind.gd" id="2_172uf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4ifs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ypxkf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="wind" type="AnimatedSprite2D" unique_id=186152443]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_l4ifs")
+script = ExtResource("2_172uf")

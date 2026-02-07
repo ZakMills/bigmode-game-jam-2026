@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-var accelMultiplier : float = 5
+var screen_size : Vector2
+var accelMultiplier : float = 10
 var velMax : float = 800.0
-var screen_size # Size of the game window.
 var speedPercent : float = 0
 @onready var main = get_tree().get_root().get_node("Main")
 var specialAnimation : bool = false
@@ -10,7 +10,7 @@ var sprite_size : Vector2
 var groundType : int
 var galumphTimer : float = 0 # angle in radians.
 var galumphFrequency : float = 1 # seconds for one full galumph
-var galumphSpeed : float = 400
+var galumphSpeed : float = 250
 var item_scene = load("res://ScenesScripts/map_details/Logic/item.tscn")
 var splash_mercy : bool = false
 var move_type : String = "galumph" # galumph, slide, splash, or falling
@@ -23,15 +23,21 @@ var sfx_playing : bool = false
 var blizzard_coming : bool = false # change to true if blizzard coming in, false if going out.
 var blizzard_fade_time : float = 2
 
+var test = false
+
+
 #region move_and_animate
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.blizzard_fade_time = blizzard_fade_time
 	start()
 	screen_size = get_viewport_rect().size
+	Global.screen_size = screen_size
 	sprite_size = $AnimatedSprite2D.sprite_frames.get_frame_texture("gal_northeast", 0).get_size()
 	$AudioStreamPlayer2DBounce.stop()
 	#$AudioStreamPlayer2DBounce.
 	$AudioStreamPlayer2DSlide.stop()
+	set_sfx_vol()  
 	
 func start():
 	galumphTimer = 0
@@ -42,18 +48,14 @@ func start():
 	$ReducedVision.visible = false
 	set_sfx_vol()
 	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func set_sfx_vol():
-	var new_vol = -10 + (Global.volume_sfx-50)/2
-	$AudioStreamPlayer2DBounce.volume_db = new_vol
-	$AudioStreamPlayer2DSlide.volume_db = new_vol
-	$AudioStreamPlayer2DSplash.volume_db = new_vol
 	
 func _process(delta: float) -> void:
 	#print(position, "  and globally  ", global_position)
 	#print("global mode is ", Global.mode)
 	#print("audio timer = ", $AudioStreamPlayer2DBounce.get_playback_position())
 	#print("timer2 ", $Timer2.time_left)
+	#if (test):
+		#print("test ", $AnimatedSprite2D.is_playing(), "  ", $AnimatedSprite2D.speed_scale)
 	if (Global.mode == 3 && $Timer.time_left == 0):
 		proceed(delta)
 	if (!$Timer2.is_stopped()):
@@ -65,22 +67,29 @@ func _process(delta: float) -> void:
 	
 	
 func proceed(delta):
-	
+	var player_input = false
 	var accel = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("right"):
 		accel.x += 1
+		player_input = true
 	if Input.is_action_pressed("left"):
 		accel.x -= 1
+		player_input = true
 	if Input.is_action_pressed("down"):
 		accel.y += 1
+		player_input = true
 	if Input.is_action_pressed("up"):
 		accel.y -= 1
+		player_input = true
 	
-	# TODO: weather goes here
 	
 	
 	if accel.length() > 0:
 		accel = accel.normalized()
+	
+	if (Global.windy):
+		accel += Vector2(0.2, 0) # pushes you slightly east
+	
 	
 	#if Input.is_action_just_pressed("space"):
 		#print($GroundDetector.get_overlapping_bodies().is_empty())
@@ -114,8 +123,11 @@ func proceed(delta):
 	#print(velocity)
 		
 	#Animations
-	if (!specialAnimation):
+	if (!specialAnimation && player_input):
 		animate_movement(accel)
+		
+	if (!player_input && move_type != "falling" && move_type != "splash"):
+		$AnimatedSprite2D.stop()
 	
 	
 	if (move_type == "falling"):
@@ -167,6 +179,8 @@ func _ground_type_NPC(body):
 
 func sliding(accel, delta):
 	accel *= accelMultiplier
+	if (Global.carrying_item):
+		accel *= 0.85
 
 	if (accel.length() == 0): # if not moving, slow to a stop.
 		velocity -= velocity.normalized() * accelMultiplier * 0.5
@@ -182,6 +196,8 @@ func galumph(accel, delta):
 	if galumphTimer > 3.14:
 		galumphTimer -= 3.14
 	velocity = accel * galumphSpeed * sin(galumphTimer)
+	if (Global.carrying_item):
+		velocity *= 0.85
 	
 func cliff():
 	move_type = "falling"
@@ -221,7 +237,7 @@ func animate_movement(accel : Vector2):
 		elif (accel.x < 0):
 			dir += "W" # west, left
 			
-		if (accel == Vector2.ZERO):
+		if (accel == Vector2.ZERO && move_type != "splash"):
 			$AnimatedSprite2D.stop()
 	
 		
@@ -425,8 +441,15 @@ func stop_sfx():
 	$AudioStreamPlayer2DBounce.stop()
 	$AudioStreamPlayer2DSlide.stop()
 	$AudioStreamPlayer2DSplash.stop()
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func set_sfx_vol():
+	var new_vol = 0 + (Global.volume_sfx-50)/2
+	$AudioStreamPlayer2DBounce.volume_db = new_vol
+	$AudioStreamPlayer2DSlide.volume_db = new_vol
+	$AudioStreamPlayer2DSplash.volume_db = new_vol - 5
 	
-	
+func reset_visibility():
+	pass
 func switchVisibility(blizzard):
 	if (bool(blizzard) != $ReducedVision.visible):
 		$Timer2.start(blizzard_fade_time)
@@ -456,9 +479,14 @@ func visibility_modulate(val):
 	#if (val == 0):
 		#$Timer2.start(.05)
 	pass
-
+	
 
 func _on_timer_2_timeout() -> void:
 	if (!blizzard_coming):
 		$ReducedVision.visible = false
 	pass
+
+
+func _on_splash_mercy_timeout() -> void:
+	$AnimatedSprite2D.set_speed_scale(1)
+	pass # Replace with function body.

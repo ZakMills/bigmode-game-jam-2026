@@ -7,7 +7,7 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#full_item_spawn_list()
+	full_item_spawn_list()
 	#possible_item_pos.append(Vector2(-1902.667, 1866.667)) # for testing
 	pass
 	

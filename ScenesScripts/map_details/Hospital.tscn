@@ -6,16 +6,31 @@
 [node name="Hospital" type="Node2D" unique_id=585127459]
 
 [node name="obstacle" parent="." unique_id=93409579 instance=ExtResource("1_jamlh")]
-position = Vector2(-476.99997, -387)
-scale = Vector2(23.903357, 18.400002)
-
-[node name="obstacle2" parent="." unique_id=2123034522 instance=ExtResource("1_jamlh")]
-position = Vector2(-194, 240)
-scale = Vector2(10.374771, 3.880001)
+position = Vector2(-461, -164)
+scale = Vector2(23.543356, 12.440001)
 
 [node name="obstacle3" parent="." unique_id=1761452950 instance=ExtResource("1_jamlh")]
-position = Vector2(34, -443.99997)
+position = Vector2(34, -491.99997)
 scale = Vector2(7.754279, 2.5252614)
+
+[node name="obstacle6" parent="." unique_id=2123034522 instance=ExtResource("1_jamlh")]
+position = Vector2(167, -393.00003)
+scale = Vector2(5.5025015, 6.186125)
+
+[node name="obstacle5" parent="." unique_id=1986414585 instance=ExtResource("1_jamlh")]
+position = Vector2(-270.00003, -363.00003)
+rotation = -0.18610525
+scale = Vector2(9.653673, 5.876033)
+
+[node name="obstacle2" parent="." unique_id=814770560 instance=ExtResource("1_jamlh")]
+position = Vector2(-384.00006, -116.99998)
+rotation = -1.1372172
+scale = Vector2(6.7542057, 8.016866)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2092591964]
 texture = ExtResource("2_vy1at")
+
+[node name="obstacle4" parent="." unique_id=849330324 instance=ExtResource("1_jamlh")]
+visible = false
+position = Vector2(-461, -164)
+scale = Vector2(23.543356, 12.440001)

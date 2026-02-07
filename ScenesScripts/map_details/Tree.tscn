@@ -6,28 +6,22 @@
 [node name="Tree" type="Node2D" unique_id=438247434]
 
 [node name="obstacle2" parent="." unique_id=1480264195 instance=ExtResource("1_0c37i")]
-position = Vector2(-348, 145)
+position = Vector2(-348.00003, 164)
 scale = Vector2(17.918686, 4.891422)
 
-[node name="obstacle3" parent="." unique_id=1869828425 instance=ExtResource("1_0c37i")]
-position = Vector2(-314.00003, -2)
-scale = Vector2(16.038687, 4.891422)
-
-[node name="obstacle4" parent="." unique_id=53631984 instance=ExtResource("1_0c37i")]
-position = Vector2(-248.00003, -135)
-scale = Vector2(12.918686, 4.891422)
-
-[node name="obstacle5" parent="." unique_id=1147505815 instance=ExtResource("1_0c37i")]
-position = Vector2(-204, -314)
-scale = Vector2(10.278687, 4.891422)
-
-[node name="obstacle6" parent="." unique_id=1267014322 instance=ExtResource("1_0c37i")]
-position = Vector2(-142, -443)
-scale = Vector2(7.398686, 4.891422)
-
 [node name="obstacle7" parent="." unique_id=182642895 instance=ExtResource("1_0c37i")]
-position = Vector2(-68, -560)
+position = Vector2(-68, -642)
 scale = Vector2(3.1986861, 4.891422)
+
+[node name="obstacle8" parent="." unique_id=2123034522 instance=ExtResource("1_0c37i")]
+position = Vector2(-18.000002, -606)
+rotation = -0.35489243
+scale = Vector2(2.499317, 25.603664)
+
+[node name="obstacle9" parent="." unique_id=193644758 instance=ExtResource("1_0c37i")]
+position = Vector2(-85.000015, -637.99994)
+rotation = 0.34630048
+scale = Vector2(2.499317, 25.603664)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1530039468]
 texture = ExtResource("2_8tgvt")

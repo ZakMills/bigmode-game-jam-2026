@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c45cgujsmf56q" path="res://ScenesScripts/top_ribbon.gd" id="1_gtcj5"]
 [ext_resource type="Texture2D" uid="uid://b4ogx2fb78qcv" path="res://Art/UI/PLACEHOLDER_Arrow.png" id="2_7l3cw"]
+[ext_resource type="PackedScene" uid="uid://dnbj1f6uo4cd6" path="res://ScenesScripts/map_details/wind.tscn" id="3_81l2x"]
 
 [node name="TopRibbon" type="Control" unique_id=1072770385]
 process_mode = 1
@@ -76,6 +77,19 @@ wait_time = 0.1
 one_shot = true
 
 [node name="TimerWeather" type="Timer" parent="." unique_id=792452507]
+one_shot = true
+
+[node name="WindTimer" type="Timer" parent="." unique_id=951449961]
+
+[node name="WindLayer" type="Control" parent="." unique_id=1955854756]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="wind" parent="WindLayer" unique_id=186152443 instance=ExtResource("3_81l2x")]
+visible = false
+position = Vector2(894, 31)
+scale = Vector2(0.2, 0.2)
 
 [connection signal="timeout" from="Time_left" to="." method="_on_time_left_timeout"]
 [connection signal="timeout" from="TimerWeather" to="." method="_on_timer_weather_timeout"]
