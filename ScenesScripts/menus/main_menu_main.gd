@@ -42,6 +42,7 @@ func space():
 	elif (cursor == 1): # instructions
 		parent.menu_switch_instructions()
 	elif (cursor == 2): # options
+		Global.sound_effect(2)
 		parent.visible = false
 		Global.options_display()
 		pass

@@ -26,7 +26,7 @@ res://ScenesScripts/menus/main_menu.tscn::77bfd997fcca7734bf9d9a646169d4e2::1770
 res://ScenesScripts/menus/options_menu.tscn::e65780a06735182b416d63f2186a2ea4::1770402531::res://.godot/exported/133200997/export-985a0eb895cf00447c59ce737f8bc68c-options_menu.scn
 res://ScenesScripts/menus/pause_menu.tscn::300b2543d8d7e55efc019de45aea9b46::1770402751::res://.godot/exported/133200997/export-11c7eff690c2f33ec1c050f2130c582f-pause_menu.scn
 res://ScenesScripts/menus/transition.tscn::4d1f838b3cc9ba15de13d6eb8d90549e::1770416587::res://.godot/exported/133200997/export-14c04450e11149309c003c4edd2be9be-transition.scn
-res://ScenesScripts/main.tscn::32020bba02c9c60898f89be054eb50f9::1770490084::res://.godot/exported/133200997/export-fb784158cec64e63ab80a48b2210b0dc-main.scn
+res://ScenesScripts/main.tscn::8f4daed0f01a56a74de290f11a059fa4::1770501103::res://.godot/exported/133200997/export-fb784158cec64e63ab80a48b2210b0dc-main.scn
 res://ScenesScripts/pc.tscn::768550190012f9b55b020bf211e430c4::1770485346::res://.godot/exported/133200997/export-15092560dac2edb4423bea87f54e71e6-pc.scn
 res://ScenesScripts/top_ribbon.tscn::1b2ed78c0d0eff4f524905f78a1583af::1770488934::res://.godot/exported/133200997/export-da5c9ea404afa92fbe601f31907f8b40-top_ribbon.scn
 res://ScenesScripts/map_details/wind.tscn::2b910862d3c9ec2eb22825da52e063bc::1770431410::res://.godot/exported/133200997/export-1b71c9f8e4bd8d5390f596ade6ecf20c-wind.scn

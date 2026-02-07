@@ -196,6 +196,9 @@ func transition_music_stop():
 func reset_audio():
 	main.reset_audio()
 
+func sound_effect(which: int):
+	# 1 = menu back, 2 = menu forward, 3 = item pickup, 4 = delivery
+	main.sound_effect(which)
 
 func stage_music_pausing(is_paused):
 	main.stage_music_pausing(is_paused)

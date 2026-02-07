@@ -30,6 +30,7 @@ func stop():
 	#print("options top ", Global.mode)
 	if (Global.mode == 1):
 		main.to_main_menu_keep_music()
+		Global.sound_effect(1)
 		#main.back_to_main_menu()
 		pass
 	elif (Global.mode == 3):
@@ -107,6 +108,8 @@ func left():
 		if (Global.volume_sfx > 1):
 			Global.volume_sfx -= 1
 			$TextSFXVol.text = str(int(Global.volume_sfx))
+			Global.update_options_settings()
+			Global.sound_effect(1)
 	Global.music_vol()
 	pass
 func right():
@@ -119,6 +122,8 @@ func right():
 		if (Global.volume_sfx < 100):
 			Global.volume_sfx += 1
 			$TextSFXVol.text = str(int(Global.volume_sfx))
+			Global.update_options_settings()
+			Global.sound_effect(2)
 	Global.music_vol()
 	pass
 func space():
