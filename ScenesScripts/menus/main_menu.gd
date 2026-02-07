@@ -40,6 +40,7 @@ func start():
 	#$Timer.start(101)
 
 func start_game():
+	Global.sound_effect(2)
 	active = false
 	visible = false
 	get_tree().get_root().get_node("Main/MenuManager/MenuBG").visible = false
@@ -55,6 +56,7 @@ func menu_switch_main():
 	hide_other_menus()
 	menu = 0
 	$Main.start()
+	Global.sound_effect(1)
 func menu_switch_options():
 	hide_other_menus()
 	Global.options_menu = 1
@@ -63,9 +65,11 @@ func menu_switch_instructions():
 	hide_other_menus()
 	menu = 1
 	$Instructions.start()
+	Global.sound_effect(2)
 func menu_switch_credits():
 	menu = 2
 	hide_other_menus()
+	Global.sound_effect(2)
 	$Credits.start()
 	
 func hide_other_menus():

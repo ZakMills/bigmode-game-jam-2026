@@ -61,6 +61,11 @@ func quiet_PC():
 	$PC.stop_audio()
 func update_options_settings():
 	$PC.set_sfx_vol()
+	var new_vol = 0 + (Global.volume_sfx-50)/2
+	$Music/sfx_itemdeliver.volume_db = new_vol
+	$Music/sfx_itemget.volume_db = new_vol - 15
+	$Music/sfx_menuback.volume_db = new_vol
+	$Music/sfx_menufwd.volume_db = new_vol
 func fade_in():
 	TransitionRef.fadeIn()
 func fade_out():
@@ -362,6 +367,18 @@ func music_start():
 	#print($Music/StageMusic.volume_db, "    ", $Music/StageMusic2.volume_db, "    ", music_2)
 	##print("music_loop music_2 = ", music_2 , "1 = ", $Music/StageMusic.volume_db, " 2 = ", $Music/StageMusic2.volume_db)
 	#pass
+	
+func sound_effect(which: int):
+	# 1 = menu back, 2 = menu forward, 3 = item pickup, 4 = delivery
+	if (which == 1):
+		$Music/sfx_menuback.play(0)
+	if (which == 2):
+		$Music/sfx_menufwd.play(0)
+	if (which == 3):
+		$Music/sfx_itemget.play(0)
+	if (which == 4):
+		$Music/sfx_itemdeliver.play(0)
+	
 
 #func music_pausing():
 func stage_music_pausing(is_paused):
@@ -370,6 +387,9 @@ func stage_music_pausing(is_paused):
 	#if ($MenuManager/PauseMenu.visible || TransitionRef.is_active() || $PC.is_paused()):
 		#paused = true
 		#print("pausing music")
+		
+	$Music/sfx_itemget.set_stream_paused(is_paused)
+	$Music/sfx_itemdeliver.set_stream_paused(is_paused)
 	
 	$Music/MusicTimer.set_paused(is_paused)
 	$Music/MusicFadeTimer.set_paused(is_paused)
@@ -379,6 +399,8 @@ func stage_music_pausing(is_paused):
 	if !$Music/BlizzardFadeTimer.is_stopped():
 		$Music/BlizzardFadeTimer.paused = is_paused
 	#$Music/StageMusicBlizzard2.set_stream_paused(paused)
+	
+	
 	
 
 	

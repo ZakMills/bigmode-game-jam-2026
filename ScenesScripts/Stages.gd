@@ -1,7 +1,7 @@
 extends Node
 # Separated out from Globals for length
 
-var dropoff = [Vector2(-79,-168),Vector2(-2853, 2574),Vector2(-1582,2518),Vector2(-2346,-836),Vector2(-42,1232),Vector2(-2853, 2574)]
+var dropoff = [Vector2(-79,-168),Vector2(-2853, 2574),Vector2(-1630,2412),Vector2(-2346,-836),Vector2(-42,1138),Vector2(-2853, 2574)]
 # Test, seal's home, penguin's home, biggie's home, hospital, seal's home
 var items_minimum : Array[int] = [1, 3, 5, 5, 6, 8]
 var items_type : Array[String] = ["feesh", "feesh","feesh", "feesh", "oilbird", "shell"]

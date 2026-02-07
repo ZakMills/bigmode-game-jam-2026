@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var screen_size : Vector2
-var accelMultiplier : float = 10
+var accelMultiplier : float = 7
 var velMax : float = 800.0
 var speedPercent : float = 0
 @onready var main = get_tree().get_root().get_node("Main")
@@ -375,6 +375,7 @@ func get_item(item: Node):
 	
 	#print("new item scale = ", new_item.scale)
 	$AnimatedSprite2D.call_deferred("add_child", new_item) 
+	Global.sound_effect(3)
 	#new_item.position.x = -(item.sprite_size.x/2)
 	#new_item.position.y = -($AnimatedSprite2D.scale.y*(sprite_size.y/2)) - item.sprite_size.y
 	if (Global.get_item_shape() == "feesh"):
@@ -390,6 +391,7 @@ func give_item():
 		lose_item()
 		Global.items_today += 1
 		Global.score_update(10)
+		Global.sound_effect(4)
 		Global.add_item()
 
 func lose_item():
