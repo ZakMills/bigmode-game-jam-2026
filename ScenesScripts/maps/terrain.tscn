@@ -38,6 +38,22 @@ position = Vector2(1286, -1310)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_tbw4b")
 
+[node name="ExpandedOcean" type="Node2D" parent="AnimatedSprite2D" unique_id=886888096]
+
+[node name="East" type="ColorRect" parent="AnimatedSprite2D/ExpandedOcean" unique_id=1483184625]
+offset_left = 5000.0
+offset_top = -5000.0
+offset_right = 5824.0
+offset_bottom = 5000.0
+color = Color(0.18431373, 0.47058824, 0.6862745, 1)
+
+[node name="West" type="ColorRect" parent="AnimatedSprite2D/ExpandedOcean" unique_id=241861688]
+offset_left = -5824.0
+offset_top = -5000.0
+offset_right = -5000.0
+offset_bottom = 5000.0
+color = Color(0.18431373, 0.47058824, 0.6862745, 1)
+
 [node name="TerrainLogic" type="Node2D" parent="AnimatedSprite2D" unique_id=870564470]
 
 [node name="sliding_path" parent="AnimatedSprite2D/TerrainLogic" unique_id=436615094 instance=ExtResource("5_tls4m")]
@@ -1256,6 +1272,10 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(2401.333, -609.33325)
 scale = Vector2(0.5, 0.5)
 
+[node name="Tree12" parent="AnimatedSprite2D/Decorations" unique_id=1894390707 instance=ExtResource("9_c5wsc")]
+position = Vector2(276, -3052)
+scale = Vector2(0.5, 0.5)
+
 [node name="Tree9" parent="AnimatedSprite2D/Decorations" unique_id=56330373 instance=ExtResource("9_c5wsc")]
 position = Vector2(42.666763, -3169.3333)
 scale = Vector2(0.5, 0.5)
@@ -1276,16 +1296,12 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(-17.333221, -2825.3333)
 scale = Vector2(0.5, 0.5)
 
+[node name="Tree13" parent="AnimatedSprite2D/Decorations" unique_id=57083725 instance=ExtResource("9_c5wsc")]
+position = Vector2(396, -2850)
+scale = Vector2(0.5, 0.5)
+
 [node name="Tree16" parent="AnimatedSprite2D/Decorations" unique_id=1526719540 instance=ExtResource("9_c5wsc")]
 position = Vector2(-1030.6665, -1614.6666)
-scale = Vector2(0.5, 0.5)
-
-[node name="Tree12" parent="AnimatedSprite2D/Decorations" unique_id=1894390707 instance=ExtResource("9_c5wsc")]
-position = Vector2(276.00006, -3052)
-scale = Vector2(0.5, 0.5)
-
-[node name="Tree13" parent="AnimatedSprite2D/Decorations" unique_id=57083725 instance=ExtResource("9_c5wsc")]
-position = Vector2(276.00006, -3052)
 scale = Vector2(0.5, 0.5)
 
 [node name="Igloo" parent="AnimatedSprite2D" unique_id=585127459 instance=ExtResource("8_3fjxh")]

@@ -9,3 +9,5 @@ script = ExtResource("1_v6s0s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1209317529]
 position = Vector2(0, 44)
+
+[node name="WindTimer" type="Timer" parent="." unique_id=1845861003]

@@ -11,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://ccpdynpuvppjd" path="res://Art/UI/waxseal.png" id="6_xorbr"]
 [ext_resource type="Texture2D" uid="uid://dlq0k2lyj6nrt" path="res://Art/buildings-plants-obstacles/igloo.png" id="7_l1vyq"]
 [ext_resource type="Texture2D" uid="uid://b4ogx2fb78qcv" path="res://Art/UI/PLACEHOLDER_Arrow.png" id="8_xorbr"]
+[ext_resource type="Texture2D" uid="uid://cmvm8l1tv1cj7" path="res://Art/deliveries_/shell.png" id="9_mmd17"]
+[ext_resource type="Texture2D" uid="uid://cs6bxm26i2xgo" path="res://Art/npcs/penguin/penguin.png" id="10_el51g"]
+[ext_resource type="Texture2D" uid="uid://rwnyvjlrcvw" path="res://Art/VE/wind/windlightblue.png" id="10_yql18"]
+[ext_resource type="Texture2D" uid="uid://bl0n6tqdchkne" path="res://Art/npcs/biggie/biggie.png" id="11_yql18"]
+[ext_resource type="Texture2D" uid="uid://c5gjn20nhw3a5" path="res://Art/npcs/stoat/stoat.png" id="12_of6rl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pwyjb"]
 
@@ -36,6 +41,7 @@ scale = Vector2(2, 1.3)
 texture = ExtResource("2_bpe1c")
 
 [node name="Main" type="Control" parent="." unique_id=1400223138]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -242,88 +248,116 @@ tab_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Instructions2" type="RichTextLabel" parent="Instructions" unique_id=2094686055]
-layout_mode = 0
-offset_left = 282.0
-offset_top = 165.0
-offset_right = 900.0
-offset_bottom = 252.0
-pivot_offset = Vector2(150, 0)
-theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
-theme_override_constants/outline_size = 5
-theme_override_fonts/normal_font = ExtResource("4_krchw")
-theme_override_font_sizes/normal_font_size = 30
-text = "Bring the feesh back home to stock up"
-tab_size = 6
-
 [node name="FeeshText" type="RichTextLabel" parent="Instructions" unique_id=462567862]
 layout_mode = 0
-offset_left = 353.0
-offset_top = 247.0
-offset_right = 834.0
-offset_bottom = 317.0
+offset_left = 298.0
+offset_top = 176.0
+offset_right = 855.0
+offset_bottom = 269.0
 pivot_offset = Vector2(150, 0)
 theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("4_krchw")
 theme_override_font_sizes/normal_font_size = 30
-text = "Bring this thing..."
+text = "Bring various items to different people
+on the island."
 tab_size = 6
 
 [node name="IglooText" type="RichTextLabel" parent="Instructions" unique_id=1612599331]
 layout_mode = 0
-offset_left = 370.0
-offset_top = 333.0
-offset_right = 726.0
-offset_bottom = 403.0
+offset_left = 180.0
+offset_top = 270.0
+offset_right = 589.0
+offset_bottom = 351.0
 pivot_offset = Vector2(150, 0)
 theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("4_krchw")
 theme_override_font_sizes/normal_font_size = 30
-text = "...back home"
+text = "Carrying an item interferes with movement a bit."
+tab_size = 6
+
+[node name="IglooText2" type="RichTextLabel" parent="Instructions" unique_id=399762667]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 379.0
+offset_right = 651.0
+offset_bottom = 499.0
+pivot_offset = Vector2(150, 0)
+theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("4_krchw")
+theme_override_font_sizes/normal_font_size = 30
+text = "Blizzards shorten your vision.
+
+High winds push you slightly."
 tab_size = 6
 
 [node name="Credits" type="RichTextLabel" parent="Instructions" unique_id=1727191115]
 layout_mode = 0
-offset_left = 423.0
-offset_top = 457.0
-offset_right = 795.0
-offset_bottom = 527.0
+offset_left = 686.0
+offset_top = 443.0
+offset_right = 1002.0
+offset_bottom = 545.0
 pivot_offset = Vector2(150, 0)
 theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("4_krchw")
 theme_override_font_sizes/normal_font_size = 30
-text = "Don't fall in the water"
+text = "Don't fall off cliffs into the water."
 tab_size = 6
 
 [node name="Credits4" type="RichTextLabel" parent="Instructions" unique_id=211161916]
 layout_mode = 0
-offset_left = 665.0
-offset_top = 311.0
-offset_right = 1003.0
-offset_bottom = 403.0
+offset_left = 689.0
+offset_top = 325.0
+offset_right = 1027.0
+offset_bottom = 417.0
 pivot_offset = Vector2(150, 0)
 theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.4862745, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("4_krchw")
 theme_override_font_sizes/normal_font_size = 30
-text = "This points to the feesh, or back home."
+text = "This points to the item, or the recipient."
 tab_size = 6
 
 [node name="Feesh" type="Sprite2D" parent="Instructions" unique_id=1681374387]
-position = Vector2(299.99997, 254.99998)
+position = Vector2(525, 157.00002)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("6_gmsyi")
 
+[node name="Feesh2" type="Sprite2D" parent="Instructions" unique_id=1659116250]
+position = Vector2(519, 229)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_mmd17")
+
+[node name="Feesh6" type="Sprite2D" parent="Instructions" unique_id=502517227]
+position = Vector2(304.99997, 519.99994)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_yql18")
+
+[node name="Feesh3" type="Sprite2D" parent="Instructions" unique_id=1212029915]
+position = Vector2(646, 271)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_el51g")
+
+[node name="Feesh4" type="Sprite2D" parent="Instructions" unique_id=722245042]
+position = Vector2(769, 128)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_yql18")
+
+[node name="Feesh5" type="Sprite2D" parent="Instructions" unique_id=220267794]
+position = Vector2(862, 190)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_of6rl")
+
 [node name="Igloo" type="Sprite2D" parent="Instructions" unique_id=1227874623]
-position = Vector2(288.00003, 344)
+position = Vector2(222, 194.00002)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_l1vyq")
 
 [node name="Igloo2" type="Sprite2D" parent="Instructions" unique_id=1742236453]
-position = Vector2(864, 264)
+position = Vector2(856, 297)
 rotation = 3.1415927
 texture = ExtResource("8_xorbr")
 
@@ -419,7 +453,7 @@ theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.48627
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("4_krchw")
 theme_override_font_sizes/normal_font_size = 30
-text = "Daisy / puppypal - art"
+text = "Daisy / puppypal - Art"
 tab_size = 6
 
 [node name="Credits" type="RichTextLabel" parent="Credits" unique_id=2045250567]
@@ -433,7 +467,7 @@ theme_override_colors/font_outline_color = Color(0.09019608, 0.28627452, 0.48627
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("4_krchw")
 theme_override_font_sizes/normal_font_size = 30
-text = "JuiceMage - QA, testing"
+text = "JuiceMage - QA, Testing"
 tab_size = 6
 
 [node name="Credits2" type="RichTextLabel" parent="Credits" unique_id=880199909]
@@ -463,7 +497,7 @@ theme_override_fonts/normal_font = ExtResource("4_krchw")
 theme_override_font_sizes/normal_font_size = 30
 text = "Made in Godot
 Font - Love Ya Like A Sister
-used under Open Font License"
+Used under Open Font License"
 tab_size = 6
 
 [node name="Exit" type="RichTextLabel" parent="Credits" unique_id=1501557797]

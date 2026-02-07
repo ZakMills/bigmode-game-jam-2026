@@ -93,7 +93,6 @@ func success():
 	for each in hints:
 		each.visible = false
 	hints[Global.day].visible = true
-	print("day = ", Global.day)
 func failure(): 
 	$ScreenSuccess.visible = false
 	$ScreenFail.visible = true
@@ -116,7 +115,7 @@ func is_active():
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	#sdprint("just finished ", anim_name, " transition ", Stages.stage_transition)
+	#print("just finished ", anim_name, " transition ", Stages.stage_transition)
 	if (anim_name == "Fade_out"):
 		if (Stages.stage_transition):
 			Global.evaluate()

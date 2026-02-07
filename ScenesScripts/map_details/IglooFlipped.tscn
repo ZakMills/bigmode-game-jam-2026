@@ -5,17 +5,23 @@
 
 [node name="IglooFlip" type="Node2D" unique_id=585127459]
 
-[node name="obstacle" parent="." unique_id=2123034522 instance=ExtResource("1_7bgc4")]
+[node name="obstacle4" parent="." unique_id=2123034522 instance=ExtResource("1_7bgc4")]
+position = Vector2(268, -567.00006)
+rotation = 0.80714566
+scale = Vector2(9.220481, 3.8741777)
+
+[node name="obstacle5" parent="." unique_id=1162562938 instance=ExtResource("1_7bgc4")]
+position = Vector2(-133.99995, -450)
+rotation = 2.3494203
+scale = Vector2(9.573077, 4.431446)
+
+[node name="obstacle6" parent="." unique_id=2042659118 instance=ExtResource("1_7bgc4")]
 position = Vector2(-532, -313.99997)
-scale = Vector2(26.143356, 16.840004)
+scale = Vector2(26.663357, 16.920006)
 
-[node name="obstacle2" parent="." unique_id=1807081377 instance=ExtResource("1_7bgc4")]
-position = Vector2(-371.00003, -403.00003)
-scale = Vector2(18.864899, 5.4671745)
-
-[node name="obstacle3" parent="." unique_id=1490206631 instance=ExtResource("1_7bgc4")]
-position = Vector2(-258, -472.00003)
-scale = Vector2(13.187633, 4.073447)
+[node name="obstacle7" parent="." unique_id=844998670 instance=ExtResource("1_7bgc4")]
+position = Vector2(-268.99997, -568)
+scale = Vector2(13.187633, 4.431446)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2092591964]
 texture = ExtResource("2_qgh8b")

@@ -163,6 +163,5 @@ stream = ExtResource("18_vh0i2")
 [connection signal="finished" from="Music/StageMusicBlizzard" to="." method="_on_stage_music_blizzard_finished"]
 [connection signal="finished" from="Music/StageMusicBlizzard2" to="." method="_on_stage_music_blizzard_2_finished"]
 [connection signal="timeout" from="Music/MusicTimer" to="." method="_on_music_timer_timeout"]
-[connection signal="timeout" from="Music/BlizzardFadeTimer" to="." method="_on_blizzard_fade_timer_timeout"]
 [connection signal="finished" from="Music/MenuMusic" to="." method="_on_menu_music_finished"]
 [connection signal="timeout" from="Music/MenuMusicTimer" to="." method="_on_menu_music_timer_timeout"]

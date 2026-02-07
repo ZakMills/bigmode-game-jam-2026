@@ -6,6 +6,9 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 #var destination : Vector2
 var weather_on = false
+var wind_scene = load("res://ScenesScripts/map_details/wind.tscn")
+var wind_rate : float = 0.3
+	
 
 func _ready() -> void:
 	if Global.test:
@@ -14,6 +17,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	#print($WindLayer/wind.global_position, " ", $WindLayer/wind.position, "  ", global_position)
+	#print("timer ",  $TimerWeather.time_left)
 	#print($Background.visible, "    ", $Background.color)
 	set_direction()
 	time_update()
@@ -71,23 +76,73 @@ func blur_direction():
 func cover(setting):
 	$Cover.visible = setting
 
+func wind_on(is_windy : bool):
+	$WindLayer/wind.visible = is_windy
+	#wind_rate = 0.3
+	#if(is_windy):
+		#$WindTimer.start(wind_rate)
+	#else:
+		#$WindTimer.stop()
+	pass
+
+func _on_wind_timer_timeout() -> void:
+	$WindTimer.start(wind_rate)
+	make_wind()
+	pass # Replace with function body.
+		
+func make_wind():
+	#print("")
+	var new_wind = wind_scene.instantiate()
+	var new_scale = randf_range(0.05, 0.2)
+	new_wind.scale = Vector2(new_scale, new_scale)
+	new_wind.start(randf_range(300, 1000))
+	$WindLayer.add_child(new_wind)
+	new_wind.position = Vector2(0, randf_range(100, Global.screen_size.y))
+	pass
+
 func _on_time_left_timeout() -> void:
 	cover(true)
 	Global.stage_over()
 	pass # Replace with function body.
 	
 func weatherSchedule(): # schedule is between this and _on_timer_weather_timeout()
+	#print("day ", Global.day, " ")
+	if Global.day == 0:
+		$TimerWeather.start(2) # blizzard
+		weather_on = false
+	if Global.day == 2:
+		$TimerWeather.start(1) # windy
+		weather_on = false
 	if Global.day == 3:
 		$TimerWeather.start(Global.day_length / 3) # will turn blizzard on
 		weather_on = false # but it is currently off
 	if Global.day == 5:
-		$TimerWeather.start(Global.day_length / 6) # will turn blizzard on
-		weather_on = false # but it is currently off
+		$TimerWeather.start(Global.day_length / 6) # will turn wind on
+		#$TimerWeather.start(2) # will turn blizzard on
+		weather_on = false 
 		
 	pass
 
 
 func _on_timer_weather_timeout() -> void:
+	if Global.day == 0:
+		if !(weather_on): # weather turns on
+			$TimerWeather.start(5)
+			weather_on = true
+			Global.blizzard(true)
+		elif weather_on: # weather turns off
+			$TimerWeather.start(5)
+			weather_on = false
+			Global.blizzard(false)
+	if Global.day == 2:
+		if !(weather_on): # weather turns on
+			$TimerWeather.start(Global.day_length / 10)
+			weather_on = true
+			Global.wind_on(true)
+		elif weather_on: # weather turns off
+			$TimerWeather.start(4*Global.day_length / 10) # half through the day
+			weather_on = false
+			Global.wind_on(false)
 	if Global.day == 3:
 		if !(weather_on): # weather turns on
 			$TimerWeather.start(Global.day_length / 3)
@@ -100,13 +155,17 @@ func _on_timer_weather_timeout() -> void:
 			weather_on = false
 			Global.blizzard(false)
 	if Global.day == 5:
-		if !(weather_on): # weather turns on
-			$TimerWeather.start(4*Global.day_length / 6)
+		if (!Global.windy): # 
+			Global.wind_on(true)
+			$TimerWeather.start(Global.day_length / 6) 
+		elif !(weather_on): # weather turns on, 2/6 or 1/3 through the day
+			$TimerWeather.start(Global.day_length / 3) 
 			weather_on = true
 			Global.blizzard(true)
-		elif weather_on: # weather turns off
+		elif weather_on: # weather turns off 2/3 through the day
 			#$TimerWeather.start(Global.day_length / 3)
 			weather_on = false
 			Global.blizzard(false)
+			Global.wind_on(false)
 			
 	pass # Replace with function body.

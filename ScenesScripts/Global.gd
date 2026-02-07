@@ -1,5 +1,6 @@
 extends Node
 
+var screen_size : Vector2
 @onready var main = get_tree().get_root().get_node("Main")
 @onready var main_menu = main.get_node("MenuManager").get_node("MainMenu")
 @onready var terrain = main.get_node("TerrainManager").get_node("Terrain")
@@ -13,12 +14,14 @@ var mode : int = 0 # 0 intro cutscene, 1 main, 2 how to play, 3 = game
 var volume_music : float = 50.0
 var volume_sfx : float = 50.0
 var blizzard_on : bool = false
+var windy : bool = false
 
 var carrying_item : bool = false
 var items_today : int = 0
 @onready var day : int = 0 # 0 for test, then 1-5.
-var day_length : float = 90
+var day_length : float = 201
 var pausable : bool = false
+var blizzard_fade_time : float
 
 
 # Stages.gd contains:
@@ -40,7 +43,6 @@ func stage_over():
 	else:
 		transition_music_play(false)
 	#Global.stage_music_pausing(true)
-	# TODO: make PC drop item.
 	#evaluate()
 func stage_load():
 	main.stage_load()
@@ -203,6 +205,10 @@ func _ready() -> void:
 	pass # Replace with function body.	
 func _process(delta: float) -> void:
 	pass
+	
+func wind_on(is_windy):
+	windy = is_windy
+	main.wind_on(is_windy)
 
 func check_vis():
 	main.check_vis()

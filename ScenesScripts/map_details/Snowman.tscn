@@ -6,7 +6,7 @@
 [node name="Snowman" type="Node2D" unique_id=585127459]
 
 [node name="obstacle" parent="." unique_id=93409579 instance=ExtResource("1_r5xa7")]
-position = Vector2(-235, -260)
+position = Vector2(-239.00002, -398)
 scale = Vector2(12.072118, 15.576005)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2092591964]
